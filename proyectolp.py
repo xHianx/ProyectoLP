@@ -1,4 +1,5 @@
 import ply.lex as lex
+import datetime
 
 # Definición de los tokens
 tokens = (
@@ -57,7 +58,7 @@ t_ignore = ' \t'
 
 # Manejo de caracteres ilegales
 def t_error(t):
-    print(f"Caracter ilegal: {t.value[0]}")
+    f.write(f"Caracter ilegal: {t.value[0]}\n")
     t.lexer.skip(1)
 
 # Construir el lexer
@@ -86,8 +87,15 @@ cadena = "texto aqui"
 lexer.input(data)
 
 # Tokenizar y mostrar los tokens
-while True:
-    tok = lexer.token()
-    if not tok:
-        break  # No hay más entradas
-    print(f"Tipo: {tok.type}, Valor: {tok.value}")
+FECHA = datetime.datetime.now().date()
+HORA = datetime.datetime.now().hour
+MINUTO = datetime.datetime.now().minute
+
+nombre_archivo = f"logs/lexico-{FECHA}-{HORA}-{MINUTO}.txt".replace(":", "-")
+
+with open(nombre_archivo, "a", encoding="utf-8") as f:
+    while True:
+        tok = lexer.token()
+        if not tok:
+            break  # No hay más entradas
+        f.write(f"Tipo: {tok.type}, Valor: {tok.value}\n")
