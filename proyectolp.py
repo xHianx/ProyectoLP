@@ -12,6 +12,9 @@ tokens = (
     'RBRACE',                # Llave derecha '}'
     'COMMA',                 # Coma ','
     'SEMICOLON',             # Punto y coma ';'
+    'INTEGER',               # Enteros '42'
+    'FLOAT',                 # Flotantes '3.14'
+    'STRING',                # Strings "texto"
 ) 
 
 # Expresiones regulares para los delimitadores
@@ -27,6 +30,22 @@ t_SEMICOLON = r';'
 # Expresiones regulares para los comentarios
 t_SINGLE_LINE_COMMENT = r'\#.*'  # Comentarios de una sola línea (empieza con '#')
 t_MULTI_LINE_COMMENT = r'=begin.*?=end'  # Comentarios multilínea (deben empezar con '=begin' y terminar con '=end')
+
+# Expresiones regulares con alguna acción de código
+def t_INTEGER(t):
+    r'(-\d|\d)\d*'
+    t.value = int(t.value)
+    return t
+
+def t_FLOAT(t):
+    r'(-\d|\d)\d*\.\d+'
+    t.value = float(t.value)
+    return t
+
+def t_STRING(t):
+    r'\"([^\"\\]|\\.)*\"'
+    t.value = str(t.value)
+    return t
 
 # Definir una regla para contar las líneas y manejar saltos de línea
 def t_newline(t):
@@ -58,6 +77,9 @@ Puede ocupar varias líneas.
 =end
 
 puts suma(3, 4)
+
+cadena = "texto aqui"
+
 '''
 
 # Darle al lexer el código de entrada
