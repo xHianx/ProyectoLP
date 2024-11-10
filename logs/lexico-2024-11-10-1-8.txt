@@ -1,0 +1,49 @@
+Tipo: SINGLE_LINE_COMMENT, Valor: # Esto es un comentario de una línea
+Tipo: DEF, Valor: def
+Tipo: VARIABLE_LOCAL, Valor: suma
+Tipo: LPAREN, Valor: (
+Tipo: VARIABLE_LOCAL, Valor: a
+Tipo: COMMA, Valor: ,
+Tipo: VARIABLE_LOCAL, Valor: b
+Tipo: RPAREN, Valor: )
+Tipo: SINGLE_LINE_COMMENT, Valor: # Este es otro comentario
+Tipo: RETURN, Valor: return
+Tipo: VARIABLE_LOCAL, Valor: a
+Caracter ilegal: +
+Tipo: VARIABLE_LOCAL, Valor: b
+Tipo: END, Valor: end
+Caracter ilegal: =
+Tipo: BEGIN, Valor: begin
+Caracter ilegal: E
+Tipo: VARIABLE_LOCAL, Valor: ste
+Tipo: VARIABLE_LOCAL, Valor: es
+Tipo: VARIABLE_LOCAL, Valor: un
+Tipo: VARIABLE_LOCAL, Valor: comentario
+Tipo: VARIABLE_LOCAL, Valor: de
+Tipo: VARIABLE_LOCAL, Valor: m
+Caracter ilegal: ú
+Tipo: VARIABLE_LOCAL, Valor: ltiples
+Tipo: VARIABLE_LOCAL, Valor: l
+Caracter ilegal: í
+Tipo: VARIABLE_LOCAL, Valor: neas
+Caracter ilegal: .
+Caracter ilegal: P
+Tipo: VARIABLE_LOCAL, Valor: uede
+Tipo: VARIABLE_LOCAL, Valor: ocupar
+Tipo: VARIABLE_LOCAL, Valor: varias
+Tipo: VARIABLE_LOCAL, Valor: l
+Caracter ilegal: í
+Tipo: VARIABLE_LOCAL, Valor: neas
+Caracter ilegal: .
+Caracter ilegal: =
+Tipo: END, Valor: end
+Tipo: VARIABLE_LOCAL, Valor: puts
+Tipo: VARIABLE_LOCAL, Valor: suma
+Tipo: LPAREN, Valor: (
+Tipo: INTEGER, Valor: 3
+Tipo: COMMA, Valor: ,
+Tipo: INTEGER, Valor: 4
+Tipo: RPAREN, Valor: )
+Tipo: VARIABLE_LOCAL, Valor: cadena
+Caracter ilegal: =
+Tipo: STRING, Valor: "texto aqui"

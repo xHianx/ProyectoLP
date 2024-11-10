@@ -1,6 +1,42 @@
 import ply.lex as lex
 import datetime
 
+# Palabras reservadas en Ruby
+# Aporte de Cristhian
+reserved = {
+    'if': 'IF',
+    'else': 'ELSE',
+    'elsif': 'ELSIF',
+    'unless': 'UNLESS',
+    'case': 'CASE',
+    'when': 'WHEN',
+    'while': 'WHILE',
+    'until': 'UNTIL',
+    'for': 'FOR',
+    'break': 'BREAK',
+    'next': 'NEXT',
+    'redo': 'REDO',
+    'retry': 'RETRY',
+    'def': 'DEF',
+    'class': 'CLASS',
+    'module': 'MODULE',
+    'end': 'END',
+    'self': 'SELF',
+    'yield': 'YIELD',
+    'return': 'RETURN',
+    'super': 'SUPER',
+    'true': 'TRUE',
+    'false': 'FALSE',
+    'nil': 'NIL',
+    'begin': 'BEGIN',
+    'rescue': 'RESCUE',
+    'ensure': 'ENSURE',
+    'do': 'DO',
+    'in': 'IN',
+    'alias': 'ALIAS',
+    'defined?': 'DEFINED'
+}
+
 # Definición de los tokens
 tokens = (
     'SINGLE_LINE_COMMENT',   # Comentarios de una línea
@@ -16,7 +52,11 @@ tokens = (
     'INTEGER',               # Enteros '42'
     'FLOAT',                 # Flotantes '3.14'
     'STRING',                # Strings "texto"
-) 
+    'VARIABLE_LOCAL',        # Variables locales
+    'VARIABLE_GLOBAL',       # Variables globales
+    'VARIABLE_INSTANCIA',    # Variables de instancia
+    'VARIABLE_CLASE',        # Variables de clase
+) + tuple(reserved.values())
 
 # Expresiones regulares para los delimitadores
 t_LPAREN = r'\('
@@ -49,6 +89,18 @@ def t_STRING(t):
     t.value = str(t.value)
     return t
 
+# Aporte de Cristhian: Expresiones regulares para variables en Ruby
+t_VARIABLE_LOCAL = r'[a-z_][a-zA-Z0-9_]*'
+t_VARIABLE_GLOBAL = r'\$[a-zA-Z_][a-zA-Z0-9_]*'
+t_VARIABLE_INSTANCIA = r'@[a-zA-Z_][a-zA-Z0-9_]*'
+t_VARIABLE_CLASE = r'@@[a-zA-Z_][a-zA-Z0-9_]*'
+
+# Aporte de Cristhian: Regla para palabras reservadas en Ruby
+def t_RESERVED(t):
+    r'\b(if|else|elsif|unless|case|when|while|until|for|break|next|redo|retry|def|class|module|end|self|yield|return|super|true|false|nil|begin|rescue|ensure|do|in|alias|defined\?)\b'
+    t.type = reserved.get(t.value, 'ID')  # Cambia el tipo de token si es una palabra reservada
+    return t
+
 # Definir una regla para contar las líneas y manejar saltos de línea
 def t_newline(t):
     r'\n+'
@@ -71,7 +123,17 @@ data = '''
 # Esto es un comentario de una línea
 def suma(a, b)
   # Este es otro comentario
-  return a + b
+  @instancia_var = 10
+  @@clase_var = 20.5
+  $global_var = "valor global"
+  variable_local = 30
+  if true
+    for i in [1, 2, 3]
+      puts "Número: #{i}"
+    end
+  else
+    puts "No hay números"
+  end
 end
 
 =begin
@@ -80,9 +142,6 @@ Puede ocupar varias líneas.
 =end
 
 puts suma(3, 4)
-
-cadena = "texto aqui"
-
 '''
 
 # Darle al lexer el código de entrada
