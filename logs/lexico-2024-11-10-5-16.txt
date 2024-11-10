@@ -19,12 +19,12 @@ Caracter ilegal: u
 Caracter ilegal: r
 Caracter ilegal: n
 Caracter ilegal: a
-Caracter ilegal: +
+Tipo: PLUS, Valor: +
 Caracter ilegal: b
 Caracter ilegal: e
 Caracter ilegal: n
 Caracter ilegal: d
-Caracter ilegal: =
+Tipo: ASSIGNATION, Valor: =
 Caracter ilegal: b
 Caracter ilegal: e
 Caracter ilegal: g
@@ -90,7 +90,7 @@ Caracter ilegal: e
 Caracter ilegal: a
 Caracter ilegal: s
 Caracter ilegal: .
-Caracter ilegal: =
+Tipo: ASSIGNATION, Valor: =
 Caracter ilegal: e
 Caracter ilegal: n
 Caracter ilegal: d
@@ -107,11 +107,38 @@ Tipo: INTEGER, Valor: 3
 Tipo: COMMA, Valor: ,
 Tipo: INTEGER, Valor: 4
 Tipo: RPAREN, Valor: )
-Caracter ilegal: c
+Tipo: STRING, Valor: "texto aqui"
+Tipo: INTEGER, Valor: 42
+Tipo: FLOAT, Valor: 3.14
+Tipo: ARRAY, Valor: [1, 2, 3]
+Tipo: HASH, Valor: {clave: "valor"}
+Caracter ilegal: t
+Caracter ilegal: r
+Caracter ilegal: u
+Caracter ilegal: e
+Caracter ilegal: f
 Caracter ilegal: a
-Caracter ilegal: d
+Caracter ilegal: l
+Caracter ilegal: s
 Caracter ilegal: e
 Caracter ilegal: n
-Caracter ilegal: a
-Caracter ilegal: =
-Tipo: STRING, Valor: "texto aqui"
+Caracter ilegal: i
+Caracter ilegal: l
+Tipo: INCREMENT, Valor: +=
+Tipo: MINUS, Valor: -
+Tipo: TIMES, Valor: *
+Tipo: DIVIDE, Valor: /
+Caracter ilegal: %
+Tipo: POWER, Valor: **
+Tipo: AND, Valor: &&
+Tipo: OR, Valor: ||
+Tipo: NOT, Valor: !
+Tipo: EQUAL, Valor: ==
+Tipo: NOTEQUAL, Valor: !=
+Tipo: BIGGER, Valor: >
+Tipo: SMALLER, Valor: <
+Tipo: BIGGEREQUAL, Valor: >=
+Tipo: SMALLEREQUAL, Valor: <=
+Tipo: ASSIGNATION, Valor: =
+Tipo: INCREMENT, Valor: +=
+Tipo: DECREMENT, Valor: -=

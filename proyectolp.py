@@ -16,7 +16,27 @@ tokens = (
     'INTEGER',               # Enteros '42'
     'FLOAT',                 # Flotantes '3.14'
     'STRING',                # Strings "texto"
-) 
+    'ARRAY',                 # Array '[1, 2, 3]'
+    'HASH',                  # Hashes '{clave: "valor"}'
+    'PLUS',                  # Suma '+'
+    'MINUS',                 # Resta '-'
+    'TIMES',                 # Multiplicacion '*'
+    'DIVIDE',                # Division '/'
+    'POWER',                 # Potencia '/'
+    'AND',                   # Y '&&'
+    'OR',                    # O '||'
+    'NOT',                   # Nengacion '!'
+    'EQUAL',                 # Igualdad '=='
+    'NOTEQUAL',              # Desigualdad '--'
+    'BIGGER',                # Mayor que '>'
+    'SMALLER',               # Menor que '<'
+    'BIGGEREQUAL',           # Mayor o igual '>='
+    'SMALLEREQUAL',          # # Menor o igual '<='
+    'ASSIGNATION',           # Asignacion '='
+    'INCREMENT',             # Incremento '+='
+    'DECREMENT',             # Decremento '-='
+
+)
 
 # Expresiones regulares para los delimitadores
 t_LPAREN = r'\('
@@ -34,20 +54,46 @@ t_MULTI_LINE_COMMENT = r'=begin.*?=end'  # Comentarios multilínea (deben empeza
 
 ### JULIO GUERRERO
 # Expresiones regulares para los tipos de datos
-def t_INTEGER(t):
-    r'(-\d|\d)\d*'
-    t.value = int(t.value)
-    return t
-
 def t_FLOAT(t):
     r'(-\d|\d)\d*\.\d+'
     t.value = float(t.value)
+    return t
+
+def t_INTEGER(t):
+    r'(-\d|\d)\d*'
+    t.value = int(t.value)
     return t
 
 def t_STRING(t):
     r'\"([^\"\\]|\\.)*\"'
     t.value = str(t.value)
     return t
+
+t_ARRAY = r'\[\s*(?:[^\]]+\s*(?:,\s*[^\]]+\s*)*)?\]' 
+
+t_HASH = r'\{\s*[a-zA-Z_][a-zA-Z0-9_]*\s*:\s*".*"\s*\}'
+
+## JULIO GUERRERO
+# Expresiones regulares para operadores
+t_PLUS    = r'\+'
+t_MINUS   = r'-'
+t_TIMES   = r'\*'
+t_DIVIDE  = r'/'
+t_POWER   = r'\*\*'
+
+t_AND = r'\&\&'
+t_OR = r'\|\|'
+t_NOT = r'\!'
+
+t_EQUAL = r'\=\='
+t_NOTEQUAL = r'\!\='
+t_BIGGER = r'>'
+t_SMALLER = r'<'
+t_BIGGEREQUAL = r'>='
+t_SMALLEREQUAL = r'<='
+t_ASSIGNATION = r'='
+t_INCREMENT = r'\+='
+t_DECREMENT = r'-='
 
 # Definir una regla para contar las líneas y manejar saltos de línea
 def t_newline(t):
@@ -81,8 +127,20 @@ Puede ocupar varias líneas.
 
 puts suma(3, 4)
 
-cadena = "texto aqui"
+"texto aqui"
+42
+3.14
+[1, 2, 3]
+{clave: "valor"}
 
+true
+false
+nil
+
++=-*/%**
+&&||!
+==!=><>=<=
+=+=-=
 '''
 
 # Darle al lexer el código de entrada
