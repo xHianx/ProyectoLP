@@ -1,0 +1,177 @@
+Tipo: SINGLE_LINE_COMMENT, Valor: # Esto es un comentario de una línea
+Tipo: DEF, Valor: def
+Tipo: VARIABLE_LOCAL, Valor: suma
+Tipo: LPAREN, Valor: (
+Tipo: VARIABLE_LOCAL, Valor: a
+Tipo: COMMA, Valor: ,
+Tipo: VARIABLE_LOCAL, Valor: b
+Tipo: RPAREN, Valor: )
+Tipo: SINGLE_LINE_COMMENT, Valor: # Este es otro comentario
+Tipo: VARIABLE_INSTANCIA, Valor: @instancia_var
+Tipo: ASSIGNATION, Valor: =
+Tipo: INTEGER, Valor: 10
+Tipo: VARIABLE_CLASE, Valor: @@clase_var
+Tipo: ASSIGNATION, Valor: =
+Tipo: FLOAT, Valor: 20.5
+Tipo: VARIABLE_GLOBAL, Valor: $global_var
+Tipo: ASSIGNATION, Valor: =
+Tipo: STRING, Valor: "valor global"
+Tipo: VARIABLE_LOCAL, Valor: variable_local
+Tipo: ASSIGNATION, Valor: =
+Tipo: INTEGER, Valor: 30
+Tipo: IF, Valor: if
+Tipo: TRUE, Valor: true
+Tipo: FOR, Valor: for
+Tipo: VARIABLE_LOCAL, Valor: i
+Tipo: IN, Valor: in
+Tipo: ARRAY, Valor: [1, 2, 3]
+Tipo: VARIABLE_LOCAL, Valor: puts
+Tipo: STRING, Valor: "Número: #{i}"
+Tipo: END, Valor: end
+Tipo: ELSE, Valor: else
+Tipo: VARIABLE_LOCAL, Valor: puts
+Tipo: STRING, Valor: "No hay números"
+Tipo: END, Valor: end
+Tipo: END, Valor: end
+Tipo: ASSIGNATION, Valor: =
+Tipo: BEGIN, Valor: begin
+Caracter ilegal: E
+Tipo: VARIABLE_LOCAL, Valor: ste
+Tipo: VARIABLE_LOCAL, Valor: es
+Tipo: VARIABLE_LOCAL, Valor: un
+Tipo: VARIABLE_LOCAL, Valor: comentario
+Tipo: VARIABLE_LOCAL, Valor: de
+Tipo: VARIABLE_LOCAL, Valor: m
+Caracter ilegal: ú
+Tipo: VARIABLE_LOCAL, Valor: ltiples
+Tipo: VARIABLE_LOCAL, Valor: l
+Caracter ilegal: í
+Tipo: VARIABLE_LOCAL, Valor: neas
+Caracter ilegal: .
+Caracter ilegal: P
+Tipo: VARIABLE_LOCAL, Valor: uede
+Tipo: VARIABLE_LOCAL, Valor: ocupar
+Tipo: VARIABLE_LOCAL, Valor: varias
+Tipo: VARIABLE_LOCAL, Valor: l
+Caracter ilegal: í
+Tipo: VARIABLE_LOCAL, Valor: neas
+Caracter ilegal: .
+Tipo: ASSIGNATION, Valor: =
+Tipo: END, Valor: end
+Tipo: VARIABLE_LOCAL, Valor: puts
+Tipo: VARIABLE_LOCAL, Valor: suma
+Tipo: LPAREN, Valor: (
+Tipo: INTEGER, Valor: 3
+Tipo: COMMA, Valor: ,
+Tipo: INTEGER, Valor: 4
+Tipo: RPAREN, Valor: )
+Tipo: VARIABLE_LOCAL, Valor: texto
+Tipo: ASSIGNATION, Valor: =
+Tipo: STRING, Valor: "texto aqui"
+Tipo: VARIABLE_LOCAL, Valor: entero
+Tipo: ASSIGNATION, Valor: =
+Tipo: INTEGER, Valor: 42
+Tipo: VARIABLE_LOCAL, Valor: decimal
+Tipo: ASSIGNATION, Valor: =
+Tipo: FLOAT, Valor: 3.14
+Tipo: VARIABLE_LOCAL, Valor: arreglo
+Tipo: ASSIGNATION, Valor: =
+Tipo: ARRAY, Valor: [1, 2, 3]
+Tipo: VARIABLE_LOCAL, Valor: hash
+Tipo: ASSIGNATION, Valor: =
+Tipo: HASH, Valor: { clave: "valor" }
+Tipo: VARIABLE_LOCAL, Valor: verdadero
+Tipo: ASSIGNATION, Valor: =
+Tipo: TRUE, Valor: true
+Tipo: VARIABLE_LOCAL, Valor: falso
+Tipo: ASSIGNATION, Valor: =
+Tipo: FALSE, Valor: false
+Tipo: VARIABLE_LOCAL, Valor: nulo
+Tipo: ASSIGNATION, Valor: =
+Tipo: NIL, Valor: nil
+Tipo: VARIABLE_LOCAL, Valor: suma
+Tipo: ASSIGNATION, Valor: =
+Tipo: VARIABLE_LOCAL, Valor: entero
+Tipo: PLUS, Valor: +
+Tipo: INTEGER, Valor: 10
+Tipo: VARIABLE_LOCAL, Valor: resta
+Tipo: ASSIGNATION, Valor: =
+Tipo: VARIABLE_LOCAL, Valor: entero
+Tipo: MINUS, Valor: -
+Tipo: INTEGER, Valor: 2
+Tipo: VARIABLE_LOCAL, Valor: producto
+Tipo: ASSIGNATION, Valor: =
+Tipo: VARIABLE_LOCAL, Valor: entero
+Tipo: TIMES, Valor: *
+Tipo: INTEGER, Valor: 2
+Tipo: VARIABLE_LOCAL, Valor: division
+Tipo: ASSIGNATION, Valor: =
+Tipo: VARIABLE_LOCAL, Valor: entero
+Tipo: DIVIDE, Valor: /
+Tipo: INTEGER, Valor: 2
+Tipo: VARIABLE_LOCAL, Valor: modulo
+Tipo: ASSIGNATION, Valor: =
+Tipo: VARIABLE_LOCAL, Valor: entero
+Caracter ilegal: %
+Tipo: INTEGER, Valor: 5
+Tipo: VARIABLE_LOCAL, Valor: potencia
+Tipo: ASSIGNATION, Valor: =
+Tipo: VARIABLE_LOCAL, Valor: entero
+Tipo: POWER, Valor: **
+Tipo: INTEGER, Valor: 2
+Tipo: SINGLE_LINE_COMMENT, Valor: # Operadores lógicos
+Tipo: VARIABLE_LOCAL, Valor: and_operador
+Tipo: ASSIGNATION, Valor: =
+Tipo: VARIABLE_LOCAL, Valor: verdadero
+Tipo: AND, Valor: &&
+Tipo: VARIABLE_LOCAL, Valor: falso
+Tipo: VARIABLE_LOCAL, Valor: or_operador
+Tipo: ASSIGNATION, Valor: =
+Tipo: VARIABLE_LOCAL, Valor: verdadero
+Tipo: OR, Valor: ||
+Tipo: VARIABLE_LOCAL, Valor: falso
+Tipo: VARIABLE_LOCAL, Valor: not_operador
+Tipo: ASSIGNATION, Valor: =
+Tipo: NOT, Valor: !
+Tipo: VARIABLE_LOCAL, Valor: verdadero
+Tipo: SINGLE_LINE_COMMENT, Valor: # Operadores de comparación
+Tipo: VARIABLE_LOCAL, Valor: es_igual
+Tipo: ASSIGNATION, Valor: =
+Tipo: VARIABLE_LOCAL, Valor: texto
+Tipo: EQUAL, Valor: ==
+Tipo: STRING, Valor: "texto aqui"
+Tipo: VARIABLE_LOCAL, Valor: no_igual
+Tipo: ASSIGNATION, Valor: =
+Tipo: VARIABLE_LOCAL, Valor: entero
+Tipo: NOTEQUAL, Valor: !=
+Tipo: INTEGER, Valor: 50
+Tipo: VARIABLE_LOCAL, Valor: mayor
+Tipo: ASSIGNATION, Valor: =
+Tipo: VARIABLE_LOCAL, Valor: entero
+Tipo: BIGGER, Valor: >
+Tipo: INTEGER, Valor: 30
+Tipo: VARIABLE_LOCAL, Valor: menor
+Tipo: ASSIGNATION, Valor: =
+Tipo: VARIABLE_LOCAL, Valor: decimal
+Tipo: SMALLER, Valor: <
+Tipo: FLOAT, Valor: 5.0
+Tipo: VARIABLE_LOCAL, Valor: mayor_igual
+Tipo: ASSIGNATION, Valor: =
+Tipo: VARIABLE_LOCAL, Valor: entero
+Tipo: BIGGEREQUAL, Valor: >=
+Tipo: INTEGER, Valor: 42
+Tipo: VARIABLE_LOCAL, Valor: menor_igual
+Tipo: ASSIGNATION, Valor: =
+Tipo: VARIABLE_LOCAL, Valor: decimal
+Tipo: SMALLEREQUAL, Valor: <=
+Tipo: FLOAT, Valor: 3.14
+Tipo: SINGLE_LINE_COMMENT, Valor: # Operadores de asignación
+Tipo: VARIABLE_LOCAL, Valor: asignacion
+Tipo: ASSIGNATION, Valor: =
+Tipo: INTEGER, Valor: 10
+Tipo: VARIABLE_LOCAL, Valor: asignacion
+Tipo: INCREMENT, Valor: +=
+Tipo: INTEGER, Valor: 5
+Tipo: VARIABLE_LOCAL, Valor: asignacion
+Tipo: DECREMENT, Valor: -=
+Tipo: INTEGER, Valor: 2

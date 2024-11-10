@@ -71,8 +71,11 @@ tokens = (
     'ASSIGNATION',           # Asignacion '='
     'INCREMENT',             # Incremento '+='
     'DECREMENT',             # Decremento '-='
-
-)
+    'VARIABLE_LOCAL',        # Variables locales
+    'VARIABLE_GLOBAL',       # Variables globales
+    'VARIABLE_INSTANCIA',    # Variables de instancia
+    'VARIABLE_CLASE',        # Variables de clase
+) + tuple(reserved.values())
 
 # Expresiones regulares para los delimitadores
 t_LPAREN = r'\('
@@ -131,6 +134,18 @@ t_ASSIGNATION = r'='
 t_INCREMENT = r'\+='
 t_DECREMENT = r'-='
 
+# Aporte de Cristhian: Expresiones regulares para variables en Ruby
+t_VARIABLE_LOCAL = r'[a-z_][a-zA-Z0-9_]*'
+t_VARIABLE_GLOBAL = r'\$[a-zA-Z_][a-zA-Z0-9_]*'
+t_VARIABLE_INSTANCIA = r'@[a-zA-Z_][a-zA-Z0-9_]*'
+t_VARIABLE_CLASE = r'@@[a-zA-Z_][a-zA-Z0-9_]*'
+
+# Aporte de Cristhian: Regla para palabras reservadas en Ruby
+def t_RESERVED(t):
+    r'\b(if|else|elsif|unless|case|when|while|until|for|break|next|redo|retry|def|class|module|end|self|yield|return|super|true|false|nil|begin|rescue|ensure|do|in|alias|defined\?)\b'
+    t.type = reserved.get(t.value, 'ID')  # Cambia el tipo de token si es una palabra reservada
+    return t
+
 # Definir una regla para contar las líneas y manejar saltos de línea
 def t_newline(t):
     r'\n+'
@@ -173,41 +188,39 @@ Puede ocupar varias líneas.
 
 puts suma(3, 4)
 
-# Declaración de tipos de datos
-texto = "texto aqui"        # String
-entero = 42                 # Integer
-decimal = 3.14              # Float
-arreglo = [1, 2, 3]         # Array
-hash = { clave: "valor" }   # Hash
-verdadero = true            # Booleano true
-falso = false               # Booleano false
-nulo = nil                  # Nil
+texto = "texto aqui" 
+entero = 42
+decimal = 3.14
+arreglo = [1, 2, 3]
+hash = { clave: "valor" }
+verdadero = true
+falso = false
+nulo = nil  
 
-# Operadores aritméticos
-suma = entero + 10          # Suma
-resta = entero - 2          # Resta
-producto = entero * 2       # Multiplicación
-division = entero / 2       # División
-modulo = entero % 5         # Módulo
-potencia = entero ** 2      # Potencia
+suma = entero + 10    
+resta = entero - 2        
+producto = entero * 2       
+division = entero / 2      
+modulo = entero % 5       
+potencia = entero ** 2   
 
 # Operadores lógicos
-and_operador = verdadero && falso  # AND lógico
-or_operador = verdadero || falso   # OR lógico
-not_operador = !verdadero          # NOT lógico
+and_operador = verdadero && falso 
+or_operador = verdadero || falso  
+not_operador = !verdadero         
 
 # Operadores de comparación
-es_igual = texto == "texto aqui"  # Igualdad
-no_igual = entero != 50           # Desigualdad
-mayor = entero > 30               # Mayor que
-menor = decimal < 5.0             # Menor que
-mayor_igual = entero >= 42        # Mayor o igual
-menor_igual = decimal <= 3.14     # Menor o igual
+es_igual = texto == "texto aqui"
+no_igual = entero != 50
+mayor = entero > 30
+menor = decimal < 5.0
+mayor_igual = entero >= 42
+menor_igual = decimal <= 3.14
 
 # Operadores de asignación
-asignacion = 10                   # Asignación directa
-asignacion += 5                   # Sumar y asignar
-asignacion -= 2                   # Restar y asignar
+asignacion = 10 
+asignacion += 5
+asignacion -= 2
 '''
 
 # Darle al lexer el código de entrada
