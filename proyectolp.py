@@ -2,7 +2,7 @@ import ply.lex as lex
 import datetime
 
 # Palabras reservadas en Ruby
-# Aporte de Cristhian
+# Aporte de Cristhian 
 reserved = {
     'if': 'IF',
     'else': 'ELSE',
@@ -37,7 +37,7 @@ reserved = {
     'defined?': 'DEFINED'
 }
 
-# Definición de los tokens
+# Definición de los tokens 
 tokens = (
     'SINGLE_LINE_COMMENT',   # Comentarios de una línea
     'MULTI_LINE_COMMENT',    # Comentarios de múltiples líneas
@@ -87,9 +87,9 @@ t_RBRACE = r'\}'
 t_COMMA = r','
 t_SEMICOLON = r';'
 
-# Expresiones regulares para los comentarios
+# Expresiones regulares para los comentarios #aporte de Jose Miguel Delgado
 t_SINGLE_LINE_COMMENT = r'\#.*'  # Comentarios de una sola línea (empieza con '#')
-t_MULTI_LINE_COMMENT = r'=begin.*?=end'  # Comentarios multilínea (deben empezar con '=begin' y terminar con '=end')
+t_MULTI_LINE_COMMENT = r'=begin[\s\S]*?=end'  # Comentarios multilínea (deben empezar con '=begin' y terminar con '=end')
 
 ### JULIO GUERRERO
 # Expresiones regulares para los tipos de datos
@@ -119,7 +119,7 @@ t_MINUS   = r'-'
 t_TIMES   = r'\*'
 t_DIVIDE  = r'/'
 t_POWER   = r'\*\*'
-
+t_MODULE = r'\%'
 t_AND = r'\&\&'
 t_OR = r'\|\|'
 t_NOT = r'\!'
@@ -165,7 +165,7 @@ lexer = lex.lex()
 
 # Ejemplo de código Ruby con comentarios y delimitadores
 data = '''
-# Esto es un comentario de una línea
+# Esto es un comentario de una linea
 def suma(a, b)
   # Este es otro comentario
   @instancia_var = 10
@@ -174,29 +174,23 @@ def suma(a, b)
   variable_local = 30
   if true
     for i in [1, 2, 3]
-      puts "Número: #{i}"
+      puts "Numero: #{i}"
     end
   else
-    puts "No hay números"
+    puts "No hay numeros"
   end
 end
 
 =begin
-Este es un comentario de múltiples líneas.
-Puede ocupar varias líneas.
+Este es un comentario de multiples lineas.
+Puede ocupar varias lineas.
 =end
 
 puts suma(3, 4)
 
-texto = "texto aqui" 
+#Operadores aritmeticos
 entero = 42
 decimal = 3.14
-arreglo = [1, 2, 3]
-hash = { clave: "valor" }
-verdadero = true
-falso = false
-nulo = nil  
-
 suma = entero + 10    
 resta = entero - 2        
 producto = entero * 2       
@@ -204,12 +198,12 @@ division = entero / 2
 modulo = entero % 5       
 potencia = entero ** 2   
 
-# Operadores lógicos
+# Operadores logicos
 and_operador = verdadero && falso 
 or_operador = verdadero || falso  
 not_operador = !verdadero         
 
-# Operadores de comparación
+# Operadores de comparacion
 es_igual = texto == "texto aqui"
 no_igual = entero != 50
 mayor = entero > 30
@@ -217,10 +211,14 @@ menor = decimal < 5.0
 mayor_igual = entero >= 42
 menor_igual = decimal <= 3.14
 
-# Operadores de asignación
+# Operadores de asignacion
 asignacion = 10 
 asignacion += 5
 asignacion -= 2
+
+# Comentario con delimitadores
+array = [1, 2, 3, 4, 5]
+hash = { clave: "clave1" }
 '''
 
 # Darle al lexer el código de entrada
