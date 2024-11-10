@@ -32,7 +32,8 @@ t_SEMICOLON = r';'
 t_SINGLE_LINE_COMMENT = r'\#.*'  # Comentarios de una sola línea (empieza con '#')
 t_MULTI_LINE_COMMENT = r'=begin.*?=end'  # Comentarios multilínea (deben empezar con '=begin' y terminar con '=end')
 
-# Expresiones regulares con alguna acción de código
+### JULIO GUERRERO
+# Expresiones regulares para los tipos de datos
 def t_INTEGER(t):
     r'(-\d|\d)\d*'
     t.value = int(t.value)
@@ -56,6 +57,7 @@ def t_newline(t):
 # Definir los caracteres que deben ser ignorados (espacios y tabulaciones)
 t_ignore = ' \t'
 
+### JULIO GUERRERO
 # Manejo de caracteres ilegales
 def t_error(t):
     f.write(f"Caracter ilegal: {t.value[0]}\n")
@@ -86,6 +88,7 @@ cadena = "texto aqui"
 # Darle al lexer el código de entrada
 lexer.input(data)
 
+### JULIO GUERRERO
 # Tokenizar y mostrar los tokens
 FECHA = datetime.datetime.now().date()
 HORA = datetime.datetime.now().hour
