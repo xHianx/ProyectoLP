@@ -1,6 +1,42 @@
 import ply.lex as lex
 import datetime
 
+# Palabras reservadas en Ruby
+# Aporte de Cristhian
+reserved = {
+    'if': 'IF',
+    'else': 'ELSE',
+    'elsif': 'ELSIF',
+    'unless': 'UNLESS',
+    'case': 'CASE',
+    'when': 'WHEN',
+    'while': 'WHILE',
+    'until': 'UNTIL',
+    'for': 'FOR',
+    'break': 'BREAK',
+    'next': 'NEXT',
+    'redo': 'REDO',
+    'retry': 'RETRY',
+    'def': 'DEF',
+    'class': 'CLASS',
+    'module': 'MODULE',
+    'end': 'END',
+    'self': 'SELF',
+    'yield': 'YIELD',
+    'return': 'RETURN',
+    'super': 'SUPER',
+    'true': 'TRUE',
+    'false': 'FALSE',
+    'nil': 'NIL',
+    'begin': 'BEGIN',
+    'rescue': 'RESCUE',
+    'ensure': 'ENSURE',
+    'do': 'DO',
+    'in': 'IN',
+    'alias': 'ALIAS',
+    'defined?': 'DEFINED'
+}
+
 # Definición de los tokens
 tokens = (
     'SINGLE_LINE_COMMENT',   # Comentarios de una línea
@@ -117,7 +153,17 @@ data = '''
 # Esto es un comentario de una línea
 def suma(a, b)
   # Este es otro comentario
-  return a + b
+  @instancia_var = 10
+  @@clase_var = 20.5
+  $global_var = "valor global"
+  variable_local = 30
+  if true
+    for i in [1, 2, 3]
+      puts "Número: #{i}"
+    end
+  else
+    puts "No hay números"
+  end
 end
 
 =begin
@@ -127,20 +173,41 @@ Puede ocupar varias líneas.
 
 puts suma(3, 4)
 
-"texto aqui"
-42
-3.14
-[1, 2, 3]
-{clave: "valor"}
+# Declaración de tipos de datos
+texto = "texto aqui"        # String
+entero = 42                 # Integer
+decimal = 3.14              # Float
+arreglo = [1, 2, 3]         # Array
+hash = { clave: "valor" }   # Hash
+verdadero = true            # Booleano true
+falso = false               # Booleano false
+nulo = nil                  # Nil
 
-true
-false
-nil
+# Operadores aritméticos
+suma = entero + 10          # Suma
+resta = entero - 2          # Resta
+producto = entero * 2       # Multiplicación
+division = entero / 2       # División
+modulo = entero % 5         # Módulo
+potencia = entero ** 2      # Potencia
 
-+=-*/%**
-&&||!
-==!=><>=<=
-=+=-=
+# Operadores lógicos
+and_operador = verdadero && falso  # AND lógico
+or_operador = verdadero || falso   # OR lógico
+not_operador = !verdadero          # NOT lógico
+
+# Operadores de comparación
+es_igual = texto == "texto aqui"  # Igualdad
+no_igual = entero != 50           # Desigualdad
+mayor = entero > 30               # Mayor que
+menor = decimal < 5.0             # Menor que
+mayor_igual = entero >= 42        # Mayor o igual
+menor_igual = decimal <= 3.14     # Menor o igual
+
+# Operadores de asignación
+asignacion = 10                   # Asignación directa
+asignacion += 5                   # Sumar y asignar
+asignacion -= 2                   # Restar y asignar
 '''
 
 # Darle al lexer el código de entrada

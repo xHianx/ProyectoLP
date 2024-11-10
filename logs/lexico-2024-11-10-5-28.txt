@@ -1,0 +1,830 @@
+Tipo: SINGLE_LINE_COMMENT, Valor: # Esto es un comentario de una línea
+Caracter ilegal: d
+Caracter ilegal: e
+Caracter ilegal: f
+Caracter ilegal: s
+Caracter ilegal: u
+Caracter ilegal: m
+Caracter ilegal: a
+Tipo: LPAREN, Valor: (
+Caracter ilegal: a
+Tipo: COMMA, Valor: ,
+Caracter ilegal: b
+Tipo: RPAREN, Valor: )
+Tipo: SINGLE_LINE_COMMENT, Valor: # Este es otro comentario
+Caracter ilegal: @
+Caracter ilegal: i
+Caracter ilegal: n
+Caracter ilegal: s
+Caracter ilegal: t
+Caracter ilegal: a
+Caracter ilegal: n
+Caracter ilegal: c
+Caracter ilegal: i
+Caracter ilegal: a
+Caracter ilegal: _
+Caracter ilegal: v
+Caracter ilegal: a
+Caracter ilegal: r
+Tipo: ASSIGNATION, Valor: =
+Tipo: INTEGER, Valor: 10
+Caracter ilegal: @
+Caracter ilegal: @
+Caracter ilegal: c
+Caracter ilegal: l
+Caracter ilegal: a
+Caracter ilegal: s
+Caracter ilegal: e
+Caracter ilegal: _
+Caracter ilegal: v
+Caracter ilegal: a
+Caracter ilegal: r
+Tipo: ASSIGNATION, Valor: =
+Tipo: FLOAT, Valor: 20.5
+Caracter ilegal: $
+Caracter ilegal: g
+Caracter ilegal: l
+Caracter ilegal: o
+Caracter ilegal: b
+Caracter ilegal: a
+Caracter ilegal: l
+Caracter ilegal: _
+Caracter ilegal: v
+Caracter ilegal: a
+Caracter ilegal: r
+Tipo: ASSIGNATION, Valor: =
+Tipo: STRING, Valor: "valor global"
+Caracter ilegal: v
+Caracter ilegal: a
+Caracter ilegal: r
+Caracter ilegal: i
+Caracter ilegal: a
+Caracter ilegal: b
+Caracter ilegal: l
+Caracter ilegal: e
+Caracter ilegal: _
+Caracter ilegal: l
+Caracter ilegal: o
+Caracter ilegal: c
+Caracter ilegal: a
+Caracter ilegal: l
+Tipo: ASSIGNATION, Valor: =
+Tipo: INTEGER, Valor: 30
+Caracter ilegal: i
+Caracter ilegal: f
+Caracter ilegal: t
+Caracter ilegal: r
+Caracter ilegal: u
+Caracter ilegal: e
+Caracter ilegal: f
+Caracter ilegal: o
+Caracter ilegal: r
+Caracter ilegal: i
+Caracter ilegal: i
+Caracter ilegal: n
+Tipo: ARRAY, Valor: [1, 2, 3]
+Caracter ilegal: p
+Caracter ilegal: u
+Caracter ilegal: t
+Caracter ilegal: s
+Tipo: STRING, Valor: "Número: #{i}"
+Caracter ilegal: e
+Caracter ilegal: n
+Caracter ilegal: d
+Caracter ilegal: e
+Caracter ilegal: l
+Caracter ilegal: s
+Caracter ilegal: e
+Caracter ilegal: p
+Caracter ilegal: u
+Caracter ilegal: t
+Caracter ilegal: s
+Tipo: STRING, Valor: "No hay números"
+Caracter ilegal: e
+Caracter ilegal: n
+Caracter ilegal: d
+Caracter ilegal: e
+Caracter ilegal: n
+Caracter ilegal: d
+Tipo: ASSIGNATION, Valor: =
+Caracter ilegal: b
+Caracter ilegal: e
+Caracter ilegal: g
+Caracter ilegal: i
+Caracter ilegal: n
+Caracter ilegal: E
+Caracter ilegal: s
+Caracter ilegal: t
+Caracter ilegal: e
+Caracter ilegal: e
+Caracter ilegal: s
+Caracter ilegal: u
+Caracter ilegal: n
+Caracter ilegal: c
+Caracter ilegal: o
+Caracter ilegal: m
+Caracter ilegal: e
+Caracter ilegal: n
+Caracter ilegal: t
+Caracter ilegal: a
+Caracter ilegal: r
+Caracter ilegal: i
+Caracter ilegal: o
+Caracter ilegal: d
+Caracter ilegal: e
+Caracter ilegal: m
+Caracter ilegal: ú
+Caracter ilegal: l
+Caracter ilegal: t
+Caracter ilegal: i
+Caracter ilegal: p
+Caracter ilegal: l
+Caracter ilegal: e
+Caracter ilegal: s
+Caracter ilegal: l
+Caracter ilegal: í
+Caracter ilegal: n
+Caracter ilegal: e
+Caracter ilegal: a
+Caracter ilegal: s
+Caracter ilegal: .
+Caracter ilegal: P
+Caracter ilegal: u
+Caracter ilegal: e
+Caracter ilegal: d
+Caracter ilegal: e
+Caracter ilegal: o
+Caracter ilegal: c
+Caracter ilegal: u
+Caracter ilegal: p
+Caracter ilegal: a
+Caracter ilegal: r
+Caracter ilegal: v
+Caracter ilegal: a
+Caracter ilegal: r
+Caracter ilegal: i
+Caracter ilegal: a
+Caracter ilegal: s
+Caracter ilegal: l
+Caracter ilegal: í
+Caracter ilegal: n
+Caracter ilegal: e
+Caracter ilegal: a
+Caracter ilegal: s
+Caracter ilegal: .
+Tipo: ASSIGNATION, Valor: =
+Caracter ilegal: e
+Caracter ilegal: n
+Caracter ilegal: d
+Caracter ilegal: p
+Caracter ilegal: u
+Caracter ilegal: t
+Caracter ilegal: s
+Caracter ilegal: s
+Caracter ilegal: u
+Caracter ilegal: m
+Caracter ilegal: a
+Tipo: LPAREN, Valor: (
+Tipo: INTEGER, Valor: 3
+Tipo: COMMA, Valor: ,
+Tipo: INTEGER, Valor: 4
+Tipo: RPAREN, Valor: )
+Tipo: STRING, Valor: "texto aqui"
+Tipo: INTEGER, Valor: 42
+Tipo: FLOAT, Valor: 3.14
+Tipo: ARRAY, Valor: [1, 2, 3]
+Tipo: HASH, Valor: {clave: "valor"}
+Caracter ilegal: t
+Caracter ilegal: r
+Caracter ilegal: u
+Caracter ilegal: e
+Caracter ilegal: f
+Caracter ilegal: a
+Caracter ilegal: l
+Caracter ilegal: s
+Caracter ilegal: e
+Caracter ilegal: n
+Caracter ilegal: i
+Caracter ilegal: l
+Tipo: INCREMENT, Valor: +=
+Tipo: MINUS, Valor: -
+Tipo: TIMES, Valor: *
+Tipo: DIVIDE, Valor: /
+Caracter ilegal: %
+Tipo: POWER, Valor: **
+Tipo: AND, Valor: &&
+Tipo: OR, Valor: ||
+Tipo: NOT, Valor: !
+Tipo: EQUAL, Valor: ==
+Tipo: NOTEQUAL, Valor: !=
+Tipo: BIGGER, Valor: >
+Tipo: SMALLER, Valor: <
+Tipo: BIGGEREQUAL, Valor: >=
+Tipo: SMALLEREQUAL, Valor: <=
+Tipo: ASSIGNATION, Valor: =
+Tipo: INCREMENT, Valor: +=
+Tipo: DECREMENT, Valor: -=
+Tipo: SINGLE_LINE_COMMENT, Valor: # Esto es un comentario de una línea
+Caracter ilegal: d
+Caracter ilegal: e
+Caracter ilegal: f
+Caracter ilegal: s
+Caracter ilegal: u
+Caracter ilegal: m
+Caracter ilegal: a
+Tipo: LPAREN, Valor: (
+Caracter ilegal: a
+Tipo: COMMA, Valor: ,
+Caracter ilegal: b
+Tipo: RPAREN, Valor: )
+Tipo: SINGLE_LINE_COMMENT, Valor: # Este es otro comentario
+Caracter ilegal: @
+Caracter ilegal: i
+Caracter ilegal: n
+Caracter ilegal: s
+Caracter ilegal: t
+Caracter ilegal: a
+Caracter ilegal: n
+Caracter ilegal: c
+Caracter ilegal: i
+Caracter ilegal: a
+Caracter ilegal: _
+Caracter ilegal: v
+Caracter ilegal: a
+Caracter ilegal: r
+Tipo: ASSIGNATION, Valor: =
+Tipo: INTEGER, Valor: 10
+Caracter ilegal: @
+Caracter ilegal: @
+Caracter ilegal: c
+Caracter ilegal: l
+Caracter ilegal: a
+Caracter ilegal: s
+Caracter ilegal: e
+Caracter ilegal: _
+Caracter ilegal: v
+Caracter ilegal: a
+Caracter ilegal: r
+Tipo: ASSIGNATION, Valor: =
+Tipo: FLOAT, Valor: 20.5
+Caracter ilegal: $
+Caracter ilegal: g
+Caracter ilegal: l
+Caracter ilegal: o
+Caracter ilegal: b
+Caracter ilegal: a
+Caracter ilegal: l
+Caracter ilegal: _
+Caracter ilegal: v
+Caracter ilegal: a
+Caracter ilegal: r
+Tipo: ASSIGNATION, Valor: =
+Tipo: STRING, Valor: "valor global"
+Caracter ilegal: v
+Caracter ilegal: a
+Caracter ilegal: r
+Caracter ilegal: i
+Caracter ilegal: a
+Caracter ilegal: b
+Caracter ilegal: l
+Caracter ilegal: e
+Caracter ilegal: _
+Caracter ilegal: l
+Caracter ilegal: o
+Caracter ilegal: c
+Caracter ilegal: a
+Caracter ilegal: l
+Tipo: ASSIGNATION, Valor: =
+Tipo: INTEGER, Valor: 30
+Caracter ilegal: i
+Caracter ilegal: f
+Caracter ilegal: t
+Caracter ilegal: r
+Caracter ilegal: u
+Caracter ilegal: e
+Caracter ilegal: f
+Caracter ilegal: o
+Caracter ilegal: r
+Caracter ilegal: i
+Caracter ilegal: i
+Caracter ilegal: n
+Tipo: ARRAY, Valor: [1, 2, 3]
+Caracter ilegal: p
+Caracter ilegal: u
+Caracter ilegal: t
+Caracter ilegal: s
+Tipo: STRING, Valor: "Número: #{i}"
+Caracter ilegal: e
+Caracter ilegal: n
+Caracter ilegal: d
+Caracter ilegal: e
+Caracter ilegal: l
+Caracter ilegal: s
+Caracter ilegal: e
+Caracter ilegal: p
+Caracter ilegal: u
+Caracter ilegal: t
+Caracter ilegal: s
+Tipo: STRING, Valor: "No hay números"
+Caracter ilegal: e
+Caracter ilegal: n
+Caracter ilegal: d
+Caracter ilegal: e
+Caracter ilegal: n
+Caracter ilegal: d
+Tipo: ASSIGNATION, Valor: =
+Caracter ilegal: b
+Caracter ilegal: e
+Caracter ilegal: g
+Caracter ilegal: i
+Caracter ilegal: n
+Caracter ilegal: E
+Caracter ilegal: s
+Caracter ilegal: t
+Caracter ilegal: e
+Caracter ilegal: e
+Caracter ilegal: s
+Caracter ilegal: u
+Caracter ilegal: n
+Caracter ilegal: c
+Caracter ilegal: o
+Caracter ilegal: m
+Caracter ilegal: e
+Caracter ilegal: n
+Caracter ilegal: t
+Caracter ilegal: a
+Caracter ilegal: r
+Caracter ilegal: i
+Caracter ilegal: o
+Caracter ilegal: d
+Caracter ilegal: e
+Caracter ilegal: m
+Caracter ilegal: ú
+Caracter ilegal: l
+Caracter ilegal: t
+Caracter ilegal: i
+Caracter ilegal: p
+Caracter ilegal: l
+Caracter ilegal: e
+Caracter ilegal: s
+Caracter ilegal: l
+Caracter ilegal: í
+Caracter ilegal: n
+Caracter ilegal: e
+Caracter ilegal: a
+Caracter ilegal: s
+Caracter ilegal: .
+Caracter ilegal: P
+Caracter ilegal: u
+Caracter ilegal: e
+Caracter ilegal: d
+Caracter ilegal: e
+Caracter ilegal: o
+Caracter ilegal: c
+Caracter ilegal: u
+Caracter ilegal: p
+Caracter ilegal: a
+Caracter ilegal: r
+Caracter ilegal: v
+Caracter ilegal: a
+Caracter ilegal: r
+Caracter ilegal: i
+Caracter ilegal: a
+Caracter ilegal: s
+Caracter ilegal: l
+Caracter ilegal: í
+Caracter ilegal: n
+Caracter ilegal: e
+Caracter ilegal: a
+Caracter ilegal: s
+Caracter ilegal: .
+Tipo: ASSIGNATION, Valor: =
+Caracter ilegal: e
+Caracter ilegal: n
+Caracter ilegal: d
+Caracter ilegal: p
+Caracter ilegal: u
+Caracter ilegal: t
+Caracter ilegal: s
+Caracter ilegal: s
+Caracter ilegal: u
+Caracter ilegal: m
+Caracter ilegal: a
+Tipo: LPAREN, Valor: (
+Tipo: INTEGER, Valor: 3
+Tipo: COMMA, Valor: ,
+Tipo: INTEGER, Valor: 4
+Tipo: RPAREN, Valor: )
+Tipo: SINGLE_LINE_COMMENT, Valor: # Declaración de tipos de datos
+Caracter ilegal: t
+Caracter ilegal: e
+Caracter ilegal: x
+Caracter ilegal: t
+Caracter ilegal: o
+Tipo: ASSIGNATION, Valor: =
+Tipo: STRING, Valor: "texto aqui"
+Tipo: SINGLE_LINE_COMMENT, Valor: # String
+Caracter ilegal: e
+Caracter ilegal: n
+Caracter ilegal: t
+Caracter ilegal: e
+Caracter ilegal: r
+Caracter ilegal: o
+Tipo: ASSIGNATION, Valor: =
+Tipo: INTEGER, Valor: 42
+Tipo: SINGLE_LINE_COMMENT, Valor: # Integer
+Caracter ilegal: d
+Caracter ilegal: e
+Caracter ilegal: c
+Caracter ilegal: i
+Caracter ilegal: m
+Caracter ilegal: a
+Caracter ilegal: l
+Tipo: ASSIGNATION, Valor: =
+Tipo: FLOAT, Valor: 3.14
+Tipo: SINGLE_LINE_COMMENT, Valor: # Float
+Caracter ilegal: a
+Caracter ilegal: r
+Caracter ilegal: r
+Caracter ilegal: e
+Caracter ilegal: g
+Caracter ilegal: l
+Caracter ilegal: o
+Tipo: ASSIGNATION, Valor: =
+Tipo: ARRAY, Valor: [1, 2, 3]
+Tipo: SINGLE_LINE_COMMENT, Valor: # Array
+Caracter ilegal: h
+Caracter ilegal: a
+Caracter ilegal: s
+Caracter ilegal: h
+Tipo: ASSIGNATION, Valor: =
+Tipo: HASH, Valor: { clave: "valor" }
+Tipo: SINGLE_LINE_COMMENT, Valor: # Hash
+Caracter ilegal: v
+Caracter ilegal: e
+Caracter ilegal: r
+Caracter ilegal: d
+Caracter ilegal: a
+Caracter ilegal: d
+Caracter ilegal: e
+Caracter ilegal: r
+Caracter ilegal: o
+Tipo: ASSIGNATION, Valor: =
+Caracter ilegal: t
+Caracter ilegal: r
+Caracter ilegal: u
+Caracter ilegal: e
+Tipo: SINGLE_LINE_COMMENT, Valor: # Booleano true
+Caracter ilegal: f
+Caracter ilegal: a
+Caracter ilegal: l
+Caracter ilegal: s
+Caracter ilegal: o
+Tipo: ASSIGNATION, Valor: =
+Caracter ilegal: f
+Caracter ilegal: a
+Caracter ilegal: l
+Caracter ilegal: s
+Caracter ilegal: e
+Tipo: SINGLE_LINE_COMMENT, Valor: # Booleano false
+Caracter ilegal: n
+Caracter ilegal: u
+Caracter ilegal: l
+Caracter ilegal: o
+Tipo: ASSIGNATION, Valor: =
+Caracter ilegal: n
+Caracter ilegal: i
+Caracter ilegal: l
+Tipo: SINGLE_LINE_COMMENT, Valor: # Nil
+Tipo: SINGLE_LINE_COMMENT, Valor: # Operadores aritméticos
+Caracter ilegal: s
+Caracter ilegal: u
+Caracter ilegal: m
+Caracter ilegal: a
+Tipo: ASSIGNATION, Valor: =
+Caracter ilegal: e
+Caracter ilegal: n
+Caracter ilegal: t
+Caracter ilegal: e
+Caracter ilegal: r
+Caracter ilegal: o
+Tipo: PLUS, Valor: +
+Tipo: INTEGER, Valor: 10
+Tipo: SINGLE_LINE_COMMENT, Valor: # Suma
+Caracter ilegal: r
+Caracter ilegal: e
+Caracter ilegal: s
+Caracter ilegal: t
+Caracter ilegal: a
+Tipo: ASSIGNATION, Valor: =
+Caracter ilegal: e
+Caracter ilegal: n
+Caracter ilegal: t
+Caracter ilegal: e
+Caracter ilegal: r
+Caracter ilegal: o
+Tipo: MINUS, Valor: -
+Tipo: INTEGER, Valor: 2
+Tipo: SINGLE_LINE_COMMENT, Valor: # Resta
+Caracter ilegal: p
+Caracter ilegal: r
+Caracter ilegal: o
+Caracter ilegal: d
+Caracter ilegal: u
+Caracter ilegal: c
+Caracter ilegal: t
+Caracter ilegal: o
+Tipo: ASSIGNATION, Valor: =
+Caracter ilegal: e
+Caracter ilegal: n
+Caracter ilegal: t
+Caracter ilegal: e
+Caracter ilegal: r
+Caracter ilegal: o
+Tipo: TIMES, Valor: *
+Tipo: INTEGER, Valor: 2
+Tipo: SINGLE_LINE_COMMENT, Valor: # Multiplicación
+Caracter ilegal: d
+Caracter ilegal: i
+Caracter ilegal: v
+Caracter ilegal: i
+Caracter ilegal: s
+Caracter ilegal: i
+Caracter ilegal: o
+Caracter ilegal: n
+Tipo: ASSIGNATION, Valor: =
+Caracter ilegal: e
+Caracter ilegal: n
+Caracter ilegal: t
+Caracter ilegal: e
+Caracter ilegal: r
+Caracter ilegal: o
+Tipo: DIVIDE, Valor: /
+Tipo: INTEGER, Valor: 2
+Tipo: SINGLE_LINE_COMMENT, Valor: # División
+Caracter ilegal: m
+Caracter ilegal: o
+Caracter ilegal: d
+Caracter ilegal: u
+Caracter ilegal: l
+Caracter ilegal: o
+Tipo: ASSIGNATION, Valor: =
+Caracter ilegal: e
+Caracter ilegal: n
+Caracter ilegal: t
+Caracter ilegal: e
+Caracter ilegal: r
+Caracter ilegal: o
+Caracter ilegal: %
+Tipo: INTEGER, Valor: 5
+Tipo: SINGLE_LINE_COMMENT, Valor: # Módulo
+Caracter ilegal: p
+Caracter ilegal: o
+Caracter ilegal: t
+Caracter ilegal: e
+Caracter ilegal: n
+Caracter ilegal: c
+Caracter ilegal: i
+Caracter ilegal: a
+Tipo: ASSIGNATION, Valor: =
+Caracter ilegal: e
+Caracter ilegal: n
+Caracter ilegal: t
+Caracter ilegal: e
+Caracter ilegal: r
+Caracter ilegal: o
+Tipo: POWER, Valor: **
+Tipo: INTEGER, Valor: 2
+Tipo: SINGLE_LINE_COMMENT, Valor: # Potencia
+Tipo: SINGLE_LINE_COMMENT, Valor: # Operadores lógicos
+Caracter ilegal: a
+Caracter ilegal: n
+Caracter ilegal: d
+Caracter ilegal: _
+Caracter ilegal: o
+Caracter ilegal: p
+Caracter ilegal: e
+Caracter ilegal: r
+Caracter ilegal: a
+Caracter ilegal: d
+Caracter ilegal: o
+Caracter ilegal: r
+Tipo: ASSIGNATION, Valor: =
+Caracter ilegal: v
+Caracter ilegal: e
+Caracter ilegal: r
+Caracter ilegal: d
+Caracter ilegal: a
+Caracter ilegal: d
+Caracter ilegal: e
+Caracter ilegal: r
+Caracter ilegal: o
+Tipo: AND, Valor: &&
+Caracter ilegal: f
+Caracter ilegal: a
+Caracter ilegal: l
+Caracter ilegal: s
+Caracter ilegal: o
+Tipo: SINGLE_LINE_COMMENT, Valor: # AND lógico
+Caracter ilegal: o
+Caracter ilegal: r
+Caracter ilegal: _
+Caracter ilegal: o
+Caracter ilegal: p
+Caracter ilegal: e
+Caracter ilegal: r
+Caracter ilegal: a
+Caracter ilegal: d
+Caracter ilegal: o
+Caracter ilegal: r
+Tipo: ASSIGNATION, Valor: =
+Caracter ilegal: v
+Caracter ilegal: e
+Caracter ilegal: r
+Caracter ilegal: d
+Caracter ilegal: a
+Caracter ilegal: d
+Caracter ilegal: e
+Caracter ilegal: r
+Caracter ilegal: o
+Tipo: OR, Valor: ||
+Caracter ilegal: f
+Caracter ilegal: a
+Caracter ilegal: l
+Caracter ilegal: s
+Caracter ilegal: o
+Tipo: SINGLE_LINE_COMMENT, Valor: # OR lógico
+Caracter ilegal: n
+Caracter ilegal: o
+Caracter ilegal: t
+Caracter ilegal: _
+Caracter ilegal: o
+Caracter ilegal: p
+Caracter ilegal: e
+Caracter ilegal: r
+Caracter ilegal: a
+Caracter ilegal: d
+Caracter ilegal: o
+Caracter ilegal: r
+Tipo: ASSIGNATION, Valor: =
+Tipo: NOT, Valor: !
+Caracter ilegal: v
+Caracter ilegal: e
+Caracter ilegal: r
+Caracter ilegal: d
+Caracter ilegal: a
+Caracter ilegal: d
+Caracter ilegal: e
+Caracter ilegal: r
+Caracter ilegal: o
+Tipo: SINGLE_LINE_COMMENT, Valor: # NOT lógico
+Tipo: SINGLE_LINE_COMMENT, Valor: # Operadores de comparación
+Caracter ilegal: e
+Caracter ilegal: s
+Caracter ilegal: _
+Caracter ilegal: i
+Caracter ilegal: g
+Caracter ilegal: u
+Caracter ilegal: a
+Caracter ilegal: l
+Tipo: ASSIGNATION, Valor: =
+Caracter ilegal: t
+Caracter ilegal: e
+Caracter ilegal: x
+Caracter ilegal: t
+Caracter ilegal: o
+Tipo: EQUAL, Valor: ==
+Tipo: STRING, Valor: "texto aqui"
+Tipo: SINGLE_LINE_COMMENT, Valor: # Igualdad
+Caracter ilegal: n
+Caracter ilegal: o
+Caracter ilegal: _
+Caracter ilegal: i
+Caracter ilegal: g
+Caracter ilegal: u
+Caracter ilegal: a
+Caracter ilegal: l
+Tipo: ASSIGNATION, Valor: =
+Caracter ilegal: e
+Caracter ilegal: n
+Caracter ilegal: t
+Caracter ilegal: e
+Caracter ilegal: r
+Caracter ilegal: o
+Tipo: NOTEQUAL, Valor: !=
+Tipo: INTEGER, Valor: 50
+Tipo: SINGLE_LINE_COMMENT, Valor: # Desigualdad
+Caracter ilegal: m
+Caracter ilegal: a
+Caracter ilegal: y
+Caracter ilegal: o
+Caracter ilegal: r
+Tipo: ASSIGNATION, Valor: =
+Caracter ilegal: e
+Caracter ilegal: n
+Caracter ilegal: t
+Caracter ilegal: e
+Caracter ilegal: r
+Caracter ilegal: o
+Tipo: BIGGER, Valor: >
+Tipo: INTEGER, Valor: 30
+Tipo: SINGLE_LINE_COMMENT, Valor: # Mayor que
+Caracter ilegal: m
+Caracter ilegal: e
+Caracter ilegal: n
+Caracter ilegal: o
+Caracter ilegal: r
+Tipo: ASSIGNATION, Valor: =
+Caracter ilegal: d
+Caracter ilegal: e
+Caracter ilegal: c
+Caracter ilegal: i
+Caracter ilegal: m
+Caracter ilegal: a
+Caracter ilegal: l
+Tipo: SMALLER, Valor: <
+Tipo: FLOAT, Valor: 5.0
+Tipo: SINGLE_LINE_COMMENT, Valor: # Menor que
+Caracter ilegal: m
+Caracter ilegal: a
+Caracter ilegal: y
+Caracter ilegal: o
+Caracter ilegal: r
+Caracter ilegal: _
+Caracter ilegal: i
+Caracter ilegal: g
+Caracter ilegal: u
+Caracter ilegal: a
+Caracter ilegal: l
+Tipo: ASSIGNATION, Valor: =
+Caracter ilegal: e
+Caracter ilegal: n
+Caracter ilegal: t
+Caracter ilegal: e
+Caracter ilegal: r
+Caracter ilegal: o
+Tipo: BIGGEREQUAL, Valor: >=
+Tipo: INTEGER, Valor: 42
+Tipo: SINGLE_LINE_COMMENT, Valor: # Mayor o igual
+Caracter ilegal: m
+Caracter ilegal: e
+Caracter ilegal: n
+Caracter ilegal: o
+Caracter ilegal: r
+Caracter ilegal: _
+Caracter ilegal: i
+Caracter ilegal: g
+Caracter ilegal: u
+Caracter ilegal: a
+Caracter ilegal: l
+Tipo: ASSIGNATION, Valor: =
+Caracter ilegal: d
+Caracter ilegal: e
+Caracter ilegal: c
+Caracter ilegal: i
+Caracter ilegal: m
+Caracter ilegal: a
+Caracter ilegal: l
+Tipo: SMALLEREQUAL, Valor: <=
+Tipo: FLOAT, Valor: 3.14
+Tipo: SINGLE_LINE_COMMENT, Valor: # Menor o igual
+Tipo: SINGLE_LINE_COMMENT, Valor: # Operadores de asignación
+Caracter ilegal: a
+Caracter ilegal: s
+Caracter ilegal: i
+Caracter ilegal: g
+Caracter ilegal: n
+Caracter ilegal: a
+Caracter ilegal: c
+Caracter ilegal: i
+Caracter ilegal: o
+Caracter ilegal: n
+Tipo: ASSIGNATION, Valor: =
+Tipo: INTEGER, Valor: 10
+Tipo: SINGLE_LINE_COMMENT, Valor: # Asignación directa
+Caracter ilegal: a
+Caracter ilegal: s
+Caracter ilegal: i
+Caracter ilegal: g
+Caracter ilegal: n
+Caracter ilegal: a
+Caracter ilegal: c
+Caracter ilegal: i
+Caracter ilegal: o
+Caracter ilegal: n
+Tipo: INCREMENT, Valor: +=
+Tipo: INTEGER, Valor: 5
+Tipo: SINGLE_LINE_COMMENT, Valor: # Sumar y asignar
+Caracter ilegal: a
+Caracter ilegal: s
+Caracter ilegal: i
+Caracter ilegal: g
+Caracter ilegal: n
+Caracter ilegal: a
+Caracter ilegal: c
+Caracter ilegal: i
+Caracter ilegal: o
+Caracter ilegal: n
+Tipo: DECREMENT, Valor: -=
+Tipo: INTEGER, Valor: 2
+Tipo: SINGLE_LINE_COMMENT, Valor: # Restar y asignar

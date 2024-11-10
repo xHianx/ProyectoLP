@@ -1,0 +1,75 @@
+Tipo: SINGLE_LINE_COMMENT, Valor: # Esto es un comentario de una línea
+Tipo: DEF, Valor: def
+Tipo: VARIABLE_LOCAL, Valor: suma
+Tipo: LPAREN, Valor: (
+Tipo: VARIABLE_LOCAL, Valor: a
+Tipo: COMMA, Valor: ,
+Tipo: VARIABLE_LOCAL, Valor: b
+Tipo: RPAREN, Valor: )
+Tipo: SINGLE_LINE_COMMENT, Valor: # Este es otro comentario
+Tipo: VARIABLE_INSTANCIA, Valor: @instancia_var
+Caracter ilegal: =
+Tipo: INTEGER, Valor: 10
+Tipo: VARIABLE_CLASE, Valor: @@clase_var
+Caracter ilegal: =
+Tipo: INTEGER, Valor: 20
+Caracter ilegal: .
+Tipo: INTEGER, Valor: 5
+Tipo: VARIABLE_GLOBAL, Valor: $global_var
+Caracter ilegal: =
+Tipo: STRING, Valor: "valor global"
+Tipo: VARIABLE_LOCAL, Valor: variable_local
+Caracter ilegal: =
+Tipo: INTEGER, Valor: 30
+Tipo: IF, Valor: if
+Tipo: TRUE, Valor: true
+Tipo: FOR, Valor: for
+Tipo: VARIABLE_LOCAL, Valor: i
+Tipo: IN, Valor: in
+Tipo: LBRACKET, Valor: [
+Tipo: INTEGER, Valor: 1
+Tipo: COMMA, Valor: ,
+Tipo: INTEGER, Valor: 2
+Tipo: COMMA, Valor: ,
+Tipo: INTEGER, Valor: 3
+Tipo: RBRACKET, Valor: ]
+Tipo: VARIABLE_LOCAL, Valor: puts
+Tipo: STRING, Valor: "Número: #{i}"
+Tipo: END, Valor: end
+Tipo: ELSE, Valor: else
+Tipo: VARIABLE_LOCAL, Valor: puts
+Tipo: STRING, Valor: "No hay números"
+Tipo: END, Valor: end
+Tipo: END, Valor: end
+Caracter ilegal: =
+Tipo: BEGIN, Valor: begin
+Caracter ilegal: E
+Tipo: VARIABLE_LOCAL, Valor: ste
+Tipo: VARIABLE_LOCAL, Valor: es
+Tipo: VARIABLE_LOCAL, Valor: un
+Tipo: VARIABLE_LOCAL, Valor: comentario
+Tipo: VARIABLE_LOCAL, Valor: de
+Tipo: VARIABLE_LOCAL, Valor: m
+Caracter ilegal: ú
+Tipo: VARIABLE_LOCAL, Valor: ltiples
+Tipo: VARIABLE_LOCAL, Valor: l
+Caracter ilegal: í
+Tipo: VARIABLE_LOCAL, Valor: neas
+Caracter ilegal: .
+Caracter ilegal: P
+Tipo: VARIABLE_LOCAL, Valor: uede
+Tipo: VARIABLE_LOCAL, Valor: ocupar
+Tipo: VARIABLE_LOCAL, Valor: varias
+Tipo: VARIABLE_LOCAL, Valor: l
+Caracter ilegal: í
+Tipo: VARIABLE_LOCAL, Valor: neas
+Caracter ilegal: .
+Caracter ilegal: =
+Tipo: END, Valor: end
+Tipo: VARIABLE_LOCAL, Valor: puts
+Tipo: VARIABLE_LOCAL, Valor: suma
+Tipo: LPAREN, Valor: (
+Tipo: INTEGER, Valor: 3
+Tipo: COMMA, Valor: ,
+Tipo: INTEGER, Valor: 4
+Tipo: RPAREN, Valor: )
