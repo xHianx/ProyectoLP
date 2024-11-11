@@ -1,0 +1,68 @@
+Tipo: SINGLE_LINE_COMMENT, Valor: # Algoritmo de prueba - algoritmo1.rb
+Tipo: SINGLE_LINE_COMMENT, Valor: # Comentario de una sola línea
+Tipo: DEF, Valor: def
+Tipo: VARIABLE_LOCAL, Valor: suma
+Tipo: LPAREN, Valor: (
+Tipo: VARIABLE_LOCAL, Valor: a
+Tipo: COMMA, Valor: ,
+Tipo: VARIABLE_LOCAL, Valor: b
+Tipo: RPAREN, Valor: )
+Tipo: SINGLE_LINE_COMMENT, Valor: # Este es otro comentario dentro de una función
+Tipo: RETURN, Valor: return
+Tipo: VARIABLE_LOCAL, Valor: a
+Tipo: PLUS, Valor: +
+Tipo: VARIABLE_LOCAL, Valor: b
+Tipo: END, Valor: end
+Tipo: SINGLE_LINE_COMMENT, Valor: # Uso de operadores aritméticos
+Tipo: VARIABLE_LOCAL, Valor: resultado
+Tipo: ASSIGNATION, Valor: =
+Tipo: VARIABLE_LOCAL, Valor: suma
+Tipo: LPAREN, Valor: (
+Tipo: INTEGER, Valor: 3
+Tipo: COMMA, Valor: ,
+Tipo: INTEGER, Valor: 4
+Tipo: RPAREN, Valor: )
+Tipo: TIMES, Valor: *
+Tipo: INTEGER, Valor: 10
+Tipo: PLUS, Valor: +
+Tipo: INTEGER, Valor: 5
+Tipo: DIVIDE, Valor: /
+Tipo: INTEGER, Valor: 2
+Tipo: SINGLE_LINE_COMMENT, Valor: # Comentario multilínea
+Tipo: MULTI_LINE_COMMENT, Valor: =begin
+Este es un comentario
+de múltiples líneas.
+=end
+Tipo: SINGLE_LINE_COMMENT, Valor: # Uso de estructuras de control
+Tipo: IF, Valor: if
+Tipo: VARIABLE_LOCAL, Valor: resultado
+Tipo: BIGGER, Valor: >
+Tipo: INTEGER, Valor: 10
+Tipo: VARIABLE_LOCAL, Valor: puts
+Tipo: STRING, Valor: "El resultado es mayor que 10"
+Tipo: ELSE, Valor: else
+Tipo: VARIABLE_LOCAL, Valor: puts
+Tipo: STRING, Valor: "El resultado es menor o igual a 10"
+Tipo: END, Valor: end
+Tipo: SINGLE_LINE_COMMENT, Valor: # Uso de array y hash
+Tipo: VARIABLE_LOCAL, Valor: arreglo
+Tipo: ASSIGNATION, Valor: =
+Tipo: ARRAY, Valor: [1, 2, 3]
+Tipo: VARIABLE_LOCAL, Valor: hash
+Tipo: ASSIGNATION, Valor: =
+Tipo: HASH, Valor: { clave: "valor" }
+Tipo: SINGLE_LINE_COMMENT, Valor: # Comprobación de módulo
+Tipo: VARIABLE_LOCAL, Valor: resto
+Tipo: ASSIGNATION, Valor: =
+Tipo: INTEGER, Valor: 10
+Tipo: MODULE, Valor: %
+Tipo: INTEGER, Valor: 3
+Tipo: SINGLE_LINE_COMMENT, Valor: # Salida del resultado
+Tipo: VARIABLE_LOCAL, Valor: puts
+Tipo: STRING, Valor: "Resultado final: #{resultado}"
+Tipo: VARIABLE_LOCAL, Valor: puts
+Tipo: STRING, Valor: "Resto de la división: #{resto}"
+Tipo: VARIABLE_LOCAL, Valor: puts
+Tipo: STRING, Valor: "Array: #{arreglo}"
+Tipo: VARIABLE_LOCAL, Valor: puts
+Tipo: STRING, Valor: "Hash: #{hash}"

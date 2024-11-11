@@ -1,0 +1,109 @@
+Tipo: SINGLE_LINE_COMMENT, Valor: # Algoritmo de prueba - algoritmo3.rb
+Tipo: SINGLE_LINE_COMMENT, Valor: # Palabras reservadas y su uso
+Tipo: IF, Valor: if
+Tipo: TRUE, Valor: true
+Tipo: VARIABLE_LOCAL, Valor: puts
+Tipo: STRING, Valor: "Esto es una sentencia if"
+Tipo: ELSIF, Valor: elsif
+Tipo: FALSE, Valor: false
+Tipo: VARIABLE_LOCAL, Valor: puts
+Tipo: STRING, Valor: "Esto no se ejecuta"
+Tipo: ELSE, Valor: else
+Tipo: VARIABLE_LOCAL, Valor: puts
+Tipo: STRING, Valor: "Esto se ejecuta porque la condición es falsa"
+Tipo: END, Valor: end
+Tipo: SINGLE_LINE_COMMENT, Valor: # Uso de 'while' para un bucle
+Tipo: VARIABLE_LOCAL, Valor: counter
+Tipo: ASSIGNATION, Valor: =
+Tipo: INTEGER, Valor: 0
+Tipo: WHILE, Valor: while
+Tipo: VARIABLE_LOCAL, Valor: counter
+Tipo: SMALLER, Valor: <
+Tipo: INTEGER, Valor: 5
+Tipo: VARIABLE_LOCAL, Valor: puts
+Tipo: STRING, Valor: "Contador: #{counter}"
+Tipo: VARIABLE_LOCAL, Valor: counter
+Tipo: INCREMENT, Valor: +=
+Tipo: INTEGER, Valor: 1
+Tipo: END, Valor: end
+Tipo: SINGLE_LINE_COMMENT, Valor: # Definición de un método con 'def' y 'end'
+Tipo: DEF, Valor: def
+Tipo: VARIABLE_LOCAL, Valor: saludo
+Tipo: LPAREN, Valor: (
+Tipo: VARIABLE_LOCAL, Valor: nombre
+Tipo: RPAREN, Valor: )
+Tipo: VARIABLE_LOCAL, Valor: puts
+Tipo: STRING, Valor: "Hola, #{nombre}!"
+Tipo: END, Valor: end
+Tipo: SINGLE_LINE_COMMENT, Valor: # Llamando al método
+Tipo: VARIABLE_LOCAL, Valor: saludo
+Tipo: LPAREN, Valor: (
+Tipo: STRING, Valor: "Josemiu"
+Tipo: RPAREN, Valor: )
+Tipo: SINGLE_LINE_COMMENT, Valor: # Definición de variables
+Tipo: SINGLE_LINE_COMMENT, Valor: # Variables locales
+Tipo: VARIABLE_LOCAL, Valor: variable_local
+Tipo: ASSIGNATION, Valor: =
+Tipo: STRING, Valor: "Soy una variable local"
+Tipo: VARIABLE_LOCAL, Valor: puts
+Tipo: VARIABLE_LOCAL, Valor: variable_local
+Tipo: SINGLE_LINE_COMMENT, Valor: # Variables globales
+Tipo: VARIABLE_GLOBAL, Valor: $variable_global
+Tipo: ASSIGNATION, Valor: =
+Tipo: STRING, Valor: "Soy una variable global"
+Tipo: VARIABLE_LOCAL, Valor: puts
+Tipo: VARIABLE_GLOBAL, Valor: $variable_global
+Tipo: SINGLE_LINE_COMMENT, Valor: # Variables de instancia
+Tipo: VARIABLE_INSTANCIA, Valor: @variable_instancia
+Tipo: ASSIGNATION, Valor: =
+Tipo: STRING, Valor: "Soy una variable de instancia"
+Tipo: VARIABLE_LOCAL, Valor: puts
+Tipo: VARIABLE_INSTANCIA, Valor: @variable_instancia
+Tipo: SINGLE_LINE_COMMENT, Valor: # Variables de clase
+Tipo: VARIABLE_CLASE, Valor: @@variable_clase
+Tipo: ASSIGNATION, Valor: =
+Tipo: STRING, Valor: "Soy una variable de clase"
+Tipo: VARIABLE_LOCAL, Valor: puts
+Tipo: VARIABLE_CLASE, Valor: @@variable_clase
+Tipo: SINGLE_LINE_COMMENT, Valor: # Uso de 'return' en un método
+Tipo: DEF, Valor: def
+Tipo: VARIABLE_LOCAL, Valor: multiplicar
+Tipo: LPAREN, Valor: (
+Tipo: VARIABLE_LOCAL, Valor: a
+Tipo: COMMA, Valor: ,
+Tipo: VARIABLE_LOCAL, Valor: b
+Tipo: RPAREN, Valor: )
+Tipo: RETURN, Valor: return
+Tipo: VARIABLE_LOCAL, Valor: a
+Tipo: TIMES, Valor: *
+Tipo: VARIABLE_LOCAL, Valor: b
+Tipo: END, Valor: end
+Tipo: VARIABLE_LOCAL, Valor: resultado
+Tipo: ASSIGNATION, Valor: =
+Tipo: VARIABLE_LOCAL, Valor: multiplicar
+Tipo: LPAREN, Valor: (
+Tipo: INTEGER, Valor: 4
+Tipo: COMMA, Valor: ,
+Tipo: INTEGER, Valor: 5
+Tipo: RPAREN, Valor: )
+Tipo: VARIABLE_LOCAL, Valor: puts
+Tipo: STRING, Valor: "Resultado de la multiplicación: #{resultado}"
+Tipo: SINGLE_LINE_COMMENT, Valor: # Uso de 'self' para acceder al objeto actual
+Tipo: CLASS, Valor: class
+Caracter ilegal: M
+Tipo: VARIABLE_LOCAL, Valor: iClase
+Tipo: DEF, Valor: def
+Tipo: VARIABLE_LOCAL, Valor: mostrar_self
+Tipo: VARIABLE_LOCAL, Valor: puts
+Tipo: SELF, Valor: self
+Tipo: END, Valor: end
+Tipo: END, Valor: end
+Tipo: VARIABLE_LOCAL, Valor: obj
+Tipo: ASSIGNATION, Valor: =
+Caracter ilegal: M
+Tipo: VARIABLE_LOCAL, Valor: iClase
+Caracter ilegal: .
+Tipo: VARIABLE_LOCAL, Valor: new
+Tipo: VARIABLE_LOCAL, Valor: obj
+Caracter ilegal: .
+Tipo: VARIABLE_LOCAL, Valor: mostrar_self

@@ -163,63 +163,11 @@ def t_error(t):
 # Construir el lexer
 lexer = lex.lex()
 
-# Ejemplo de código Ruby con comentarios y delimitadores
-data = '''
-# Esto es un comentario de una linea
-def suma(a, b)
-  # Este es otro comentario
-  @instancia_var = 10
-  @@clase_var = 20.5
-  $global_var = "valor global"
-  variable_local = 30
-  if true
-    for i in [1, 2, 3]
-      puts "Numero: #{i}"
-    end
-  else
-    puts "No hay numeros"
-  end
-end
+# Leer el archivo Ruby
+file_path = "algoritmo3_Cristhian_Barragan.rb"
+with open(file_path, "r", encoding="utf-8") as file:
+    data = file.read()
 
-=begin
-Este es un comentario de multiples lineas.
-Puede ocupar varias lineas.
-=end
-
-puts suma(3, 4)
-
-#Operadores aritmeticos
-entero = 42
-decimal = 3.14
-suma = entero + 10    
-resta = entero - 2        
-producto = entero * 2       
-division = entero / 2      
-modulo = entero % 5       
-potencia = entero ** 2   
-
-# Operadores logicos
-and_operador = verdadero && falso 
-or_operador = verdadero || falso  
-not_operador = !verdadero         
-
-# Operadores de comparacion
-es_igual = texto == "texto aqui"
-no_igual = entero != 50
-mayor = entero > 30
-menor = decimal < 5.0
-mayor_igual = entero >= 42
-menor_igual = decimal <= 3.14
-
-# Operadores de asignacion
-asignacion = 10 
-asignacion += 5
-asignacion -= 2
-
-# Comentario con delimitadores
-array = [1, 2, 3, 4, 5]
-hash = { clave: "clave1" }
-'''
 
 # Darle al lexer el código de entrada
 lexer.input(data)
@@ -230,7 +178,7 @@ FECHA = datetime.datetime.now().date()
 HORA = datetime.datetime.now().hour
 MINUTO = datetime.datetime.now().minute
 
-nombre_archivo = f"logs/lexico-{FECHA}-{HORA}-{MINUTO}.txt".replace(":", "-")
+nombre_archivo = f"logs/lexico-xHianx-{FECHA}-{HORA}-{MINUTO}.txt".replace(":", "-")
 
 with open(nombre_archivo, "a", encoding="utf-8") as f:
     while True:
