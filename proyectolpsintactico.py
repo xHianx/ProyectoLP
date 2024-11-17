@@ -1,138 +1,6 @@
-import ply.lex as lex
 import ply.yacc as yacc
-import os
-
-# Crear directorio de logs si no existe
-if not os.path.exists("logs"):
-    os.makedirs("logs")
-
-# Palabras reservadas en Ruby
-reserved = {
-    'if': 'IF',
-    'else': 'ELSE',
-    'elsif': 'ELSIF',
-    'unless': 'UNLESS',
-    'case': 'CASE',
-    'when': 'WHEN',
-    'while': 'WHILE',
-    'until': 'UNTIL',
-    'for': 'FOR',
-    'break': 'BREAK',
-    'next': 'NEXT',
-    'redo': 'REDO',
-    'retry': 'RETRY',
-    'def': 'DEF',
-    'class': 'CLASS',
-    'module': 'MODULE',
-    'end': 'END',
-    'self': 'SELF',
-    'yield': 'YIELD',
-    'return': 'RETURN',
-    'super': 'SUPER',
-    'true': 'TRUE',
-    'false': 'FALSE',
-    'nil': 'NIL',
-    'begin': 'BEGIN',
-    'rescue': 'RESCUE',
-    'ensure': 'ENSURE',
-    'do': 'DO',
-    'in': 'IN',
-    'alias': 'ALIAS',
-    'defined?': 'DEFINED',
-    'puts': 'PUTS'
-}
-
-# Lista de tokens
-tokens = [
-    # Comentarios
-    'SINGLE_LINE_COMMENT',   # Comentarios de una sola línea
-    'MULTI_LINE_COMMENT',    # Comentarios de varias líneas
-
-    # Delimitadores
-    'LPAREN',                # Paréntesis izquierdo '('
-    'RPAREN',                # Paréntesis derecho ')'
-    'LBRACKET',              # Corchete izquierdo '['
-    'RBRACKET',              # Corchete derecho ']'
-    'LBRACE',                # Llave izquierda '{'
-    'RBRACE',                # Llave derecha '}'
-    'COMMA',                 # Coma ','
-    'SEMICOLON',             # Punto y coma ';'
-
-    # Literales
-    'INTEGER',               # Números enteros (por ejemplo: '42')
-    'FLOAT',                 # Números flotantes (por ejemplo: '3.14')
-    'STRING',                # Cadenas de texto (por ejemplo: "hola")
-    'ARRAY',                 # Arreglos (por ejemplo: '[1, 2, 3]')
-    'HASH',                  # Hashes (por ejemplo: '{clave: "valor"}')
-
-    # Operadores
-    'PLUS',                  # Operador de suma '+'
-    'MINUS',                 # Operador de resta '-'
-    'TIMES',                 # Operador de multiplicación '*'
-    'DIVIDE',                # Operador de división '/'
-    'POWER',                 # Operador de potencia '**'
-    'AND',                   # Operador lógico "y" '&&'
-    'OR',                    # Operador lógico "o" '||'
-    'NOT',                   # Operador lógico de negación '!'
-    'EQUAL',                 # Operador de igualdad '=='
-    'NOTEQUAL',              # Operador de desigualdad '!='
-    'BIGGER',                # Operador mayor que '>'
-    'SMALLER',               # Operador menor que '<'
-    'BIGGEREQUAL',           # Operador mayor o igual que '>='
-    'SMALLEREQUAL',          # Operador menor o igual que '<='
-    'ASSIGNATION',           # Operador de asignación '='
-    'INCREMENT',             # Operador de incremento '+='
-    'DECREMENT',             # Operador de decremento '-='
-
-    # Variables
-    'VARIABLE_LOCAL',        # Variables locales
-    'VARIABLE_GLOBAL',       # Variables globales
-    'VARIABLE_INSTANCIA',    # Variables de instancia
-    'VARIABLE_CLASE',        # Variables de clase
-] + list(reserved.values())  # Añadir las palabras reservadas
-
-# Reglas de expresiones regulares para los tokens
-t_LPAREN = r'\('
-t_RPAREN = r'\)'
-t_LBRACKET = r'\['
-t_RBRACKET = r'\]'
-t_COMMA = r','
-t_PLUS = r'\+'
-t_MINUS = r'-'
-t_TIMES = r'\*'
-t_DIVIDE = r'/'
-t_ASSIGNATION = r'='
-t_BIGGER = r'>'
-
-# Definir reglas específicas
-def t_STRING(t):
-    r'"[^"]*"'
-    return t
-
-def t_INTEGER(t):
-    r'\d+'
-    t.value = int(t.value)
-    return t
-
-def t_VARIABLE_LOCAL(t):
-    r'[a-z_][a-zA-Z0-9_]*'
-    t.type = reserved.get(t.value, 'VARIABLE_LOCAL')
-    return t
-
-# Ignorar espacios en blanco y comentarios
-t_ignore = ' \t'
-t_ignore_COMMENT = r'\#.*'
-
-def t_newline(t):
-    r'\n+'
-    t.lexer.lineno += len(t.value)
-
-def t_error(t):
-    print(f"Carácter ilegal '{t.value[0]}' en la línea {t.lexer.lineno}")
-    t.lexer.skip(1)
-
-# Construir el analizador léxico
-lexer = lex.lex()
+from proyectolp import tokens
+from nombresarchivos import file_path_read, file_path_write
 
 # Reglas de precedencia
 precedence = (
@@ -243,14 +111,23 @@ def p_error(p):
 # Construir el analizador sintáctico
 parser = yacc.yacc()
 
-# Análisis del archivo Ruby
-file_path = "C:/Users/José Miguel/ProyectoLP/algoritmodeprueba_Jose_Miguel_Delgado.rb"
-try:
-    with open(file_path, "r", encoding="utf-8") as file:
-        code = file.read()
-except FileNotFoundError:
-    print(f"Error: Archivo '{file_path}' no encontrado.")
-    exit(1)
+# Proceso de análisis
+def analyze_file(file_path_r, file_path_w):
+    try:
+        with open(file_path_r, "r", encoding="utf-8") as file:
+            code = file.read()
+    except FileNotFoundError:
+        print(f"Error: Archivo '{file_path_r}' no encontrado.")
+        return
 
-result = parser.parse(code)
-print(result)
+    result = parser.parse(code)
+    
+    try:
+        with open(file_path_w, "a", encoding="utf-8") as log:
+            log.write(str(result))
+    except FileNotFoundError:
+        print(f"Error: Archivo '{file_path_w}' no encontrado.")
+        return
+
+
+analyze_file(file_path_read, file_path_write)

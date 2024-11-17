@@ -1,5 +1,5 @@
 import ply.lex as lex
-import datetime
+from nombresarchivos import file_path_read, file_path_write
 
 # Palabras reservadas en Ruby
 # Aporte de Cristhian 
@@ -34,7 +34,8 @@ reserved = {
     'do': 'DO',
     'in': 'IN',
     'alias': 'ALIAS',
-    'defined?': 'DEFINED'
+    'defined?': 'DEFINED',
+    'puts': 'PUTS'
 }
 
 # Definición de los tokens 
@@ -88,8 +89,8 @@ t_COMMA = r','
 t_SEMICOLON = r';'
 
 # Expresiones regulares para los comentarios #aporte de Jose Miguel Delgado
-t_SINGLE_LINE_COMMENT = r'\#.*'  # Comentarios de una sola línea (empieza con '#')
-t_MULTI_LINE_COMMENT = r'=begin[\s\S]*?=end'  # Comentarios multilínea (deben empezar con '=begin' y terminar con '=end')
+t_ignore_SINGLE_LINE_COMMENT = r'\#.*'  # Comentarios de una sola línea (empieza con '#')
+t_ignore_MULTI_LINE_COMMENT = r'=begin[\s\S]*?=end'  # Comentarios multilínea (deben empezar con '=begin' y terminar con '=end')
 
 ### JULIO GUERRERO
 # Expresiones regulares para los tipos de datos
@@ -108,9 +109,8 @@ def t_STRING(t):
     t.value = str(t.value)
     return t
 
-t_ARRAY = r'\[\s*(?:[^\]]+\s*(?:,\s*[^\]]+\s*)*)?\]' 
-
-t_HASH = r'\{\s*[a-zA-Z_][a-zA-Z0-9_]*\s*:\s*".*"\s*\}'
+# t_ARRAY = r'\[\s*(?:[^\]]+\s*(?:,\s*[^\]]+\s*)*)?\]' 
+# t_HASH = r'\{\s*[a-zA-Z_][a-zA-Z0-9_]*\s*:\s*".*"\s*\}'
 
 ## JULIO GUERRERO
 # Expresiones regulares para operadores
@@ -142,7 +142,7 @@ t_VARIABLE_CLASE = r'@@[a-zA-Z_][a-zA-Z0-9_]*'
 
 # Aporte de Cristhian: Regla para palabras reservadas en Ruby
 def t_RESERVED(t):
-    r'\b(if|else|elsif|unless|case|when|while|until|for|break|next|redo|retry|def|class|module|end|self|yield|return|super|true|false|nil|begin|rescue|ensure|do|in|alias|defined\?)\b'
+    r'\b(if|else|elsif|unless|case|when|while|until|for|break|next|redo|retry|def|class|module|end|self|yield|return|super|true|false|nil|begin|rescue|ensure|do|in|alias|defined\?|puts)\b'
     t.type = reserved.get(t.value, 'ID')  # Cambia el tipo de token si es una palabra reservada
     return t
 
@@ -157,30 +157,22 @@ t_ignore = ' \t'
 ### JULIO GUERRERO
 # Manejo de caracteres ilegales
 def t_error(t):
-    f.write(f"Caracter ilegal: {t.value[0]}\n")
+    print(f"Caracter ilegal: {t.value[0]}\n")
     t.lexer.skip(1)
 
 # Construir el lexer
 lexer = lex.lex()
 
 # Leer el archivo Ruby
-file_path = "algoritmo3_Cristhian_Barragan.rb"
-with open(file_path, "r", encoding="utf-8") as file:
+with open(file_path_read, "r", encoding="utf-8") as file:
     data = file.read()
-
 
 # Darle al lexer el código de entrada
 lexer.input(data)
 
 ### JULIO GUERRERO
 # Tokenizar y mostrar los tokens
-FECHA = datetime.datetime.now().date()
-HORA = datetime.datetime.now().hour
-MINUTO = datetime.datetime.now().minute
-
-nombre_archivo = f"logs/lexico-xHianx-{FECHA}-{HORA}-{MINUTO}.txt".replace(":", "-")
-
-with open(nombre_archivo, "a", encoding="utf-8") as f:
+with open(file_path_write, "a", encoding="utf-8") as f:
     while True:
         tok = lexer.token()
         if not tok:
