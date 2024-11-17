@@ -1,5 +1,5 @@
 import ply.lex as lex
-from nombresarchivos import file_path_read, file_path_write
+from nombresarchivos import file_path_read, file_path_write_lex
 
 # Palabras reservadas en Ruby
 # Aporte de Cristhian 
@@ -35,7 +35,8 @@ reserved = {
     'in': 'IN',
     'alias': 'ALIAS',
     'defined?': 'DEFINED',
-    'puts': 'PUTS'
+    'puts': 'PUTS',
+    'gets': 'GETS'
 }
 
 # Definición de los tokens 
@@ -76,6 +77,7 @@ tokens = (
     'VARIABLE_GLOBAL',       # Variables globales
     'VARIABLE_INSTANCIA',    # Variables de instancia
     'VARIABLE_CLASE',        # Variables de clase
+    'COLON'                  # Dos puntos ':'
 ) + tuple(reserved.values())
 
 # Expresiones regulares para los delimitadores
@@ -87,6 +89,7 @@ t_LBRACE = r'\{'
 t_RBRACE = r'\}'
 t_COMMA = r','
 t_SEMICOLON = r';'
+t_COLON = r':'
 
 # Expresiones regulares para los comentarios #aporte de Jose Miguel Delgado
 t_ignore_SINGLE_LINE_COMMENT = r'\#.*'  # Comentarios de una sola línea (empieza con '#')
@@ -142,7 +145,7 @@ t_VARIABLE_CLASE = r'@@[a-zA-Z_][a-zA-Z0-9_]*'
 
 # Aporte de Cristhian: Regla para palabras reservadas en Ruby
 def t_RESERVED(t):
-    r'\b(if|else|elsif|unless|case|when|while|until|for|break|next|redo|retry|def|class|module|end|self|yield|return|super|true|false|nil|begin|rescue|ensure|do|in|alias|defined\?|puts)\b'
+    r'\b(if|else|elsif|unless|case|when|while|until|for|break|next|redo|retry|def|class|module|end|self|yield|return|super|true|false|nil|begin|rescue|ensure|do|in|alias|defined\?|puts|gets)\b'
     t.type = reserved.get(t.value, 'ID')  # Cambia el tipo de token si es una palabra reservada
     return t
 
@@ -172,7 +175,7 @@ lexer.input(data)
 
 ### JULIO GUERRERO
 # Tokenizar y mostrar los tokens
-with open(file_path_write, "a", encoding="utf-8") as f:
+with open(file_path_write_lex, "a", encoding="utf-8") as f:
     while True:
         tok = lexer.token()
         if not tok:

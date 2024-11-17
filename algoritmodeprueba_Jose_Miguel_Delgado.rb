@@ -16,3 +16,12 @@ def multiplicar(a, b)
   
   # Impresion del resultado
   puts "El resultado de la multiplicacion es #{resultado}"  
+
+  var = gets
+
+  options = { font_size: "10px", font_family: "Arial" }
+
+  mi_variable = "Soy una variable local"
+  puts $mi_variable_global
+  @nombre = nombre  # Variable de instancia
+  @@cantidad_personas = 0

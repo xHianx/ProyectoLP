@@ -1,6 +1,6 @@
 import ply.yacc as yacc
 from proyectolp import tokens
-from nombresarchivos import file_path_read, file_path_write
+from nombresarchivos import file_path_read, file_path_write_sint
 
 # Reglas de precedencia
 precedence = (
@@ -29,6 +29,13 @@ def p_statement(p):
                 | expression'''
     p[0] = p[1]
 
+def p_variable(p):
+    '''variable : VARIABLE_LOCAL
+                | VARIABLE_GLOBAL
+                | VARIABLE_INSTANCIA
+                | VARIABLE_CLASE'''
+    p[0] = p[1]
+
 def p_function_def(p):
     '''function_def : DEF VARIABLE_LOCAL LPAREN param_list RPAREN expression END'''
     p[0] = ('function_def', p[2], p[4], p[6])
@@ -43,25 +50,29 @@ def p_param_list(p):
         p[0] = [p[1]] if p[1] else []
 
 def p_assignment(p):
-    '''assignment : VARIABLE_LOCAL ASSIGNATION expression'''
+    '''assignment : variable ASSIGNATION expression'''
     p[0] = ('assignment', p[1], p[3])
 
 def p_if_statement(p):
     '''if_statement : IF expression statement_list END'''
     p[0] = ('if', p[2], p[3])
 
+## JULIO GUERRERO
 def p_puts_statement(p):
-    '''puts_statement : PUTS expression'''
+    '''puts_statement : PUTS arg_list'''
     p[0] = ('puts', p[2])
 
+## JULIO GUERRERO 
 def p_expression(p):
     '''expression : INTEGER
                  | STRING
-                 | VARIABLE_LOCAL
+                 | variable
                  | array
                  | array_access
                  | function_call
-                 | binary_operation'''
+                 | binary_operation
+                 | GETS
+                 | hash'''
     p[0] = p[1]
 
 def p_array(p):
@@ -79,6 +90,27 @@ def p_array_elements(p):
 def p_array_access(p):
     '''array_access : VARIABLE_LOCAL LBRACKET INTEGER RBRACKET'''
     p[0] = ('array_access', p[1], p[3])
+
+def p_hash(p):
+    '''hash : LBRACE hash_elements RBRACE'''
+    p[0] = ('hash', p[2])
+
+def p_hash_elements(p):
+    '''hash_elements : hash_element
+                     | hash_element COMMA hash_elements
+                     | empty'''
+    if len(p) == 2:
+        if p[1] is None:
+            p[0] = {}
+        else:
+            p[0] = {p[1][0]: p[1][1]}
+    else:
+        p[0] = {p[1][0]: p[1][1]}
+        p[0].update(p[3])
+
+def p_hash_element(p):
+    '''hash_element : VARIABLE_LOCAL COLON STRING'''
+    p[0] = (p[1], p[3])
 
 def p_function_call(p):
     '''function_call : VARIABLE_LOCAL LPAREN arg_list RPAREN'''
@@ -111,6 +143,7 @@ def p_error(p):
 # Construir el analizador sintáctico
 parser = yacc.yacc()
 
+## JULIO GUERRERO 
 # Proceso de análisis
 def analyze_file(file_path_r, file_path_w):
     try:
@@ -130,4 +163,4 @@ def analyze_file(file_path_r, file_path_w):
         return
 
 
-analyze_file(file_path_read, file_path_write)
+analyze_file(file_path_read, file_path_write_sint)

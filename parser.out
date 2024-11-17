@@ -24,7 +24,6 @@ Unused terminals:
     HASH
     IN
     INCREMENT
-    LBRACE
     MINUS
     MODULE
     MULTI_LINE_COMMENT
@@ -35,7 +34,6 @@ Unused terminals:
     OR
     PLUS
     POWER
-    RBRACE
     REDO
     RESCUE
     RETRY
@@ -49,9 +47,6 @@ Unused terminals:
     TRUE
     UNLESS
     UNTIL
-    VARIABLE_CLASE
-    VARIABLE_GLOBAL
-    VARIABLE_INSTANCIA
     WHEN
     WHILE
     YIELD
@@ -67,66 +62,79 @@ Rule 5     statement -> assignment
 Rule 6     statement -> if_statement
 Rule 7     statement -> puts_statement
 Rule 8     statement -> expression
-Rule 9     function_def -> DEF VARIABLE_LOCAL LPAREN param_list RPAREN expression END
-Rule 10    param_list -> VARIABLE_LOCAL COMMA VARIABLE_LOCAL
-Rule 11    param_list -> VARIABLE_LOCAL
-Rule 12    param_list -> empty
-Rule 13    assignment -> VARIABLE_LOCAL ASSIGNATION expression
-Rule 14    if_statement -> IF expression statement_list END
-Rule 15    puts_statement -> PUTS expression
-Rule 16    expression -> INTEGER
-Rule 17    expression -> STRING
-Rule 18    expression -> VARIABLE_LOCAL
-Rule 19    expression -> array
-Rule 20    expression -> array_access
-Rule 21    expression -> function_call
-Rule 22    expression -> binary_operation
-Rule 23    array -> LBRACKET array_elements RBRACKET
-Rule 24    array_elements -> INTEGER
-Rule 25    array_elements -> INTEGER COMMA array_elements
-Rule 26    array_access -> VARIABLE_LOCAL LBRACKET INTEGER RBRACKET
-Rule 27    function_call -> VARIABLE_LOCAL LPAREN arg_list RPAREN
-Rule 28    arg_list -> expression
-Rule 29    arg_list -> expression COMMA arg_list
-Rule 30    arg_list -> empty
-Rule 31    binary_operation -> expression TIMES expression
-Rule 32    binary_operation -> expression BIGGER expression
-Rule 33    empty -> <empty>
+Rule 9     variable -> VARIABLE_LOCAL
+Rule 10    variable -> VARIABLE_GLOBAL
+Rule 11    variable -> VARIABLE_INSTANCIA
+Rule 12    variable -> VARIABLE_CLASE
+Rule 13    function_def -> DEF VARIABLE_LOCAL LPAREN param_list RPAREN expression END
+Rule 14    param_list -> VARIABLE_LOCAL COMMA VARIABLE_LOCAL
+Rule 15    param_list -> VARIABLE_LOCAL
+Rule 16    param_list -> empty
+Rule 17    assignment -> variable ASSIGNATION expression
+Rule 18    if_statement -> IF expression statement_list END
+Rule 19    puts_statement -> PUTS arg_list
+Rule 20    expression -> INTEGER
+Rule 21    expression -> STRING
+Rule 22    expression -> variable
+Rule 23    expression -> array
+Rule 24    expression -> array_access
+Rule 25    expression -> function_call
+Rule 26    expression -> binary_operation
+Rule 27    expression -> GETS
+Rule 28    expression -> hash
+Rule 29    array -> LBRACKET array_elements RBRACKET
+Rule 30    array_elements -> INTEGER
+Rule 31    array_elements -> INTEGER COMMA array_elements
+Rule 32    array_access -> VARIABLE_LOCAL LBRACKET INTEGER RBRACKET
+Rule 33    hash -> LBRACE hash_elements RBRACE
+Rule 34    hash_elements -> hash_element
+Rule 35    hash_elements -> hash_element COMMA hash_elements
+Rule 36    hash_elements -> empty
+Rule 37    hash_element -> VARIABLE_LOCAL COLON STRING
+Rule 38    function_call -> VARIABLE_LOCAL LPAREN arg_list RPAREN
+Rule 39    arg_list -> expression
+Rule 40    arg_list -> expression COMMA arg_list
+Rule 41    arg_list -> empty
+Rule 42    binary_operation -> expression TIMES expression
+Rule 43    binary_operation -> expression BIGGER expression
+Rule 44    empty -> <empty>
 
 Terminals, with rules where they appear
 
 ALIAS                : 
 AND                  : 
 ARRAY                : 
-ASSIGNATION          : 13
+ASSIGNATION          : 17
 BEGIN                : 
-BIGGER               : 32
+BIGGER               : 43
 BIGGEREQUAL          : 
 BREAK                : 
 CASE                 : 
 CLASS                : 
-COMMA                : 10 25 29
+COLON                : 37
+COMMA                : 14 31 35 40
 DECREMENT            : 
-DEF                  : 9
+DEF                  : 13
 DEFINED              : 
 DIVIDE               : 
 DO                   : 
 ELSE                 : 
 ELSIF                : 
-END                  : 9 14
+END                  : 13 18
 ENSURE               : 
 EQUAL                : 
 FALSE                : 
 FLOAT                : 
 FOR                  : 
+GETS                 : 27
 HASH                 : 
-IF                   : 14
+IF                   : 18
 IN                   : 
 INCREMENT            : 
-INTEGER              : 16 24 25 26
-LBRACE               : 
-LBRACKET             : 23 26
-LPAREN               : 9 27
+INTEGER              : 20 30 31 32
+LBRACE               : 33
+LBRACKET             : 29 32
+LPAREN               : 13 38
 MINUS                : 
 MODULE               : 
 MULTI_LINE_COMMENT   : 
@@ -137,29 +145,29 @@ NOTEQUAL             :
 OR                   : 
 PLUS                 : 
 POWER                : 
-PUTS                 : 15
-RBRACE               : 
-RBRACKET             : 23 26
+PUTS                 : 19
+RBRACE               : 33
+RBRACKET             : 29 32
 REDO                 : 
 RESCUE               : 
 RETRY                : 
 RETURN               : 
-RPAREN               : 9 27
+RPAREN               : 13 38
 SELF                 : 
 SEMICOLON            : 
 SINGLE_LINE_COMMENT  : 
 SMALLER              : 
 SMALLEREQUAL         : 
-STRING               : 17
+STRING               : 21 37
 SUPER                : 
-TIMES                : 31
+TIMES                : 42
 TRUE                 : 
 UNLESS               : 
 UNTIL                : 
-VARIABLE_CLASE       : 
-VARIABLE_GLOBAL      : 
-VARIABLE_INSTANCIA   : 
-VARIABLE_LOCAL       : 9 10 10 11 13 18 26 27
+VARIABLE_CLASE       : 12
+VARIABLE_GLOBAL      : 10
+VARIABLE_INSTANCIA   : 11
+VARIABLE_LOCAL       : 9 13 14 14 15 32 37 38
 WHEN                 : 
 WHILE                : 
 YIELD                : 
@@ -167,22 +175,26 @@ error                :
 
 Nonterminals, with rules where they appear
 
-arg_list             : 27 29
-array                : 19
-array_access         : 20
-array_elements       : 23 25
+arg_list             : 19 38 40
+array                : 23
+array_access         : 24
+array_elements       : 29 31
 assignment           : 5
-binary_operation     : 22
-empty                : 12 30
-expression           : 8 9 13 14 15 28 29 31 31 32 32
-function_call        : 21
+binary_operation     : 26
+empty                : 16 36 41
+expression           : 8 13 17 18 39 40 42 42 43 43
+function_call        : 25
 function_def         : 4
+hash                 : 28
+hash_element         : 34 35
+hash_elements        : 33 35
 if_statement         : 6
-param_list           : 9
+param_list           : 13
 program              : 0
 puts_statement       : 7
 statement            : 2 3
-statement_list       : 1 3 14
+statement_list       : 1 3 18
+variable             : 17 22
 
 Parsing method: LALR
 
@@ -197,30 +209,42 @@ state 0
     (6) statement -> . if_statement
     (7) statement -> . puts_statement
     (8) statement -> . expression
-    (9) function_def -> . DEF VARIABLE_LOCAL LPAREN param_list RPAREN expression END
-    (13) assignment -> . VARIABLE_LOCAL ASSIGNATION expression
-    (14) if_statement -> . IF expression statement_list END
-    (15) puts_statement -> . PUTS expression
-    (16) expression -> . INTEGER
-    (17) expression -> . STRING
-    (18) expression -> . VARIABLE_LOCAL
-    (19) expression -> . array
-    (20) expression -> . array_access
-    (21) expression -> . function_call
-    (22) expression -> . binary_operation
-    (23) array -> . LBRACKET array_elements RBRACKET
-    (26) array_access -> . VARIABLE_LOCAL LBRACKET INTEGER RBRACKET
-    (27) function_call -> . VARIABLE_LOCAL LPAREN arg_list RPAREN
-    (31) binary_operation -> . expression TIMES expression
-    (32) binary_operation -> . expression BIGGER expression
+    (13) function_def -> . DEF VARIABLE_LOCAL LPAREN param_list RPAREN expression END
+    (17) assignment -> . variable ASSIGNATION expression
+    (18) if_statement -> . IF expression statement_list END
+    (19) puts_statement -> . PUTS arg_list
+    (20) expression -> . INTEGER
+    (21) expression -> . STRING
+    (22) expression -> . variable
+    (23) expression -> . array
+    (24) expression -> . array_access
+    (25) expression -> . function_call
+    (26) expression -> . binary_operation
+    (27) expression -> . GETS
+    (28) expression -> . hash
+    (9) variable -> . VARIABLE_LOCAL
+    (10) variable -> . VARIABLE_GLOBAL
+    (11) variable -> . VARIABLE_INSTANCIA
+    (12) variable -> . VARIABLE_CLASE
+    (29) array -> . LBRACKET array_elements RBRACKET
+    (32) array_access -> . VARIABLE_LOCAL LBRACKET INTEGER RBRACKET
+    (38) function_call -> . VARIABLE_LOCAL LPAREN arg_list RPAREN
+    (42) binary_operation -> . expression TIMES expression
+    (43) binary_operation -> . expression BIGGER expression
+    (33) hash -> . LBRACE hash_elements RBRACE
 
     DEF             shift and go to state 9
+    IF              shift and go to state 12
+    PUTS            shift and go to state 13
+    INTEGER         shift and go to state 14
+    STRING          shift and go to state 15
+    GETS            shift and go to state 20
     VARIABLE_LOCAL  shift and go to state 10
-    IF              shift and go to state 11
-    PUTS            shift and go to state 12
-    INTEGER         shift and go to state 13
-    STRING          shift and go to state 14
-    LBRACKET        shift and go to state 19
+    VARIABLE_GLOBAL shift and go to state 22
+    VARIABLE_INSTANCIA shift and go to state 23
+    VARIABLE_CLASE  shift and go to state 24
+    LBRACKET        shift and go to state 25
+    LBRACE          shift and go to state 26
 
     program                        shift and go to state 1
     statement_list                 shift and go to state 2
@@ -230,10 +254,12 @@ state 0
     if_statement                   shift and go to state 6
     puts_statement                 shift and go to state 7
     expression                     shift and go to state 8
-    array                          shift and go to state 15
-    array_access                   shift and go to state 16
-    function_call                  shift and go to state 17
-    binary_operation               shift and go to state 18
+    variable                       shift and go to state 11
+    array                          shift and go to state 16
+    array_access                   shift and go to state 17
+    function_call                  shift and go to state 18
+    binary_operation               shift and go to state 19
+    hash                           shift and go to state 21
 
 state 1
 
@@ -259,56 +285,75 @@ state 3
     (6) statement -> . if_statement
     (7) statement -> . puts_statement
     (8) statement -> . expression
-    (9) function_def -> . DEF VARIABLE_LOCAL LPAREN param_list RPAREN expression END
-    (13) assignment -> . VARIABLE_LOCAL ASSIGNATION expression
-    (14) if_statement -> . IF expression statement_list END
-    (15) puts_statement -> . PUTS expression
-    (16) expression -> . INTEGER
-    (17) expression -> . STRING
-    (18) expression -> . VARIABLE_LOCAL
-    (19) expression -> . array
-    (20) expression -> . array_access
-    (21) expression -> . function_call
-    (22) expression -> . binary_operation
-    (23) array -> . LBRACKET array_elements RBRACKET
-    (26) array_access -> . VARIABLE_LOCAL LBRACKET INTEGER RBRACKET
-    (27) function_call -> . VARIABLE_LOCAL LPAREN arg_list RPAREN
-    (31) binary_operation -> . expression TIMES expression
-    (32) binary_operation -> . expression BIGGER expression
+    (13) function_def -> . DEF VARIABLE_LOCAL LPAREN param_list RPAREN expression END
+    (17) assignment -> . variable ASSIGNATION expression
+    (18) if_statement -> . IF expression statement_list END
+    (19) puts_statement -> . PUTS arg_list
+    (20) expression -> . INTEGER
+    (21) expression -> . STRING
+    (22) expression -> . variable
+    (23) expression -> . array
+    (24) expression -> . array_access
+    (25) expression -> . function_call
+    (26) expression -> . binary_operation
+    (27) expression -> . GETS
+    (28) expression -> . hash
+    (9) variable -> . VARIABLE_LOCAL
+    (10) variable -> . VARIABLE_GLOBAL
+    (11) variable -> . VARIABLE_INSTANCIA
+    (12) variable -> . VARIABLE_CLASE
+    (29) array -> . LBRACKET array_elements RBRACKET
+    (32) array_access -> . VARIABLE_LOCAL LBRACKET INTEGER RBRACKET
+    (38) function_call -> . VARIABLE_LOCAL LPAREN arg_list RPAREN
+    (42) binary_operation -> . expression TIMES expression
+    (43) binary_operation -> . expression BIGGER expression
+    (33) hash -> . LBRACE hash_elements RBRACE
 
     $end            reduce using rule 2 (statement_list -> statement .)
     END             reduce using rule 2 (statement_list -> statement .)
     DEF             shift and go to state 9
+    IF              shift and go to state 12
+    PUTS            shift and go to state 13
+    INTEGER         shift and go to state 14
+    STRING          shift and go to state 15
+    GETS            shift and go to state 20
     VARIABLE_LOCAL  shift and go to state 10
-    IF              shift and go to state 11
-    PUTS            shift and go to state 12
-    INTEGER         shift and go to state 13
-    STRING          shift and go to state 14
-    LBRACKET        shift and go to state 19
+    VARIABLE_GLOBAL shift and go to state 22
+    VARIABLE_INSTANCIA shift and go to state 23
+    VARIABLE_CLASE  shift and go to state 24
+    LBRACKET        shift and go to state 25
+    LBRACE          shift and go to state 26
 
     statement                      shift and go to state 3
-    statement_list                 shift and go to state 20
+    statement_list                 shift and go to state 27
     function_def                   shift and go to state 4
     assignment                     shift and go to state 5
     if_statement                   shift and go to state 6
     puts_statement                 shift and go to state 7
     expression                     shift and go to state 8
-    array                          shift and go to state 15
-    array_access                   shift and go to state 16
-    function_call                  shift and go to state 17
-    binary_operation               shift and go to state 18
+    variable                       shift and go to state 11
+    array                          shift and go to state 16
+    array_access                   shift and go to state 17
+    function_call                  shift and go to state 18
+    binary_operation               shift and go to state 19
+    hash                           shift and go to state 21
 
 state 4
 
     (4) statement -> function_def .
 
     DEF             reduce using rule 4 (statement -> function_def .)
-    VARIABLE_LOCAL  reduce using rule 4 (statement -> function_def .)
     IF              reduce using rule 4 (statement -> function_def .)
     PUTS            reduce using rule 4 (statement -> function_def .)
     INTEGER         reduce using rule 4 (statement -> function_def .)
     STRING          reduce using rule 4 (statement -> function_def .)
+    GETS            reduce using rule 4 (statement -> function_def .)
+    VARIABLE_LOCAL  reduce using rule 4 (statement -> function_def .)
+    VARIABLE_GLOBAL reduce using rule 4 (statement -> function_def .)
+    VARIABLE_INSTANCIA reduce using rule 4 (statement -> function_def .)
+    VARIABLE_CLASE  reduce using rule 4 (statement -> function_def .)
     LBRACKET        reduce using rule 4 (statement -> function_def .)
+    LBRACE          reduce using rule 4 (statement -> function_def .)
     $end            reduce using rule 4 (statement -> function_def .)
     END             reduce using rule 4 (statement -> function_def .)
 
@@ -318,12 +363,17 @@ state 5
     (5) statement -> assignment .
 
     DEF             reduce using rule 5 (statement -> assignment .)
-    VARIABLE_LOCAL  reduce using rule 5 (statement -> assignment .)
     IF              reduce using rule 5 (statement -> assignment .)
     PUTS            reduce using rule 5 (statement -> assignment .)
     INTEGER         reduce using rule 5 (statement -> assignment .)
     STRING          reduce using rule 5 (statement -> assignment .)
+    GETS            reduce using rule 5 (statement -> assignment .)
+    VARIABLE_LOCAL  reduce using rule 5 (statement -> assignment .)
+    VARIABLE_GLOBAL reduce using rule 5 (statement -> assignment .)
+    VARIABLE_INSTANCIA reduce using rule 5 (statement -> assignment .)
+    VARIABLE_CLASE  reduce using rule 5 (statement -> assignment .)
     LBRACKET        reduce using rule 5 (statement -> assignment .)
+    LBRACE          reduce using rule 5 (statement -> assignment .)
     $end            reduce using rule 5 (statement -> assignment .)
     END             reduce using rule 5 (statement -> assignment .)
 
@@ -333,12 +383,17 @@ state 6
     (6) statement -> if_statement .
 
     DEF             reduce using rule 6 (statement -> if_statement .)
-    VARIABLE_LOCAL  reduce using rule 6 (statement -> if_statement .)
     IF              reduce using rule 6 (statement -> if_statement .)
     PUTS            reduce using rule 6 (statement -> if_statement .)
     INTEGER         reduce using rule 6 (statement -> if_statement .)
     STRING          reduce using rule 6 (statement -> if_statement .)
+    GETS            reduce using rule 6 (statement -> if_statement .)
+    VARIABLE_LOCAL  reduce using rule 6 (statement -> if_statement .)
+    VARIABLE_GLOBAL reduce using rule 6 (statement -> if_statement .)
+    VARIABLE_INSTANCIA reduce using rule 6 (statement -> if_statement .)
+    VARIABLE_CLASE  reduce using rule 6 (statement -> if_statement .)
     LBRACKET        reduce using rule 6 (statement -> if_statement .)
+    LBRACE          reduce using rule 6 (statement -> if_statement .)
     $end            reduce using rule 6 (statement -> if_statement .)
     END             reduce using rule 6 (statement -> if_statement .)
 
@@ -348,12 +403,17 @@ state 7
     (7) statement -> puts_statement .
 
     DEF             reduce using rule 7 (statement -> puts_statement .)
-    VARIABLE_LOCAL  reduce using rule 7 (statement -> puts_statement .)
     IF              reduce using rule 7 (statement -> puts_statement .)
     PUTS            reduce using rule 7 (statement -> puts_statement .)
     INTEGER         reduce using rule 7 (statement -> puts_statement .)
     STRING          reduce using rule 7 (statement -> puts_statement .)
+    GETS            reduce using rule 7 (statement -> puts_statement .)
+    VARIABLE_LOCAL  reduce using rule 7 (statement -> puts_statement .)
+    VARIABLE_GLOBAL reduce using rule 7 (statement -> puts_statement .)
+    VARIABLE_INSTANCIA reduce using rule 7 (statement -> puts_statement .)
+    VARIABLE_CLASE  reduce using rule 7 (statement -> puts_statement .)
     LBRACKET        reduce using rule 7 (statement -> puts_statement .)
+    LBRACE          reduce using rule 7 (statement -> puts_statement .)
     $end            reduce using rule 7 (statement -> puts_statement .)
     END             reduce using rule 7 (statement -> puts_statement .)
 
@@ -361,233 +421,495 @@ state 7
 state 8
 
     (8) statement -> expression .
-    (31) binary_operation -> expression . TIMES expression
-    (32) binary_operation -> expression . BIGGER expression
+    (42) binary_operation -> expression . TIMES expression
+    (43) binary_operation -> expression . BIGGER expression
 
     DEF             reduce using rule 8 (statement -> expression .)
-    VARIABLE_LOCAL  reduce using rule 8 (statement -> expression .)
     IF              reduce using rule 8 (statement -> expression .)
     PUTS            reduce using rule 8 (statement -> expression .)
     INTEGER         reduce using rule 8 (statement -> expression .)
     STRING          reduce using rule 8 (statement -> expression .)
+    GETS            reduce using rule 8 (statement -> expression .)
+    VARIABLE_LOCAL  reduce using rule 8 (statement -> expression .)
+    VARIABLE_GLOBAL reduce using rule 8 (statement -> expression .)
+    VARIABLE_INSTANCIA reduce using rule 8 (statement -> expression .)
+    VARIABLE_CLASE  reduce using rule 8 (statement -> expression .)
     LBRACKET        reduce using rule 8 (statement -> expression .)
+    LBRACE          reduce using rule 8 (statement -> expression .)
     $end            reduce using rule 8 (statement -> expression .)
     END             reduce using rule 8 (statement -> expression .)
-    TIMES           shift and go to state 21
-    BIGGER          shift and go to state 22
+    TIMES           shift and go to state 28
+    BIGGER          shift and go to state 29
 
 
 state 9
 
-    (9) function_def -> DEF . VARIABLE_LOCAL LPAREN param_list RPAREN expression END
+    (13) function_def -> DEF . VARIABLE_LOCAL LPAREN param_list RPAREN expression END
 
-    VARIABLE_LOCAL  shift and go to state 23
+    VARIABLE_LOCAL  shift and go to state 30
 
 
 state 10
 
-    (13) assignment -> VARIABLE_LOCAL . ASSIGNATION expression
-    (18) expression -> VARIABLE_LOCAL .
-    (26) array_access -> VARIABLE_LOCAL . LBRACKET INTEGER RBRACKET
-    (27) function_call -> VARIABLE_LOCAL . LPAREN arg_list RPAREN
+    (9) variable -> VARIABLE_LOCAL .
+    (32) array_access -> VARIABLE_LOCAL . LBRACKET INTEGER RBRACKET
+    (38) function_call -> VARIABLE_LOCAL . LPAREN arg_list RPAREN
 
   ! shift/reduce conflict for LBRACKET resolved as shift
-    ASSIGNATION     shift and go to state 24
-    TIMES           reduce using rule 18 (expression -> VARIABLE_LOCAL .)
-    BIGGER          reduce using rule 18 (expression -> VARIABLE_LOCAL .)
-    DEF             reduce using rule 18 (expression -> VARIABLE_LOCAL .)
-    VARIABLE_LOCAL  reduce using rule 18 (expression -> VARIABLE_LOCAL .)
-    IF              reduce using rule 18 (expression -> VARIABLE_LOCAL .)
-    PUTS            reduce using rule 18 (expression -> VARIABLE_LOCAL .)
-    INTEGER         reduce using rule 18 (expression -> VARIABLE_LOCAL .)
-    STRING          reduce using rule 18 (expression -> VARIABLE_LOCAL .)
-    $end            reduce using rule 18 (expression -> VARIABLE_LOCAL .)
-    END             reduce using rule 18 (expression -> VARIABLE_LOCAL .)
-    LBRACKET        shift and go to state 25
-    LPAREN          shift and go to state 26
+    ASSIGNATION     reduce using rule 9 (variable -> VARIABLE_LOCAL .)
+    TIMES           reduce using rule 9 (variable -> VARIABLE_LOCAL .)
+    BIGGER          reduce using rule 9 (variable -> VARIABLE_LOCAL .)
+    DEF             reduce using rule 9 (variable -> VARIABLE_LOCAL .)
+    IF              reduce using rule 9 (variable -> VARIABLE_LOCAL .)
+    PUTS            reduce using rule 9 (variable -> VARIABLE_LOCAL .)
+    INTEGER         reduce using rule 9 (variable -> VARIABLE_LOCAL .)
+    STRING          reduce using rule 9 (variable -> VARIABLE_LOCAL .)
+    GETS            reduce using rule 9 (variable -> VARIABLE_LOCAL .)
+    VARIABLE_LOCAL  reduce using rule 9 (variable -> VARIABLE_LOCAL .)
+    VARIABLE_GLOBAL reduce using rule 9 (variable -> VARIABLE_LOCAL .)
+    VARIABLE_INSTANCIA reduce using rule 9 (variable -> VARIABLE_LOCAL .)
+    VARIABLE_CLASE  reduce using rule 9 (variable -> VARIABLE_LOCAL .)
+    LBRACE          reduce using rule 9 (variable -> VARIABLE_LOCAL .)
+    $end            reduce using rule 9 (variable -> VARIABLE_LOCAL .)
+    END             reduce using rule 9 (variable -> VARIABLE_LOCAL .)
+    COMMA           reduce using rule 9 (variable -> VARIABLE_LOCAL .)
+    RPAREN          reduce using rule 9 (variable -> VARIABLE_LOCAL .)
+    LBRACKET        shift and go to state 31
+    LPAREN          shift and go to state 32
 
-  ! LBRACKET        [ reduce using rule 18 (expression -> VARIABLE_LOCAL .) ]
+  ! LBRACKET        [ reduce using rule 9 (variable -> VARIABLE_LOCAL .) ]
 
 
 state 11
 
-    (14) if_statement -> IF . expression statement_list END
-    (16) expression -> . INTEGER
-    (17) expression -> . STRING
-    (18) expression -> . VARIABLE_LOCAL
-    (19) expression -> . array
-    (20) expression -> . array_access
-    (21) expression -> . function_call
-    (22) expression -> . binary_operation
-    (23) array -> . LBRACKET array_elements RBRACKET
-    (26) array_access -> . VARIABLE_LOCAL LBRACKET INTEGER RBRACKET
-    (27) function_call -> . VARIABLE_LOCAL LPAREN arg_list RPAREN
-    (31) binary_operation -> . expression TIMES expression
-    (32) binary_operation -> . expression BIGGER expression
+    (17) assignment -> variable . ASSIGNATION expression
+    (22) expression -> variable .
 
-    INTEGER         shift and go to state 13
-    STRING          shift and go to state 14
-    VARIABLE_LOCAL  shift and go to state 28
-    LBRACKET        shift and go to state 19
+    ASSIGNATION     shift and go to state 33
+    TIMES           reduce using rule 22 (expression -> variable .)
+    BIGGER          reduce using rule 22 (expression -> variable .)
+    DEF             reduce using rule 22 (expression -> variable .)
+    IF              reduce using rule 22 (expression -> variable .)
+    PUTS            reduce using rule 22 (expression -> variable .)
+    INTEGER         reduce using rule 22 (expression -> variable .)
+    STRING          reduce using rule 22 (expression -> variable .)
+    GETS            reduce using rule 22 (expression -> variable .)
+    VARIABLE_LOCAL  reduce using rule 22 (expression -> variable .)
+    VARIABLE_GLOBAL reduce using rule 22 (expression -> variable .)
+    VARIABLE_INSTANCIA reduce using rule 22 (expression -> variable .)
+    VARIABLE_CLASE  reduce using rule 22 (expression -> variable .)
+    LBRACKET        reduce using rule 22 (expression -> variable .)
+    LBRACE          reduce using rule 22 (expression -> variable .)
+    $end            reduce using rule 22 (expression -> variable .)
+    END             reduce using rule 22 (expression -> variable .)
 
-    expression                     shift and go to state 27
-    array                          shift and go to state 15
-    array_access                   shift and go to state 16
-    function_call                  shift and go to state 17
-    binary_operation               shift and go to state 18
 
 state 12
 
-    (15) puts_statement -> PUTS . expression
-    (16) expression -> . INTEGER
-    (17) expression -> . STRING
-    (18) expression -> . VARIABLE_LOCAL
-    (19) expression -> . array
-    (20) expression -> . array_access
-    (21) expression -> . function_call
-    (22) expression -> . binary_operation
-    (23) array -> . LBRACKET array_elements RBRACKET
-    (26) array_access -> . VARIABLE_LOCAL LBRACKET INTEGER RBRACKET
-    (27) function_call -> . VARIABLE_LOCAL LPAREN arg_list RPAREN
-    (31) binary_operation -> . expression TIMES expression
-    (32) binary_operation -> . expression BIGGER expression
+    (18) if_statement -> IF . expression statement_list END
+    (20) expression -> . INTEGER
+    (21) expression -> . STRING
+    (22) expression -> . variable
+    (23) expression -> . array
+    (24) expression -> . array_access
+    (25) expression -> . function_call
+    (26) expression -> . binary_operation
+    (27) expression -> . GETS
+    (28) expression -> . hash
+    (9) variable -> . VARIABLE_LOCAL
+    (10) variable -> . VARIABLE_GLOBAL
+    (11) variable -> . VARIABLE_INSTANCIA
+    (12) variable -> . VARIABLE_CLASE
+    (29) array -> . LBRACKET array_elements RBRACKET
+    (32) array_access -> . VARIABLE_LOCAL LBRACKET INTEGER RBRACKET
+    (38) function_call -> . VARIABLE_LOCAL LPAREN arg_list RPAREN
+    (42) binary_operation -> . expression TIMES expression
+    (43) binary_operation -> . expression BIGGER expression
+    (33) hash -> . LBRACE hash_elements RBRACE
 
-    INTEGER         shift and go to state 13
-    STRING          shift and go to state 14
-    VARIABLE_LOCAL  shift and go to state 28
-    LBRACKET        shift and go to state 19
+    INTEGER         shift and go to state 14
+    STRING          shift and go to state 15
+    GETS            shift and go to state 20
+    VARIABLE_LOCAL  shift and go to state 10
+    VARIABLE_GLOBAL shift and go to state 22
+    VARIABLE_INSTANCIA shift and go to state 23
+    VARIABLE_CLASE  shift and go to state 24
+    LBRACKET        shift and go to state 25
+    LBRACE          shift and go to state 26
 
-    expression                     shift and go to state 29
-    array                          shift and go to state 15
-    array_access                   shift and go to state 16
-    function_call                  shift and go to state 17
-    binary_operation               shift and go to state 18
+    expression                     shift and go to state 34
+    variable                       shift and go to state 35
+    array                          shift and go to state 16
+    array_access                   shift and go to state 17
+    function_call                  shift and go to state 18
+    binary_operation               shift and go to state 19
+    hash                           shift and go to state 21
 
 state 13
 
-    (16) expression -> INTEGER .
+    (19) puts_statement -> PUTS . arg_list
+    (39) arg_list -> . expression
+    (40) arg_list -> . expression COMMA arg_list
+    (41) arg_list -> . empty
+    (20) expression -> . INTEGER
+    (21) expression -> . STRING
+    (22) expression -> . variable
+    (23) expression -> . array
+    (24) expression -> . array_access
+    (25) expression -> . function_call
+    (26) expression -> . binary_operation
+    (27) expression -> . GETS
+    (28) expression -> . hash
+    (44) empty -> .
+    (9) variable -> . VARIABLE_LOCAL
+    (10) variable -> . VARIABLE_GLOBAL
+    (11) variable -> . VARIABLE_INSTANCIA
+    (12) variable -> . VARIABLE_CLASE
+    (29) array -> . LBRACKET array_elements RBRACKET
+    (32) array_access -> . VARIABLE_LOCAL LBRACKET INTEGER RBRACKET
+    (38) function_call -> . VARIABLE_LOCAL LPAREN arg_list RPAREN
+    (42) binary_operation -> . expression TIMES expression
+    (43) binary_operation -> . expression BIGGER expression
+    (33) hash -> . LBRACE hash_elements RBRACE
 
-    TIMES           reduce using rule 16 (expression -> INTEGER .)
-    BIGGER          reduce using rule 16 (expression -> INTEGER .)
-    DEF             reduce using rule 16 (expression -> INTEGER .)
-    VARIABLE_LOCAL  reduce using rule 16 (expression -> INTEGER .)
-    IF              reduce using rule 16 (expression -> INTEGER .)
-    PUTS            reduce using rule 16 (expression -> INTEGER .)
-    INTEGER         reduce using rule 16 (expression -> INTEGER .)
-    STRING          reduce using rule 16 (expression -> INTEGER .)
-    LBRACKET        reduce using rule 16 (expression -> INTEGER .)
-    $end            reduce using rule 16 (expression -> INTEGER .)
-    END             reduce using rule 16 (expression -> INTEGER .)
-    COMMA           reduce using rule 16 (expression -> INTEGER .)
-    RPAREN          reduce using rule 16 (expression -> INTEGER .)
+  ! shift/reduce conflict for INTEGER resolved as shift
+  ! shift/reduce conflict for STRING resolved as shift
+  ! shift/reduce conflict for GETS resolved as shift
+  ! shift/reduce conflict for VARIABLE_LOCAL resolved as shift
+  ! shift/reduce conflict for VARIABLE_GLOBAL resolved as shift
+  ! shift/reduce conflict for VARIABLE_INSTANCIA resolved as shift
+  ! shift/reduce conflict for VARIABLE_CLASE resolved as shift
+  ! shift/reduce conflict for LBRACKET resolved as shift
+  ! shift/reduce conflict for LBRACE resolved as shift
+    INTEGER         shift and go to state 14
+    STRING          shift and go to state 15
+    GETS            shift and go to state 20
+    DEF             reduce using rule 44 (empty -> .)
+    IF              reduce using rule 44 (empty -> .)
+    PUTS            reduce using rule 44 (empty -> .)
+    $end            reduce using rule 44 (empty -> .)
+    END             reduce using rule 44 (empty -> .)
+    VARIABLE_LOCAL  shift and go to state 10
+    VARIABLE_GLOBAL shift and go to state 22
+    VARIABLE_INSTANCIA shift and go to state 23
+    VARIABLE_CLASE  shift and go to state 24
+    LBRACKET        shift and go to state 25
+    LBRACE          shift and go to state 26
 
+  ! INTEGER         [ reduce using rule 44 (empty -> .) ]
+  ! STRING          [ reduce using rule 44 (empty -> .) ]
+  ! GETS            [ reduce using rule 44 (empty -> .) ]
+  ! VARIABLE_LOCAL  [ reduce using rule 44 (empty -> .) ]
+  ! VARIABLE_GLOBAL [ reduce using rule 44 (empty -> .) ]
+  ! VARIABLE_INSTANCIA [ reduce using rule 44 (empty -> .) ]
+  ! VARIABLE_CLASE  [ reduce using rule 44 (empty -> .) ]
+  ! LBRACKET        [ reduce using rule 44 (empty -> .) ]
+  ! LBRACE          [ reduce using rule 44 (empty -> .) ]
+
+    arg_list                       shift and go to state 36
+    expression                     shift and go to state 37
+    empty                          shift and go to state 38
+    variable                       shift and go to state 35
+    array                          shift and go to state 16
+    array_access                   shift and go to state 17
+    function_call                  shift and go to state 18
+    binary_operation               shift and go to state 19
+    hash                           shift and go to state 21
 
 state 14
 
-    (17) expression -> STRING .
+    (20) expression -> INTEGER .
 
-    TIMES           reduce using rule 17 (expression -> STRING .)
-    BIGGER          reduce using rule 17 (expression -> STRING .)
-    DEF             reduce using rule 17 (expression -> STRING .)
-    VARIABLE_LOCAL  reduce using rule 17 (expression -> STRING .)
-    IF              reduce using rule 17 (expression -> STRING .)
-    PUTS            reduce using rule 17 (expression -> STRING .)
-    INTEGER         reduce using rule 17 (expression -> STRING .)
-    STRING          reduce using rule 17 (expression -> STRING .)
-    LBRACKET        reduce using rule 17 (expression -> STRING .)
-    $end            reduce using rule 17 (expression -> STRING .)
-    END             reduce using rule 17 (expression -> STRING .)
-    COMMA           reduce using rule 17 (expression -> STRING .)
-    RPAREN          reduce using rule 17 (expression -> STRING .)
+    TIMES           reduce using rule 20 (expression -> INTEGER .)
+    BIGGER          reduce using rule 20 (expression -> INTEGER .)
+    DEF             reduce using rule 20 (expression -> INTEGER .)
+    IF              reduce using rule 20 (expression -> INTEGER .)
+    PUTS            reduce using rule 20 (expression -> INTEGER .)
+    INTEGER         reduce using rule 20 (expression -> INTEGER .)
+    STRING          reduce using rule 20 (expression -> INTEGER .)
+    GETS            reduce using rule 20 (expression -> INTEGER .)
+    VARIABLE_LOCAL  reduce using rule 20 (expression -> INTEGER .)
+    VARIABLE_GLOBAL reduce using rule 20 (expression -> INTEGER .)
+    VARIABLE_INSTANCIA reduce using rule 20 (expression -> INTEGER .)
+    VARIABLE_CLASE  reduce using rule 20 (expression -> INTEGER .)
+    LBRACKET        reduce using rule 20 (expression -> INTEGER .)
+    LBRACE          reduce using rule 20 (expression -> INTEGER .)
+    $end            reduce using rule 20 (expression -> INTEGER .)
+    END             reduce using rule 20 (expression -> INTEGER .)
+    COMMA           reduce using rule 20 (expression -> INTEGER .)
+    RPAREN          reduce using rule 20 (expression -> INTEGER .)
 
 
 state 15
 
-    (19) expression -> array .
+    (21) expression -> STRING .
 
-    TIMES           reduce using rule 19 (expression -> array .)
-    BIGGER          reduce using rule 19 (expression -> array .)
-    DEF             reduce using rule 19 (expression -> array .)
-    VARIABLE_LOCAL  reduce using rule 19 (expression -> array .)
-    IF              reduce using rule 19 (expression -> array .)
-    PUTS            reduce using rule 19 (expression -> array .)
-    INTEGER         reduce using rule 19 (expression -> array .)
-    STRING          reduce using rule 19 (expression -> array .)
-    LBRACKET        reduce using rule 19 (expression -> array .)
-    $end            reduce using rule 19 (expression -> array .)
-    END             reduce using rule 19 (expression -> array .)
-    COMMA           reduce using rule 19 (expression -> array .)
-    RPAREN          reduce using rule 19 (expression -> array .)
+    TIMES           reduce using rule 21 (expression -> STRING .)
+    BIGGER          reduce using rule 21 (expression -> STRING .)
+    DEF             reduce using rule 21 (expression -> STRING .)
+    IF              reduce using rule 21 (expression -> STRING .)
+    PUTS            reduce using rule 21 (expression -> STRING .)
+    INTEGER         reduce using rule 21 (expression -> STRING .)
+    STRING          reduce using rule 21 (expression -> STRING .)
+    GETS            reduce using rule 21 (expression -> STRING .)
+    VARIABLE_LOCAL  reduce using rule 21 (expression -> STRING .)
+    VARIABLE_GLOBAL reduce using rule 21 (expression -> STRING .)
+    VARIABLE_INSTANCIA reduce using rule 21 (expression -> STRING .)
+    VARIABLE_CLASE  reduce using rule 21 (expression -> STRING .)
+    LBRACKET        reduce using rule 21 (expression -> STRING .)
+    LBRACE          reduce using rule 21 (expression -> STRING .)
+    $end            reduce using rule 21 (expression -> STRING .)
+    END             reduce using rule 21 (expression -> STRING .)
+    COMMA           reduce using rule 21 (expression -> STRING .)
+    RPAREN          reduce using rule 21 (expression -> STRING .)
 
 
 state 16
 
-    (20) expression -> array_access .
+    (23) expression -> array .
 
-    TIMES           reduce using rule 20 (expression -> array_access .)
-    BIGGER          reduce using rule 20 (expression -> array_access .)
-    DEF             reduce using rule 20 (expression -> array_access .)
-    VARIABLE_LOCAL  reduce using rule 20 (expression -> array_access .)
-    IF              reduce using rule 20 (expression -> array_access .)
-    PUTS            reduce using rule 20 (expression -> array_access .)
-    INTEGER         reduce using rule 20 (expression -> array_access .)
-    STRING          reduce using rule 20 (expression -> array_access .)
-    LBRACKET        reduce using rule 20 (expression -> array_access .)
-    $end            reduce using rule 20 (expression -> array_access .)
-    END             reduce using rule 20 (expression -> array_access .)
-    COMMA           reduce using rule 20 (expression -> array_access .)
-    RPAREN          reduce using rule 20 (expression -> array_access .)
+    TIMES           reduce using rule 23 (expression -> array .)
+    BIGGER          reduce using rule 23 (expression -> array .)
+    DEF             reduce using rule 23 (expression -> array .)
+    IF              reduce using rule 23 (expression -> array .)
+    PUTS            reduce using rule 23 (expression -> array .)
+    INTEGER         reduce using rule 23 (expression -> array .)
+    STRING          reduce using rule 23 (expression -> array .)
+    GETS            reduce using rule 23 (expression -> array .)
+    VARIABLE_LOCAL  reduce using rule 23 (expression -> array .)
+    VARIABLE_GLOBAL reduce using rule 23 (expression -> array .)
+    VARIABLE_INSTANCIA reduce using rule 23 (expression -> array .)
+    VARIABLE_CLASE  reduce using rule 23 (expression -> array .)
+    LBRACKET        reduce using rule 23 (expression -> array .)
+    LBRACE          reduce using rule 23 (expression -> array .)
+    $end            reduce using rule 23 (expression -> array .)
+    END             reduce using rule 23 (expression -> array .)
+    COMMA           reduce using rule 23 (expression -> array .)
+    RPAREN          reduce using rule 23 (expression -> array .)
 
 
 state 17
 
-    (21) expression -> function_call .
+    (24) expression -> array_access .
 
-    TIMES           reduce using rule 21 (expression -> function_call .)
-    BIGGER          reduce using rule 21 (expression -> function_call .)
-    DEF             reduce using rule 21 (expression -> function_call .)
-    VARIABLE_LOCAL  reduce using rule 21 (expression -> function_call .)
-    IF              reduce using rule 21 (expression -> function_call .)
-    PUTS            reduce using rule 21 (expression -> function_call .)
-    INTEGER         reduce using rule 21 (expression -> function_call .)
-    STRING          reduce using rule 21 (expression -> function_call .)
-    LBRACKET        reduce using rule 21 (expression -> function_call .)
-    $end            reduce using rule 21 (expression -> function_call .)
-    END             reduce using rule 21 (expression -> function_call .)
-    COMMA           reduce using rule 21 (expression -> function_call .)
-    RPAREN          reduce using rule 21 (expression -> function_call .)
+    TIMES           reduce using rule 24 (expression -> array_access .)
+    BIGGER          reduce using rule 24 (expression -> array_access .)
+    DEF             reduce using rule 24 (expression -> array_access .)
+    IF              reduce using rule 24 (expression -> array_access .)
+    PUTS            reduce using rule 24 (expression -> array_access .)
+    INTEGER         reduce using rule 24 (expression -> array_access .)
+    STRING          reduce using rule 24 (expression -> array_access .)
+    GETS            reduce using rule 24 (expression -> array_access .)
+    VARIABLE_LOCAL  reduce using rule 24 (expression -> array_access .)
+    VARIABLE_GLOBAL reduce using rule 24 (expression -> array_access .)
+    VARIABLE_INSTANCIA reduce using rule 24 (expression -> array_access .)
+    VARIABLE_CLASE  reduce using rule 24 (expression -> array_access .)
+    LBRACKET        reduce using rule 24 (expression -> array_access .)
+    LBRACE          reduce using rule 24 (expression -> array_access .)
+    $end            reduce using rule 24 (expression -> array_access .)
+    END             reduce using rule 24 (expression -> array_access .)
+    COMMA           reduce using rule 24 (expression -> array_access .)
+    RPAREN          reduce using rule 24 (expression -> array_access .)
 
 
 state 18
 
-    (22) expression -> binary_operation .
+    (25) expression -> function_call .
 
-    TIMES           reduce using rule 22 (expression -> binary_operation .)
-    BIGGER          reduce using rule 22 (expression -> binary_operation .)
-    DEF             reduce using rule 22 (expression -> binary_operation .)
-    VARIABLE_LOCAL  reduce using rule 22 (expression -> binary_operation .)
-    IF              reduce using rule 22 (expression -> binary_operation .)
-    PUTS            reduce using rule 22 (expression -> binary_operation .)
-    INTEGER         reduce using rule 22 (expression -> binary_operation .)
-    STRING          reduce using rule 22 (expression -> binary_operation .)
-    LBRACKET        reduce using rule 22 (expression -> binary_operation .)
-    $end            reduce using rule 22 (expression -> binary_operation .)
-    END             reduce using rule 22 (expression -> binary_operation .)
-    COMMA           reduce using rule 22 (expression -> binary_operation .)
-    RPAREN          reduce using rule 22 (expression -> binary_operation .)
+    TIMES           reduce using rule 25 (expression -> function_call .)
+    BIGGER          reduce using rule 25 (expression -> function_call .)
+    DEF             reduce using rule 25 (expression -> function_call .)
+    IF              reduce using rule 25 (expression -> function_call .)
+    PUTS            reduce using rule 25 (expression -> function_call .)
+    INTEGER         reduce using rule 25 (expression -> function_call .)
+    STRING          reduce using rule 25 (expression -> function_call .)
+    GETS            reduce using rule 25 (expression -> function_call .)
+    VARIABLE_LOCAL  reduce using rule 25 (expression -> function_call .)
+    VARIABLE_GLOBAL reduce using rule 25 (expression -> function_call .)
+    VARIABLE_INSTANCIA reduce using rule 25 (expression -> function_call .)
+    VARIABLE_CLASE  reduce using rule 25 (expression -> function_call .)
+    LBRACKET        reduce using rule 25 (expression -> function_call .)
+    LBRACE          reduce using rule 25 (expression -> function_call .)
+    $end            reduce using rule 25 (expression -> function_call .)
+    END             reduce using rule 25 (expression -> function_call .)
+    COMMA           reduce using rule 25 (expression -> function_call .)
+    RPAREN          reduce using rule 25 (expression -> function_call .)
 
 
 state 19
 
-    (23) array -> LBRACKET . array_elements RBRACKET
-    (24) array_elements -> . INTEGER
-    (25) array_elements -> . INTEGER COMMA array_elements
+    (26) expression -> binary_operation .
 
-    INTEGER         shift and go to state 31
+    TIMES           reduce using rule 26 (expression -> binary_operation .)
+    BIGGER          reduce using rule 26 (expression -> binary_operation .)
+    DEF             reduce using rule 26 (expression -> binary_operation .)
+    IF              reduce using rule 26 (expression -> binary_operation .)
+    PUTS            reduce using rule 26 (expression -> binary_operation .)
+    INTEGER         reduce using rule 26 (expression -> binary_operation .)
+    STRING          reduce using rule 26 (expression -> binary_operation .)
+    GETS            reduce using rule 26 (expression -> binary_operation .)
+    VARIABLE_LOCAL  reduce using rule 26 (expression -> binary_operation .)
+    VARIABLE_GLOBAL reduce using rule 26 (expression -> binary_operation .)
+    VARIABLE_INSTANCIA reduce using rule 26 (expression -> binary_operation .)
+    VARIABLE_CLASE  reduce using rule 26 (expression -> binary_operation .)
+    LBRACKET        reduce using rule 26 (expression -> binary_operation .)
+    LBRACE          reduce using rule 26 (expression -> binary_operation .)
+    $end            reduce using rule 26 (expression -> binary_operation .)
+    END             reduce using rule 26 (expression -> binary_operation .)
+    COMMA           reduce using rule 26 (expression -> binary_operation .)
+    RPAREN          reduce using rule 26 (expression -> binary_operation .)
 
-    array_elements                 shift and go to state 30
 
 state 20
+
+    (27) expression -> GETS .
+
+    TIMES           reduce using rule 27 (expression -> GETS .)
+    BIGGER          reduce using rule 27 (expression -> GETS .)
+    DEF             reduce using rule 27 (expression -> GETS .)
+    IF              reduce using rule 27 (expression -> GETS .)
+    PUTS            reduce using rule 27 (expression -> GETS .)
+    INTEGER         reduce using rule 27 (expression -> GETS .)
+    STRING          reduce using rule 27 (expression -> GETS .)
+    GETS            reduce using rule 27 (expression -> GETS .)
+    VARIABLE_LOCAL  reduce using rule 27 (expression -> GETS .)
+    VARIABLE_GLOBAL reduce using rule 27 (expression -> GETS .)
+    VARIABLE_INSTANCIA reduce using rule 27 (expression -> GETS .)
+    VARIABLE_CLASE  reduce using rule 27 (expression -> GETS .)
+    LBRACKET        reduce using rule 27 (expression -> GETS .)
+    LBRACE          reduce using rule 27 (expression -> GETS .)
+    $end            reduce using rule 27 (expression -> GETS .)
+    END             reduce using rule 27 (expression -> GETS .)
+    COMMA           reduce using rule 27 (expression -> GETS .)
+    RPAREN          reduce using rule 27 (expression -> GETS .)
+
+
+state 21
+
+    (28) expression -> hash .
+
+    TIMES           reduce using rule 28 (expression -> hash .)
+    BIGGER          reduce using rule 28 (expression -> hash .)
+    DEF             reduce using rule 28 (expression -> hash .)
+    IF              reduce using rule 28 (expression -> hash .)
+    PUTS            reduce using rule 28 (expression -> hash .)
+    INTEGER         reduce using rule 28 (expression -> hash .)
+    STRING          reduce using rule 28 (expression -> hash .)
+    GETS            reduce using rule 28 (expression -> hash .)
+    VARIABLE_LOCAL  reduce using rule 28 (expression -> hash .)
+    VARIABLE_GLOBAL reduce using rule 28 (expression -> hash .)
+    VARIABLE_INSTANCIA reduce using rule 28 (expression -> hash .)
+    VARIABLE_CLASE  reduce using rule 28 (expression -> hash .)
+    LBRACKET        reduce using rule 28 (expression -> hash .)
+    LBRACE          reduce using rule 28 (expression -> hash .)
+    $end            reduce using rule 28 (expression -> hash .)
+    END             reduce using rule 28 (expression -> hash .)
+    COMMA           reduce using rule 28 (expression -> hash .)
+    RPAREN          reduce using rule 28 (expression -> hash .)
+
+
+state 22
+
+    (10) variable -> VARIABLE_GLOBAL .
+
+    ASSIGNATION     reduce using rule 10 (variable -> VARIABLE_GLOBAL .)
+    TIMES           reduce using rule 10 (variable -> VARIABLE_GLOBAL .)
+    BIGGER          reduce using rule 10 (variable -> VARIABLE_GLOBAL .)
+    DEF             reduce using rule 10 (variable -> VARIABLE_GLOBAL .)
+    IF              reduce using rule 10 (variable -> VARIABLE_GLOBAL .)
+    PUTS            reduce using rule 10 (variable -> VARIABLE_GLOBAL .)
+    INTEGER         reduce using rule 10 (variable -> VARIABLE_GLOBAL .)
+    STRING          reduce using rule 10 (variable -> VARIABLE_GLOBAL .)
+    GETS            reduce using rule 10 (variable -> VARIABLE_GLOBAL .)
+    VARIABLE_LOCAL  reduce using rule 10 (variable -> VARIABLE_GLOBAL .)
+    VARIABLE_GLOBAL reduce using rule 10 (variable -> VARIABLE_GLOBAL .)
+    VARIABLE_INSTANCIA reduce using rule 10 (variable -> VARIABLE_GLOBAL .)
+    VARIABLE_CLASE  reduce using rule 10 (variable -> VARIABLE_GLOBAL .)
+    LBRACKET        reduce using rule 10 (variable -> VARIABLE_GLOBAL .)
+    LBRACE          reduce using rule 10 (variable -> VARIABLE_GLOBAL .)
+    $end            reduce using rule 10 (variable -> VARIABLE_GLOBAL .)
+    END             reduce using rule 10 (variable -> VARIABLE_GLOBAL .)
+    COMMA           reduce using rule 10 (variable -> VARIABLE_GLOBAL .)
+    RPAREN          reduce using rule 10 (variable -> VARIABLE_GLOBAL .)
+
+
+state 23
+
+    (11) variable -> VARIABLE_INSTANCIA .
+
+    ASSIGNATION     reduce using rule 11 (variable -> VARIABLE_INSTANCIA .)
+    TIMES           reduce using rule 11 (variable -> VARIABLE_INSTANCIA .)
+    BIGGER          reduce using rule 11 (variable -> VARIABLE_INSTANCIA .)
+    DEF             reduce using rule 11 (variable -> VARIABLE_INSTANCIA .)
+    IF              reduce using rule 11 (variable -> VARIABLE_INSTANCIA .)
+    PUTS            reduce using rule 11 (variable -> VARIABLE_INSTANCIA .)
+    INTEGER         reduce using rule 11 (variable -> VARIABLE_INSTANCIA .)
+    STRING          reduce using rule 11 (variable -> VARIABLE_INSTANCIA .)
+    GETS            reduce using rule 11 (variable -> VARIABLE_INSTANCIA .)
+    VARIABLE_LOCAL  reduce using rule 11 (variable -> VARIABLE_INSTANCIA .)
+    VARIABLE_GLOBAL reduce using rule 11 (variable -> VARIABLE_INSTANCIA .)
+    VARIABLE_INSTANCIA reduce using rule 11 (variable -> VARIABLE_INSTANCIA .)
+    VARIABLE_CLASE  reduce using rule 11 (variable -> VARIABLE_INSTANCIA .)
+    LBRACKET        reduce using rule 11 (variable -> VARIABLE_INSTANCIA .)
+    LBRACE          reduce using rule 11 (variable -> VARIABLE_INSTANCIA .)
+    $end            reduce using rule 11 (variable -> VARIABLE_INSTANCIA .)
+    END             reduce using rule 11 (variable -> VARIABLE_INSTANCIA .)
+    COMMA           reduce using rule 11 (variable -> VARIABLE_INSTANCIA .)
+    RPAREN          reduce using rule 11 (variable -> VARIABLE_INSTANCIA .)
+
+
+state 24
+
+    (12) variable -> VARIABLE_CLASE .
+
+    ASSIGNATION     reduce using rule 12 (variable -> VARIABLE_CLASE .)
+    TIMES           reduce using rule 12 (variable -> VARIABLE_CLASE .)
+    BIGGER          reduce using rule 12 (variable -> VARIABLE_CLASE .)
+    DEF             reduce using rule 12 (variable -> VARIABLE_CLASE .)
+    IF              reduce using rule 12 (variable -> VARIABLE_CLASE .)
+    PUTS            reduce using rule 12 (variable -> VARIABLE_CLASE .)
+    INTEGER         reduce using rule 12 (variable -> VARIABLE_CLASE .)
+    STRING          reduce using rule 12 (variable -> VARIABLE_CLASE .)
+    GETS            reduce using rule 12 (variable -> VARIABLE_CLASE .)
+    VARIABLE_LOCAL  reduce using rule 12 (variable -> VARIABLE_CLASE .)
+    VARIABLE_GLOBAL reduce using rule 12 (variable -> VARIABLE_CLASE .)
+    VARIABLE_INSTANCIA reduce using rule 12 (variable -> VARIABLE_CLASE .)
+    VARIABLE_CLASE  reduce using rule 12 (variable -> VARIABLE_CLASE .)
+    LBRACKET        reduce using rule 12 (variable -> VARIABLE_CLASE .)
+    LBRACE          reduce using rule 12 (variable -> VARIABLE_CLASE .)
+    $end            reduce using rule 12 (variable -> VARIABLE_CLASE .)
+    END             reduce using rule 12 (variable -> VARIABLE_CLASE .)
+    COMMA           reduce using rule 12 (variable -> VARIABLE_CLASE .)
+    RPAREN          reduce using rule 12 (variable -> VARIABLE_CLASE .)
+
+
+state 25
+
+    (29) array -> LBRACKET . array_elements RBRACKET
+    (30) array_elements -> . INTEGER
+    (31) array_elements -> . INTEGER COMMA array_elements
+
+    INTEGER         shift and go to state 40
+
+    array_elements                 shift and go to state 39
+
+state 26
+
+    (33) hash -> LBRACE . hash_elements RBRACE
+    (34) hash_elements -> . hash_element
+    (35) hash_elements -> . hash_element COMMA hash_elements
+    (36) hash_elements -> . empty
+    (37) hash_element -> . VARIABLE_LOCAL COLON STRING
+    (44) empty -> .
+
+    VARIABLE_LOCAL  shift and go to state 44
+    RBRACE          reduce using rule 44 (empty -> .)
+
+    hash_elements                  shift and go to state 41
+    hash_element                   shift and go to state 42
+    empty                          shift and go to state 43
+
+state 27
 
     (3) statement_list -> statement statement_list .
 
@@ -595,140 +917,196 @@ state 20
     END             reduce using rule 3 (statement_list -> statement statement_list .)
 
 
-state 21
+state 28
 
-    (31) binary_operation -> expression TIMES . expression
-    (16) expression -> . INTEGER
-    (17) expression -> . STRING
-    (18) expression -> . VARIABLE_LOCAL
-    (19) expression -> . array
-    (20) expression -> . array_access
-    (21) expression -> . function_call
-    (22) expression -> . binary_operation
-    (23) array -> . LBRACKET array_elements RBRACKET
-    (26) array_access -> . VARIABLE_LOCAL LBRACKET INTEGER RBRACKET
-    (27) function_call -> . VARIABLE_LOCAL LPAREN arg_list RPAREN
-    (31) binary_operation -> . expression TIMES expression
-    (32) binary_operation -> . expression BIGGER expression
+    (42) binary_operation -> expression TIMES . expression
+    (20) expression -> . INTEGER
+    (21) expression -> . STRING
+    (22) expression -> . variable
+    (23) expression -> . array
+    (24) expression -> . array_access
+    (25) expression -> . function_call
+    (26) expression -> . binary_operation
+    (27) expression -> . GETS
+    (28) expression -> . hash
+    (9) variable -> . VARIABLE_LOCAL
+    (10) variable -> . VARIABLE_GLOBAL
+    (11) variable -> . VARIABLE_INSTANCIA
+    (12) variable -> . VARIABLE_CLASE
+    (29) array -> . LBRACKET array_elements RBRACKET
+    (32) array_access -> . VARIABLE_LOCAL LBRACKET INTEGER RBRACKET
+    (38) function_call -> . VARIABLE_LOCAL LPAREN arg_list RPAREN
+    (42) binary_operation -> . expression TIMES expression
+    (43) binary_operation -> . expression BIGGER expression
+    (33) hash -> . LBRACE hash_elements RBRACE
 
-    INTEGER         shift and go to state 13
-    STRING          shift and go to state 14
-    VARIABLE_LOCAL  shift and go to state 28
-    LBRACKET        shift and go to state 19
+    INTEGER         shift and go to state 14
+    STRING          shift and go to state 15
+    GETS            shift and go to state 20
+    VARIABLE_LOCAL  shift and go to state 10
+    VARIABLE_GLOBAL shift and go to state 22
+    VARIABLE_INSTANCIA shift and go to state 23
+    VARIABLE_CLASE  shift and go to state 24
+    LBRACKET        shift and go to state 25
+    LBRACE          shift and go to state 26
 
-    expression                     shift and go to state 32
-    array                          shift and go to state 15
-    array_access                   shift and go to state 16
-    function_call                  shift and go to state 17
-    binary_operation               shift and go to state 18
+    expression                     shift and go to state 45
+    variable                       shift and go to state 35
+    array                          shift and go to state 16
+    array_access                   shift and go to state 17
+    function_call                  shift and go to state 18
+    binary_operation               shift and go to state 19
+    hash                           shift and go to state 21
 
-state 22
+state 29
 
-    (32) binary_operation -> expression BIGGER . expression
-    (16) expression -> . INTEGER
-    (17) expression -> . STRING
-    (18) expression -> . VARIABLE_LOCAL
-    (19) expression -> . array
-    (20) expression -> . array_access
-    (21) expression -> . function_call
-    (22) expression -> . binary_operation
-    (23) array -> . LBRACKET array_elements RBRACKET
-    (26) array_access -> . VARIABLE_LOCAL LBRACKET INTEGER RBRACKET
-    (27) function_call -> . VARIABLE_LOCAL LPAREN arg_list RPAREN
-    (31) binary_operation -> . expression TIMES expression
-    (32) binary_operation -> . expression BIGGER expression
+    (43) binary_operation -> expression BIGGER . expression
+    (20) expression -> . INTEGER
+    (21) expression -> . STRING
+    (22) expression -> . variable
+    (23) expression -> . array
+    (24) expression -> . array_access
+    (25) expression -> . function_call
+    (26) expression -> . binary_operation
+    (27) expression -> . GETS
+    (28) expression -> . hash
+    (9) variable -> . VARIABLE_LOCAL
+    (10) variable -> . VARIABLE_GLOBAL
+    (11) variable -> . VARIABLE_INSTANCIA
+    (12) variable -> . VARIABLE_CLASE
+    (29) array -> . LBRACKET array_elements RBRACKET
+    (32) array_access -> . VARIABLE_LOCAL LBRACKET INTEGER RBRACKET
+    (38) function_call -> . VARIABLE_LOCAL LPAREN arg_list RPAREN
+    (42) binary_operation -> . expression TIMES expression
+    (43) binary_operation -> . expression BIGGER expression
+    (33) hash -> . LBRACE hash_elements RBRACE
 
-    INTEGER         shift and go to state 13
-    STRING          shift and go to state 14
-    VARIABLE_LOCAL  shift and go to state 28
-    LBRACKET        shift and go to state 19
+    INTEGER         shift and go to state 14
+    STRING          shift and go to state 15
+    GETS            shift and go to state 20
+    VARIABLE_LOCAL  shift and go to state 10
+    VARIABLE_GLOBAL shift and go to state 22
+    VARIABLE_INSTANCIA shift and go to state 23
+    VARIABLE_CLASE  shift and go to state 24
+    LBRACKET        shift and go to state 25
+    LBRACE          shift and go to state 26
 
-    expression                     shift and go to state 33
-    array                          shift and go to state 15
-    array_access                   shift and go to state 16
-    function_call                  shift and go to state 17
-    binary_operation               shift and go to state 18
+    expression                     shift and go to state 46
+    variable                       shift and go to state 35
+    array                          shift and go to state 16
+    array_access                   shift and go to state 17
+    function_call                  shift and go to state 18
+    binary_operation               shift and go to state 19
+    hash                           shift and go to state 21
 
-state 23
+state 30
 
-    (9) function_def -> DEF VARIABLE_LOCAL . LPAREN param_list RPAREN expression END
+    (13) function_def -> DEF VARIABLE_LOCAL . LPAREN param_list RPAREN expression END
 
-    LPAREN          shift and go to state 34
-
-
-state 24
-
-    (13) assignment -> VARIABLE_LOCAL ASSIGNATION . expression
-    (16) expression -> . INTEGER
-    (17) expression -> . STRING
-    (18) expression -> . VARIABLE_LOCAL
-    (19) expression -> . array
-    (20) expression -> . array_access
-    (21) expression -> . function_call
-    (22) expression -> . binary_operation
-    (23) array -> . LBRACKET array_elements RBRACKET
-    (26) array_access -> . VARIABLE_LOCAL LBRACKET INTEGER RBRACKET
-    (27) function_call -> . VARIABLE_LOCAL LPAREN arg_list RPAREN
-    (31) binary_operation -> . expression TIMES expression
-    (32) binary_operation -> . expression BIGGER expression
-
-    INTEGER         shift and go to state 13
-    STRING          shift and go to state 14
-    VARIABLE_LOCAL  shift and go to state 28
-    LBRACKET        shift and go to state 19
-
-    expression                     shift and go to state 35
-    array                          shift and go to state 15
-    array_access                   shift and go to state 16
-    function_call                  shift and go to state 17
-    binary_operation               shift and go to state 18
-
-state 25
-
-    (26) array_access -> VARIABLE_LOCAL LBRACKET . INTEGER RBRACKET
-
-    INTEGER         shift and go to state 36
+    LPAREN          shift and go to state 47
 
 
-state 26
+state 31
 
-    (27) function_call -> VARIABLE_LOCAL LPAREN . arg_list RPAREN
-    (28) arg_list -> . expression
-    (29) arg_list -> . expression COMMA arg_list
-    (30) arg_list -> . empty
-    (16) expression -> . INTEGER
-    (17) expression -> . STRING
-    (18) expression -> . VARIABLE_LOCAL
-    (19) expression -> . array
-    (20) expression -> . array_access
-    (21) expression -> . function_call
-    (22) expression -> . binary_operation
-    (33) empty -> .
-    (23) array -> . LBRACKET array_elements RBRACKET
-    (26) array_access -> . VARIABLE_LOCAL LBRACKET INTEGER RBRACKET
-    (27) function_call -> . VARIABLE_LOCAL LPAREN arg_list RPAREN
-    (31) binary_operation -> . expression TIMES expression
-    (32) binary_operation -> . expression BIGGER expression
+    (32) array_access -> VARIABLE_LOCAL LBRACKET . INTEGER RBRACKET
 
-    INTEGER         shift and go to state 13
-    STRING          shift and go to state 14
-    VARIABLE_LOCAL  shift and go to state 28
-    RPAREN          reduce using rule 33 (empty -> .)
-    LBRACKET        shift and go to state 19
+    INTEGER         shift and go to state 48
 
-    arg_list                       shift and go to state 37
-    expression                     shift and go to state 38
-    empty                          shift and go to state 39
-    array                          shift and go to state 15
-    array_access                   shift and go to state 16
-    function_call                  shift and go to state 17
-    binary_operation               shift and go to state 18
 
-state 27
+state 32
 
-    (14) if_statement -> IF expression . statement_list END
-    (31) binary_operation -> expression . TIMES expression
-    (32) binary_operation -> expression . BIGGER expression
+    (38) function_call -> VARIABLE_LOCAL LPAREN . arg_list RPAREN
+    (39) arg_list -> . expression
+    (40) arg_list -> . expression COMMA arg_list
+    (41) arg_list -> . empty
+    (20) expression -> . INTEGER
+    (21) expression -> . STRING
+    (22) expression -> . variable
+    (23) expression -> . array
+    (24) expression -> . array_access
+    (25) expression -> . function_call
+    (26) expression -> . binary_operation
+    (27) expression -> . GETS
+    (28) expression -> . hash
+    (44) empty -> .
+    (9) variable -> . VARIABLE_LOCAL
+    (10) variable -> . VARIABLE_GLOBAL
+    (11) variable -> . VARIABLE_INSTANCIA
+    (12) variable -> . VARIABLE_CLASE
+    (29) array -> . LBRACKET array_elements RBRACKET
+    (32) array_access -> . VARIABLE_LOCAL LBRACKET INTEGER RBRACKET
+    (38) function_call -> . VARIABLE_LOCAL LPAREN arg_list RPAREN
+    (42) binary_operation -> . expression TIMES expression
+    (43) binary_operation -> . expression BIGGER expression
+    (33) hash -> . LBRACE hash_elements RBRACE
+
+    INTEGER         shift and go to state 14
+    STRING          shift and go to state 15
+    GETS            shift and go to state 20
+    RPAREN          reduce using rule 44 (empty -> .)
+    VARIABLE_LOCAL  shift and go to state 10
+    VARIABLE_GLOBAL shift and go to state 22
+    VARIABLE_INSTANCIA shift and go to state 23
+    VARIABLE_CLASE  shift and go to state 24
+    LBRACKET        shift and go to state 25
+    LBRACE          shift and go to state 26
+
+    arg_list                       shift and go to state 49
+    expression                     shift and go to state 37
+    empty                          shift and go to state 38
+    variable                       shift and go to state 35
+    array                          shift and go to state 16
+    array_access                   shift and go to state 17
+    function_call                  shift and go to state 18
+    binary_operation               shift and go to state 19
+    hash                           shift and go to state 21
+
+state 33
+
+    (17) assignment -> variable ASSIGNATION . expression
+    (20) expression -> . INTEGER
+    (21) expression -> . STRING
+    (22) expression -> . variable
+    (23) expression -> . array
+    (24) expression -> . array_access
+    (25) expression -> . function_call
+    (26) expression -> . binary_operation
+    (27) expression -> . GETS
+    (28) expression -> . hash
+    (9) variable -> . VARIABLE_LOCAL
+    (10) variable -> . VARIABLE_GLOBAL
+    (11) variable -> . VARIABLE_INSTANCIA
+    (12) variable -> . VARIABLE_CLASE
+    (29) array -> . LBRACKET array_elements RBRACKET
+    (32) array_access -> . VARIABLE_LOCAL LBRACKET INTEGER RBRACKET
+    (38) function_call -> . VARIABLE_LOCAL LPAREN arg_list RPAREN
+    (42) binary_operation -> . expression TIMES expression
+    (43) binary_operation -> . expression BIGGER expression
+    (33) hash -> . LBRACE hash_elements RBRACE
+
+    INTEGER         shift and go to state 14
+    STRING          shift and go to state 15
+    GETS            shift and go to state 20
+    VARIABLE_LOCAL  shift and go to state 10
+    VARIABLE_GLOBAL shift and go to state 22
+    VARIABLE_INSTANCIA shift and go to state 23
+    VARIABLE_CLASE  shift and go to state 24
+    LBRACKET        shift and go to state 25
+    LBRACE          shift and go to state 26
+
+    variable                       shift and go to state 35
+    expression                     shift and go to state 50
+    array                          shift and go to state 16
+    array_access                   shift and go to state 17
+    function_call                  shift and go to state 18
+    binary_operation               shift and go to state 19
+    hash                           shift and go to state 21
+
+state 34
+
+    (18) if_statement -> IF expression . statement_list END
+    (42) binary_operation -> expression . TIMES expression
+    (43) binary_operation -> expression . BIGGER expression
     (2) statement_list -> . statement
     (3) statement_list -> . statement statement_list
     (4) statement -> . function_def
@@ -736,452 +1114,709 @@ state 27
     (6) statement -> . if_statement
     (7) statement -> . puts_statement
     (8) statement -> . expression
-    (9) function_def -> . DEF VARIABLE_LOCAL LPAREN param_list RPAREN expression END
-    (13) assignment -> . VARIABLE_LOCAL ASSIGNATION expression
-    (14) if_statement -> . IF expression statement_list END
-    (15) puts_statement -> . PUTS expression
-    (16) expression -> . INTEGER
-    (17) expression -> . STRING
-    (18) expression -> . VARIABLE_LOCAL
-    (19) expression -> . array
-    (20) expression -> . array_access
-    (21) expression -> . function_call
-    (22) expression -> . binary_operation
-    (23) array -> . LBRACKET array_elements RBRACKET
-    (26) array_access -> . VARIABLE_LOCAL LBRACKET INTEGER RBRACKET
-    (27) function_call -> . VARIABLE_LOCAL LPAREN arg_list RPAREN
-    (31) binary_operation -> . expression TIMES expression
-    (32) binary_operation -> . expression BIGGER expression
+    (13) function_def -> . DEF VARIABLE_LOCAL LPAREN param_list RPAREN expression END
+    (17) assignment -> . variable ASSIGNATION expression
+    (18) if_statement -> . IF expression statement_list END
+    (19) puts_statement -> . PUTS arg_list
+    (20) expression -> . INTEGER
+    (21) expression -> . STRING
+    (22) expression -> . variable
+    (23) expression -> . array
+    (24) expression -> . array_access
+    (25) expression -> . function_call
+    (26) expression -> . binary_operation
+    (27) expression -> . GETS
+    (28) expression -> . hash
+    (9) variable -> . VARIABLE_LOCAL
+    (10) variable -> . VARIABLE_GLOBAL
+    (11) variable -> . VARIABLE_INSTANCIA
+    (12) variable -> . VARIABLE_CLASE
+    (29) array -> . LBRACKET array_elements RBRACKET
+    (32) array_access -> . VARIABLE_LOCAL LBRACKET INTEGER RBRACKET
+    (38) function_call -> . VARIABLE_LOCAL LPAREN arg_list RPAREN
+    (42) binary_operation -> . expression TIMES expression
+    (43) binary_operation -> . expression BIGGER expression
+    (33) hash -> . LBRACE hash_elements RBRACE
 
-    TIMES           shift and go to state 21
-    BIGGER          shift and go to state 22
+    TIMES           shift and go to state 28
+    BIGGER          shift and go to state 29
     DEF             shift and go to state 9
+    IF              shift and go to state 12
+    PUTS            shift and go to state 13
+    INTEGER         shift and go to state 14
+    STRING          shift and go to state 15
+    GETS            shift and go to state 20
     VARIABLE_LOCAL  shift and go to state 10
-    IF              shift and go to state 11
-    PUTS            shift and go to state 12
-    INTEGER         shift and go to state 13
-    STRING          shift and go to state 14
-    LBRACKET        shift and go to state 19
+    VARIABLE_GLOBAL shift and go to state 22
+    VARIABLE_INSTANCIA shift and go to state 23
+    VARIABLE_CLASE  shift and go to state 24
+    LBRACKET        shift and go to state 25
+    LBRACE          shift and go to state 26
 
     expression                     shift and go to state 8
-    statement_list                 shift and go to state 40
+    statement_list                 shift and go to state 51
     statement                      shift and go to state 3
     function_def                   shift and go to state 4
     assignment                     shift and go to state 5
     if_statement                   shift and go to state 6
     puts_statement                 shift and go to state 7
-    array                          shift and go to state 15
-    array_access                   shift and go to state 16
-    function_call                  shift and go to state 17
-    binary_operation               shift and go to state 18
-
-state 28
-
-    (18) expression -> VARIABLE_LOCAL .
-    (26) array_access -> VARIABLE_LOCAL . LBRACKET INTEGER RBRACKET
-    (27) function_call -> VARIABLE_LOCAL . LPAREN arg_list RPAREN
-
-  ! shift/reduce conflict for LBRACKET resolved as shift
-    TIMES           reduce using rule 18 (expression -> VARIABLE_LOCAL .)
-    BIGGER          reduce using rule 18 (expression -> VARIABLE_LOCAL .)
-    DEF             reduce using rule 18 (expression -> VARIABLE_LOCAL .)
-    VARIABLE_LOCAL  reduce using rule 18 (expression -> VARIABLE_LOCAL .)
-    IF              reduce using rule 18 (expression -> VARIABLE_LOCAL .)
-    PUTS            reduce using rule 18 (expression -> VARIABLE_LOCAL .)
-    INTEGER         reduce using rule 18 (expression -> VARIABLE_LOCAL .)
-    STRING          reduce using rule 18 (expression -> VARIABLE_LOCAL .)
-    $end            reduce using rule 18 (expression -> VARIABLE_LOCAL .)
-    END             reduce using rule 18 (expression -> VARIABLE_LOCAL .)
-    COMMA           reduce using rule 18 (expression -> VARIABLE_LOCAL .)
-    RPAREN          reduce using rule 18 (expression -> VARIABLE_LOCAL .)
-    LBRACKET        shift and go to state 25
-    LPAREN          shift and go to state 26
-
-  ! LBRACKET        [ reduce using rule 18 (expression -> VARIABLE_LOCAL .) ]
-
-
-state 29
-
-    (15) puts_statement -> PUTS expression .
-    (31) binary_operation -> expression . TIMES expression
-    (32) binary_operation -> expression . BIGGER expression
-
-    DEF             reduce using rule 15 (puts_statement -> PUTS expression .)
-    VARIABLE_LOCAL  reduce using rule 15 (puts_statement -> PUTS expression .)
-    IF              reduce using rule 15 (puts_statement -> PUTS expression .)
-    PUTS            reduce using rule 15 (puts_statement -> PUTS expression .)
-    INTEGER         reduce using rule 15 (puts_statement -> PUTS expression .)
-    STRING          reduce using rule 15 (puts_statement -> PUTS expression .)
-    LBRACKET        reduce using rule 15 (puts_statement -> PUTS expression .)
-    $end            reduce using rule 15 (puts_statement -> PUTS expression .)
-    END             reduce using rule 15 (puts_statement -> PUTS expression .)
-    TIMES           shift and go to state 21
-    BIGGER          shift and go to state 22
-
-
-state 30
-
-    (23) array -> LBRACKET array_elements . RBRACKET
-
-    RBRACKET        shift and go to state 41
-
-
-state 31
-
-    (24) array_elements -> INTEGER .
-    (25) array_elements -> INTEGER . COMMA array_elements
-
-    RBRACKET        reduce using rule 24 (array_elements -> INTEGER .)
-    COMMA           shift and go to state 42
-
-
-state 32
-
-    (31) binary_operation -> expression TIMES expression .
-    (31) binary_operation -> expression . TIMES expression
-    (32) binary_operation -> expression . BIGGER expression
-
-    TIMES           reduce using rule 31 (binary_operation -> expression TIMES expression .)
-    BIGGER          reduce using rule 31 (binary_operation -> expression TIMES expression .)
-    DEF             reduce using rule 31 (binary_operation -> expression TIMES expression .)
-    VARIABLE_LOCAL  reduce using rule 31 (binary_operation -> expression TIMES expression .)
-    IF              reduce using rule 31 (binary_operation -> expression TIMES expression .)
-    PUTS            reduce using rule 31 (binary_operation -> expression TIMES expression .)
-    INTEGER         reduce using rule 31 (binary_operation -> expression TIMES expression .)
-    STRING          reduce using rule 31 (binary_operation -> expression TIMES expression .)
-    LBRACKET        reduce using rule 31 (binary_operation -> expression TIMES expression .)
-    $end            reduce using rule 31 (binary_operation -> expression TIMES expression .)
-    END             reduce using rule 31 (binary_operation -> expression TIMES expression .)
-    COMMA           reduce using rule 31 (binary_operation -> expression TIMES expression .)
-    RPAREN          reduce using rule 31 (binary_operation -> expression TIMES expression .)
-
-  ! TIMES           [ shift and go to state 21 ]
-  ! BIGGER          [ shift and go to state 22 ]
-
-
-state 33
-
-    (32) binary_operation -> expression BIGGER expression .
-    (31) binary_operation -> expression . TIMES expression
-    (32) binary_operation -> expression . BIGGER expression
-
-  ! shift/reduce conflict for TIMES resolved as shift
-  ! shift/reduce conflict for BIGGER resolved as shift
-    DEF             reduce using rule 32 (binary_operation -> expression BIGGER expression .)
-    VARIABLE_LOCAL  reduce using rule 32 (binary_operation -> expression BIGGER expression .)
-    IF              reduce using rule 32 (binary_operation -> expression BIGGER expression .)
-    PUTS            reduce using rule 32 (binary_operation -> expression BIGGER expression .)
-    INTEGER         reduce using rule 32 (binary_operation -> expression BIGGER expression .)
-    STRING          reduce using rule 32 (binary_operation -> expression BIGGER expression .)
-    LBRACKET        reduce using rule 32 (binary_operation -> expression BIGGER expression .)
-    $end            reduce using rule 32 (binary_operation -> expression BIGGER expression .)
-    END             reduce using rule 32 (binary_operation -> expression BIGGER expression .)
-    COMMA           reduce using rule 32 (binary_operation -> expression BIGGER expression .)
-    RPAREN          reduce using rule 32 (binary_operation -> expression BIGGER expression .)
-    TIMES           shift and go to state 21
-    BIGGER          shift and go to state 22
-
-  ! TIMES           [ reduce using rule 32 (binary_operation -> expression BIGGER expression .) ]
-  ! BIGGER          [ reduce using rule 32 (binary_operation -> expression BIGGER expression .) ]
-
-
-state 34
-
-    (9) function_def -> DEF VARIABLE_LOCAL LPAREN . param_list RPAREN expression END
-    (10) param_list -> . VARIABLE_LOCAL COMMA VARIABLE_LOCAL
-    (11) param_list -> . VARIABLE_LOCAL
-    (12) param_list -> . empty
-    (33) empty -> .
-
-    VARIABLE_LOCAL  shift and go to state 43
-    RPAREN          reduce using rule 33 (empty -> .)
-
-    param_list                     shift and go to state 44
-    empty                          shift and go to state 45
+    variable                       shift and go to state 11
+    array                          shift and go to state 16
+    array_access                   shift and go to state 17
+    function_call                  shift and go to state 18
+    binary_operation               shift and go to state 19
+    hash                           shift and go to state 21
 
 state 35
 
-    (13) assignment -> VARIABLE_LOCAL ASSIGNATION expression .
-    (31) binary_operation -> expression . TIMES expression
-    (32) binary_operation -> expression . BIGGER expression
+    (22) expression -> variable .
 
-    DEF             reduce using rule 13 (assignment -> VARIABLE_LOCAL ASSIGNATION expression .)
-    VARIABLE_LOCAL  reduce using rule 13 (assignment -> VARIABLE_LOCAL ASSIGNATION expression .)
-    IF              reduce using rule 13 (assignment -> VARIABLE_LOCAL ASSIGNATION expression .)
-    PUTS            reduce using rule 13 (assignment -> VARIABLE_LOCAL ASSIGNATION expression .)
-    INTEGER         reduce using rule 13 (assignment -> VARIABLE_LOCAL ASSIGNATION expression .)
-    STRING          reduce using rule 13 (assignment -> VARIABLE_LOCAL ASSIGNATION expression .)
-    LBRACKET        reduce using rule 13 (assignment -> VARIABLE_LOCAL ASSIGNATION expression .)
-    $end            reduce using rule 13 (assignment -> VARIABLE_LOCAL ASSIGNATION expression .)
-    END             reduce using rule 13 (assignment -> VARIABLE_LOCAL ASSIGNATION expression .)
-    TIMES           shift and go to state 21
-    BIGGER          shift and go to state 22
+    TIMES           reduce using rule 22 (expression -> variable .)
+    BIGGER          reduce using rule 22 (expression -> variable .)
+    DEF             reduce using rule 22 (expression -> variable .)
+    IF              reduce using rule 22 (expression -> variable .)
+    PUTS            reduce using rule 22 (expression -> variable .)
+    INTEGER         reduce using rule 22 (expression -> variable .)
+    STRING          reduce using rule 22 (expression -> variable .)
+    GETS            reduce using rule 22 (expression -> variable .)
+    VARIABLE_LOCAL  reduce using rule 22 (expression -> variable .)
+    VARIABLE_GLOBAL reduce using rule 22 (expression -> variable .)
+    VARIABLE_INSTANCIA reduce using rule 22 (expression -> variable .)
+    VARIABLE_CLASE  reduce using rule 22 (expression -> variable .)
+    LBRACKET        reduce using rule 22 (expression -> variable .)
+    LBRACE          reduce using rule 22 (expression -> variable .)
+    COMMA           reduce using rule 22 (expression -> variable .)
+    $end            reduce using rule 22 (expression -> variable .)
+    END             reduce using rule 22 (expression -> variable .)
+    RPAREN          reduce using rule 22 (expression -> variable .)
 
 
 state 36
 
-    (26) array_access -> VARIABLE_LOCAL LBRACKET INTEGER . RBRACKET
+    (19) puts_statement -> PUTS arg_list .
 
-    RBRACKET        shift and go to state 46
+    DEF             reduce using rule 19 (puts_statement -> PUTS arg_list .)
+    IF              reduce using rule 19 (puts_statement -> PUTS arg_list .)
+    PUTS            reduce using rule 19 (puts_statement -> PUTS arg_list .)
+    INTEGER         reduce using rule 19 (puts_statement -> PUTS arg_list .)
+    STRING          reduce using rule 19 (puts_statement -> PUTS arg_list .)
+    GETS            reduce using rule 19 (puts_statement -> PUTS arg_list .)
+    VARIABLE_LOCAL  reduce using rule 19 (puts_statement -> PUTS arg_list .)
+    VARIABLE_GLOBAL reduce using rule 19 (puts_statement -> PUTS arg_list .)
+    VARIABLE_INSTANCIA reduce using rule 19 (puts_statement -> PUTS arg_list .)
+    VARIABLE_CLASE  reduce using rule 19 (puts_statement -> PUTS arg_list .)
+    LBRACKET        reduce using rule 19 (puts_statement -> PUTS arg_list .)
+    LBRACE          reduce using rule 19 (puts_statement -> PUTS arg_list .)
+    $end            reduce using rule 19 (puts_statement -> PUTS arg_list .)
+    END             reduce using rule 19 (puts_statement -> PUTS arg_list .)
 
 
 state 37
 
-    (27) function_call -> VARIABLE_LOCAL LPAREN arg_list . RPAREN
+    (39) arg_list -> expression .
+    (40) arg_list -> expression . COMMA arg_list
+    (42) binary_operation -> expression . TIMES expression
+    (43) binary_operation -> expression . BIGGER expression
 
-    RPAREN          shift and go to state 47
+    DEF             reduce using rule 39 (arg_list -> expression .)
+    IF              reduce using rule 39 (arg_list -> expression .)
+    PUTS            reduce using rule 39 (arg_list -> expression .)
+    INTEGER         reduce using rule 39 (arg_list -> expression .)
+    STRING          reduce using rule 39 (arg_list -> expression .)
+    GETS            reduce using rule 39 (arg_list -> expression .)
+    VARIABLE_LOCAL  reduce using rule 39 (arg_list -> expression .)
+    VARIABLE_GLOBAL reduce using rule 39 (arg_list -> expression .)
+    VARIABLE_INSTANCIA reduce using rule 39 (arg_list -> expression .)
+    VARIABLE_CLASE  reduce using rule 39 (arg_list -> expression .)
+    LBRACKET        reduce using rule 39 (arg_list -> expression .)
+    LBRACE          reduce using rule 39 (arg_list -> expression .)
+    $end            reduce using rule 39 (arg_list -> expression .)
+    END             reduce using rule 39 (arg_list -> expression .)
+    RPAREN          reduce using rule 39 (arg_list -> expression .)
+    COMMA           shift and go to state 52
+    TIMES           shift and go to state 28
+    BIGGER          shift and go to state 29
 
 
 state 38
 
-    (28) arg_list -> expression .
-    (29) arg_list -> expression . COMMA arg_list
-    (31) binary_operation -> expression . TIMES expression
-    (32) binary_operation -> expression . BIGGER expression
+    (41) arg_list -> empty .
 
-    RPAREN          reduce using rule 28 (arg_list -> expression .)
-    COMMA           shift and go to state 48
-    TIMES           shift and go to state 21
-    BIGGER          shift and go to state 22
+    DEF             reduce using rule 41 (arg_list -> empty .)
+    IF              reduce using rule 41 (arg_list -> empty .)
+    PUTS            reduce using rule 41 (arg_list -> empty .)
+    INTEGER         reduce using rule 41 (arg_list -> empty .)
+    STRING          reduce using rule 41 (arg_list -> empty .)
+    GETS            reduce using rule 41 (arg_list -> empty .)
+    VARIABLE_LOCAL  reduce using rule 41 (arg_list -> empty .)
+    VARIABLE_GLOBAL reduce using rule 41 (arg_list -> empty .)
+    VARIABLE_INSTANCIA reduce using rule 41 (arg_list -> empty .)
+    VARIABLE_CLASE  reduce using rule 41 (arg_list -> empty .)
+    LBRACKET        reduce using rule 41 (arg_list -> empty .)
+    LBRACE          reduce using rule 41 (arg_list -> empty .)
+    $end            reduce using rule 41 (arg_list -> empty .)
+    END             reduce using rule 41 (arg_list -> empty .)
+    RPAREN          reduce using rule 41 (arg_list -> empty .)
 
 
 state 39
 
-    (30) arg_list -> empty .
+    (29) array -> LBRACKET array_elements . RBRACKET
 
-    RPAREN          reduce using rule 30 (arg_list -> empty .)
+    RBRACKET        shift and go to state 53
 
 
 state 40
 
-    (14) if_statement -> IF expression statement_list . END
+    (30) array_elements -> INTEGER .
+    (31) array_elements -> INTEGER . COMMA array_elements
 
-    END             shift and go to state 49
+    RBRACKET        reduce using rule 30 (array_elements -> INTEGER .)
+    COMMA           shift and go to state 54
 
 
 state 41
 
-    (23) array -> LBRACKET array_elements RBRACKET .
+    (33) hash -> LBRACE hash_elements . RBRACE
 
-    TIMES           reduce using rule 23 (array -> LBRACKET array_elements RBRACKET .)
-    BIGGER          reduce using rule 23 (array -> LBRACKET array_elements RBRACKET .)
-    DEF             reduce using rule 23 (array -> LBRACKET array_elements RBRACKET .)
-    VARIABLE_LOCAL  reduce using rule 23 (array -> LBRACKET array_elements RBRACKET .)
-    IF              reduce using rule 23 (array -> LBRACKET array_elements RBRACKET .)
-    PUTS            reduce using rule 23 (array -> LBRACKET array_elements RBRACKET .)
-    INTEGER         reduce using rule 23 (array -> LBRACKET array_elements RBRACKET .)
-    STRING          reduce using rule 23 (array -> LBRACKET array_elements RBRACKET .)
-    LBRACKET        reduce using rule 23 (array -> LBRACKET array_elements RBRACKET .)
-    $end            reduce using rule 23 (array -> LBRACKET array_elements RBRACKET .)
-    END             reduce using rule 23 (array -> LBRACKET array_elements RBRACKET .)
-    COMMA           reduce using rule 23 (array -> LBRACKET array_elements RBRACKET .)
-    RPAREN          reduce using rule 23 (array -> LBRACKET array_elements RBRACKET .)
+    RBRACE          shift and go to state 55
 
 
 state 42
 
-    (25) array_elements -> INTEGER COMMA . array_elements
-    (24) array_elements -> . INTEGER
-    (25) array_elements -> . INTEGER COMMA array_elements
+    (34) hash_elements -> hash_element .
+    (35) hash_elements -> hash_element . COMMA hash_elements
 
-    INTEGER         shift and go to state 31
+    RBRACE          reduce using rule 34 (hash_elements -> hash_element .)
+    COMMA           shift and go to state 56
 
-    array_elements                 shift and go to state 50
 
 state 43
 
-    (10) param_list -> VARIABLE_LOCAL . COMMA VARIABLE_LOCAL
-    (11) param_list -> VARIABLE_LOCAL .
+    (36) hash_elements -> empty .
 
-    COMMA           shift and go to state 51
-    RPAREN          reduce using rule 11 (param_list -> VARIABLE_LOCAL .)
+    RBRACE          reduce using rule 36 (hash_elements -> empty .)
 
 
 state 44
 
-    (9) function_def -> DEF VARIABLE_LOCAL LPAREN param_list . RPAREN expression END
+    (37) hash_element -> VARIABLE_LOCAL . COLON STRING
 
-    RPAREN          shift and go to state 52
+    COLON           shift and go to state 57
 
 
 state 45
 
-    (12) param_list -> empty .
+    (42) binary_operation -> expression TIMES expression .
+    (42) binary_operation -> expression . TIMES expression
+    (43) binary_operation -> expression . BIGGER expression
 
-    RPAREN          reduce using rule 12 (param_list -> empty .)
+    TIMES           reduce using rule 42 (binary_operation -> expression TIMES expression .)
+    BIGGER          reduce using rule 42 (binary_operation -> expression TIMES expression .)
+    DEF             reduce using rule 42 (binary_operation -> expression TIMES expression .)
+    IF              reduce using rule 42 (binary_operation -> expression TIMES expression .)
+    PUTS            reduce using rule 42 (binary_operation -> expression TIMES expression .)
+    INTEGER         reduce using rule 42 (binary_operation -> expression TIMES expression .)
+    STRING          reduce using rule 42 (binary_operation -> expression TIMES expression .)
+    GETS            reduce using rule 42 (binary_operation -> expression TIMES expression .)
+    VARIABLE_LOCAL  reduce using rule 42 (binary_operation -> expression TIMES expression .)
+    VARIABLE_GLOBAL reduce using rule 42 (binary_operation -> expression TIMES expression .)
+    VARIABLE_INSTANCIA reduce using rule 42 (binary_operation -> expression TIMES expression .)
+    VARIABLE_CLASE  reduce using rule 42 (binary_operation -> expression TIMES expression .)
+    LBRACKET        reduce using rule 42 (binary_operation -> expression TIMES expression .)
+    LBRACE          reduce using rule 42 (binary_operation -> expression TIMES expression .)
+    $end            reduce using rule 42 (binary_operation -> expression TIMES expression .)
+    END             reduce using rule 42 (binary_operation -> expression TIMES expression .)
+    COMMA           reduce using rule 42 (binary_operation -> expression TIMES expression .)
+    RPAREN          reduce using rule 42 (binary_operation -> expression TIMES expression .)
+
+  ! TIMES           [ shift and go to state 28 ]
+  ! BIGGER          [ shift and go to state 29 ]
 
 
 state 46
 
-    (26) array_access -> VARIABLE_LOCAL LBRACKET INTEGER RBRACKET .
+    (43) binary_operation -> expression BIGGER expression .
+    (42) binary_operation -> expression . TIMES expression
+    (43) binary_operation -> expression . BIGGER expression
 
-    TIMES           reduce using rule 26 (array_access -> VARIABLE_LOCAL LBRACKET INTEGER RBRACKET .)
-    BIGGER          reduce using rule 26 (array_access -> VARIABLE_LOCAL LBRACKET INTEGER RBRACKET .)
-    DEF             reduce using rule 26 (array_access -> VARIABLE_LOCAL LBRACKET INTEGER RBRACKET .)
-    VARIABLE_LOCAL  reduce using rule 26 (array_access -> VARIABLE_LOCAL LBRACKET INTEGER RBRACKET .)
-    IF              reduce using rule 26 (array_access -> VARIABLE_LOCAL LBRACKET INTEGER RBRACKET .)
-    PUTS            reduce using rule 26 (array_access -> VARIABLE_LOCAL LBRACKET INTEGER RBRACKET .)
-    INTEGER         reduce using rule 26 (array_access -> VARIABLE_LOCAL LBRACKET INTEGER RBRACKET .)
-    STRING          reduce using rule 26 (array_access -> VARIABLE_LOCAL LBRACKET INTEGER RBRACKET .)
-    LBRACKET        reduce using rule 26 (array_access -> VARIABLE_LOCAL LBRACKET INTEGER RBRACKET .)
-    $end            reduce using rule 26 (array_access -> VARIABLE_LOCAL LBRACKET INTEGER RBRACKET .)
-    END             reduce using rule 26 (array_access -> VARIABLE_LOCAL LBRACKET INTEGER RBRACKET .)
-    COMMA           reduce using rule 26 (array_access -> VARIABLE_LOCAL LBRACKET INTEGER RBRACKET .)
-    RPAREN          reduce using rule 26 (array_access -> VARIABLE_LOCAL LBRACKET INTEGER RBRACKET .)
+  ! shift/reduce conflict for TIMES resolved as shift
+  ! shift/reduce conflict for BIGGER resolved as shift
+    DEF             reduce using rule 43 (binary_operation -> expression BIGGER expression .)
+    IF              reduce using rule 43 (binary_operation -> expression BIGGER expression .)
+    PUTS            reduce using rule 43 (binary_operation -> expression BIGGER expression .)
+    INTEGER         reduce using rule 43 (binary_operation -> expression BIGGER expression .)
+    STRING          reduce using rule 43 (binary_operation -> expression BIGGER expression .)
+    GETS            reduce using rule 43 (binary_operation -> expression BIGGER expression .)
+    VARIABLE_LOCAL  reduce using rule 43 (binary_operation -> expression BIGGER expression .)
+    VARIABLE_GLOBAL reduce using rule 43 (binary_operation -> expression BIGGER expression .)
+    VARIABLE_INSTANCIA reduce using rule 43 (binary_operation -> expression BIGGER expression .)
+    VARIABLE_CLASE  reduce using rule 43 (binary_operation -> expression BIGGER expression .)
+    LBRACKET        reduce using rule 43 (binary_operation -> expression BIGGER expression .)
+    LBRACE          reduce using rule 43 (binary_operation -> expression BIGGER expression .)
+    $end            reduce using rule 43 (binary_operation -> expression BIGGER expression .)
+    END             reduce using rule 43 (binary_operation -> expression BIGGER expression .)
+    COMMA           reduce using rule 43 (binary_operation -> expression BIGGER expression .)
+    RPAREN          reduce using rule 43 (binary_operation -> expression BIGGER expression .)
+    TIMES           shift and go to state 28
+    BIGGER          shift and go to state 29
+
+  ! TIMES           [ reduce using rule 43 (binary_operation -> expression BIGGER expression .) ]
+  ! BIGGER          [ reduce using rule 43 (binary_operation -> expression BIGGER expression .) ]
 
 
 state 47
 
-    (27) function_call -> VARIABLE_LOCAL LPAREN arg_list RPAREN .
+    (13) function_def -> DEF VARIABLE_LOCAL LPAREN . param_list RPAREN expression END
+    (14) param_list -> . VARIABLE_LOCAL COMMA VARIABLE_LOCAL
+    (15) param_list -> . VARIABLE_LOCAL
+    (16) param_list -> . empty
+    (44) empty -> .
 
-    TIMES           reduce using rule 27 (function_call -> VARIABLE_LOCAL LPAREN arg_list RPAREN .)
-    BIGGER          reduce using rule 27 (function_call -> VARIABLE_LOCAL LPAREN arg_list RPAREN .)
-    DEF             reduce using rule 27 (function_call -> VARIABLE_LOCAL LPAREN arg_list RPAREN .)
-    VARIABLE_LOCAL  reduce using rule 27 (function_call -> VARIABLE_LOCAL LPAREN arg_list RPAREN .)
-    IF              reduce using rule 27 (function_call -> VARIABLE_LOCAL LPAREN arg_list RPAREN .)
-    PUTS            reduce using rule 27 (function_call -> VARIABLE_LOCAL LPAREN arg_list RPAREN .)
-    INTEGER         reduce using rule 27 (function_call -> VARIABLE_LOCAL LPAREN arg_list RPAREN .)
-    STRING          reduce using rule 27 (function_call -> VARIABLE_LOCAL LPAREN arg_list RPAREN .)
-    LBRACKET        reduce using rule 27 (function_call -> VARIABLE_LOCAL LPAREN arg_list RPAREN .)
-    $end            reduce using rule 27 (function_call -> VARIABLE_LOCAL LPAREN arg_list RPAREN .)
-    END             reduce using rule 27 (function_call -> VARIABLE_LOCAL LPAREN arg_list RPAREN .)
-    COMMA           reduce using rule 27 (function_call -> VARIABLE_LOCAL LPAREN arg_list RPAREN .)
-    RPAREN          reduce using rule 27 (function_call -> VARIABLE_LOCAL LPAREN arg_list RPAREN .)
+    VARIABLE_LOCAL  shift and go to state 58
+    RPAREN          reduce using rule 44 (empty -> .)
 
+    param_list                     shift and go to state 59
+    empty                          shift and go to state 60
 
 state 48
 
-    (29) arg_list -> expression COMMA . arg_list
-    (28) arg_list -> . expression
-    (29) arg_list -> . expression COMMA arg_list
-    (30) arg_list -> . empty
-    (16) expression -> . INTEGER
-    (17) expression -> . STRING
-    (18) expression -> . VARIABLE_LOCAL
-    (19) expression -> . array
-    (20) expression -> . array_access
-    (21) expression -> . function_call
-    (22) expression -> . binary_operation
-    (33) empty -> .
-    (23) array -> . LBRACKET array_elements RBRACKET
-    (26) array_access -> . VARIABLE_LOCAL LBRACKET INTEGER RBRACKET
-    (27) function_call -> . VARIABLE_LOCAL LPAREN arg_list RPAREN
-    (31) binary_operation -> . expression TIMES expression
-    (32) binary_operation -> . expression BIGGER expression
+    (32) array_access -> VARIABLE_LOCAL LBRACKET INTEGER . RBRACKET
 
-    INTEGER         shift and go to state 13
-    STRING          shift and go to state 14
-    VARIABLE_LOCAL  shift and go to state 28
-    RPAREN          reduce using rule 33 (empty -> .)
-    LBRACKET        shift and go to state 19
+    RBRACKET        shift and go to state 61
 
-    expression                     shift and go to state 38
-    arg_list                       shift and go to state 53
-    empty                          shift and go to state 39
-    array                          shift and go to state 15
-    array_access                   shift and go to state 16
-    function_call                  shift and go to state 17
-    binary_operation               shift and go to state 18
 
 state 49
 
-    (14) if_statement -> IF expression statement_list END .
+    (38) function_call -> VARIABLE_LOCAL LPAREN arg_list . RPAREN
 
-    DEF             reduce using rule 14 (if_statement -> IF expression statement_list END .)
-    VARIABLE_LOCAL  reduce using rule 14 (if_statement -> IF expression statement_list END .)
-    IF              reduce using rule 14 (if_statement -> IF expression statement_list END .)
-    PUTS            reduce using rule 14 (if_statement -> IF expression statement_list END .)
-    INTEGER         reduce using rule 14 (if_statement -> IF expression statement_list END .)
-    STRING          reduce using rule 14 (if_statement -> IF expression statement_list END .)
-    LBRACKET        reduce using rule 14 (if_statement -> IF expression statement_list END .)
-    $end            reduce using rule 14 (if_statement -> IF expression statement_list END .)
-    END             reduce using rule 14 (if_statement -> IF expression statement_list END .)
+    RPAREN          shift and go to state 62
 
 
 state 50
 
-    (25) array_elements -> INTEGER COMMA array_elements .
+    (17) assignment -> variable ASSIGNATION expression .
+    (42) binary_operation -> expression . TIMES expression
+    (43) binary_operation -> expression . BIGGER expression
 
-    RBRACKET        reduce using rule 25 (array_elements -> INTEGER COMMA array_elements .)
+    DEF             reduce using rule 17 (assignment -> variable ASSIGNATION expression .)
+    IF              reduce using rule 17 (assignment -> variable ASSIGNATION expression .)
+    PUTS            reduce using rule 17 (assignment -> variable ASSIGNATION expression .)
+    INTEGER         reduce using rule 17 (assignment -> variable ASSIGNATION expression .)
+    STRING          reduce using rule 17 (assignment -> variable ASSIGNATION expression .)
+    GETS            reduce using rule 17 (assignment -> variable ASSIGNATION expression .)
+    VARIABLE_LOCAL  reduce using rule 17 (assignment -> variable ASSIGNATION expression .)
+    VARIABLE_GLOBAL reduce using rule 17 (assignment -> variable ASSIGNATION expression .)
+    VARIABLE_INSTANCIA reduce using rule 17 (assignment -> variable ASSIGNATION expression .)
+    VARIABLE_CLASE  reduce using rule 17 (assignment -> variable ASSIGNATION expression .)
+    LBRACKET        reduce using rule 17 (assignment -> variable ASSIGNATION expression .)
+    LBRACE          reduce using rule 17 (assignment -> variable ASSIGNATION expression .)
+    $end            reduce using rule 17 (assignment -> variable ASSIGNATION expression .)
+    END             reduce using rule 17 (assignment -> variable ASSIGNATION expression .)
+    TIMES           shift and go to state 28
+    BIGGER          shift and go to state 29
 
 
 state 51
 
-    (10) param_list -> VARIABLE_LOCAL COMMA . VARIABLE_LOCAL
+    (18) if_statement -> IF expression statement_list . END
 
-    VARIABLE_LOCAL  shift and go to state 54
+    END             shift and go to state 63
 
 
 state 52
 
-    (9) function_def -> DEF VARIABLE_LOCAL LPAREN param_list RPAREN . expression END
-    (16) expression -> . INTEGER
-    (17) expression -> . STRING
-    (18) expression -> . VARIABLE_LOCAL
-    (19) expression -> . array
-    (20) expression -> . array_access
-    (21) expression -> . function_call
-    (22) expression -> . binary_operation
-    (23) array -> . LBRACKET array_elements RBRACKET
-    (26) array_access -> . VARIABLE_LOCAL LBRACKET INTEGER RBRACKET
-    (27) function_call -> . VARIABLE_LOCAL LPAREN arg_list RPAREN
-    (31) binary_operation -> . expression TIMES expression
-    (32) binary_operation -> . expression BIGGER expression
+    (40) arg_list -> expression COMMA . arg_list
+    (39) arg_list -> . expression
+    (40) arg_list -> . expression COMMA arg_list
+    (41) arg_list -> . empty
+    (20) expression -> . INTEGER
+    (21) expression -> . STRING
+    (22) expression -> . variable
+    (23) expression -> . array
+    (24) expression -> . array_access
+    (25) expression -> . function_call
+    (26) expression -> . binary_operation
+    (27) expression -> . GETS
+    (28) expression -> . hash
+    (44) empty -> .
+    (9) variable -> . VARIABLE_LOCAL
+    (10) variable -> . VARIABLE_GLOBAL
+    (11) variable -> . VARIABLE_INSTANCIA
+    (12) variable -> . VARIABLE_CLASE
+    (29) array -> . LBRACKET array_elements RBRACKET
+    (32) array_access -> . VARIABLE_LOCAL LBRACKET INTEGER RBRACKET
+    (38) function_call -> . VARIABLE_LOCAL LPAREN arg_list RPAREN
+    (42) binary_operation -> . expression TIMES expression
+    (43) binary_operation -> . expression BIGGER expression
+    (33) hash -> . LBRACE hash_elements RBRACE
 
-    INTEGER         shift and go to state 13
-    STRING          shift and go to state 14
-    VARIABLE_LOCAL  shift and go to state 28
-    LBRACKET        shift and go to state 19
+  ! shift/reduce conflict for INTEGER resolved as shift
+  ! shift/reduce conflict for STRING resolved as shift
+  ! shift/reduce conflict for GETS resolved as shift
+  ! shift/reduce conflict for VARIABLE_LOCAL resolved as shift
+  ! shift/reduce conflict for VARIABLE_GLOBAL resolved as shift
+  ! shift/reduce conflict for VARIABLE_INSTANCIA resolved as shift
+  ! shift/reduce conflict for VARIABLE_CLASE resolved as shift
+  ! shift/reduce conflict for LBRACKET resolved as shift
+  ! shift/reduce conflict for LBRACE resolved as shift
+    INTEGER         shift and go to state 14
+    STRING          shift and go to state 15
+    GETS            shift and go to state 20
+    DEF             reduce using rule 44 (empty -> .)
+    IF              reduce using rule 44 (empty -> .)
+    PUTS            reduce using rule 44 (empty -> .)
+    $end            reduce using rule 44 (empty -> .)
+    END             reduce using rule 44 (empty -> .)
+    RPAREN          reduce using rule 44 (empty -> .)
+    VARIABLE_LOCAL  shift and go to state 10
+    VARIABLE_GLOBAL shift and go to state 22
+    VARIABLE_INSTANCIA shift and go to state 23
+    VARIABLE_CLASE  shift and go to state 24
+    LBRACKET        shift and go to state 25
+    LBRACE          shift and go to state 26
 
-    expression                     shift and go to state 55
-    array                          shift and go to state 15
-    array_access                   shift and go to state 16
-    function_call                  shift and go to state 17
-    binary_operation               shift and go to state 18
+  ! INTEGER         [ reduce using rule 44 (empty -> .) ]
+  ! STRING          [ reduce using rule 44 (empty -> .) ]
+  ! GETS            [ reduce using rule 44 (empty -> .) ]
+  ! VARIABLE_LOCAL  [ reduce using rule 44 (empty -> .) ]
+  ! VARIABLE_GLOBAL [ reduce using rule 44 (empty -> .) ]
+  ! VARIABLE_INSTANCIA [ reduce using rule 44 (empty -> .) ]
+  ! VARIABLE_CLASE  [ reduce using rule 44 (empty -> .) ]
+  ! LBRACKET        [ reduce using rule 44 (empty -> .) ]
+  ! LBRACE          [ reduce using rule 44 (empty -> .) ]
+
+    expression                     shift and go to state 37
+    arg_list                       shift and go to state 64
+    empty                          shift and go to state 38
+    variable                       shift and go to state 35
+    array                          shift and go to state 16
+    array_access                   shift and go to state 17
+    function_call                  shift and go to state 18
+    binary_operation               shift and go to state 19
+    hash                           shift and go to state 21
 
 state 53
 
-    (29) arg_list -> expression COMMA arg_list .
+    (29) array -> LBRACKET array_elements RBRACKET .
 
-    RPAREN          reduce using rule 29 (arg_list -> expression COMMA arg_list .)
+    TIMES           reduce using rule 29 (array -> LBRACKET array_elements RBRACKET .)
+    BIGGER          reduce using rule 29 (array -> LBRACKET array_elements RBRACKET .)
+    DEF             reduce using rule 29 (array -> LBRACKET array_elements RBRACKET .)
+    IF              reduce using rule 29 (array -> LBRACKET array_elements RBRACKET .)
+    PUTS            reduce using rule 29 (array -> LBRACKET array_elements RBRACKET .)
+    INTEGER         reduce using rule 29 (array -> LBRACKET array_elements RBRACKET .)
+    STRING          reduce using rule 29 (array -> LBRACKET array_elements RBRACKET .)
+    GETS            reduce using rule 29 (array -> LBRACKET array_elements RBRACKET .)
+    VARIABLE_LOCAL  reduce using rule 29 (array -> LBRACKET array_elements RBRACKET .)
+    VARIABLE_GLOBAL reduce using rule 29 (array -> LBRACKET array_elements RBRACKET .)
+    VARIABLE_INSTANCIA reduce using rule 29 (array -> LBRACKET array_elements RBRACKET .)
+    VARIABLE_CLASE  reduce using rule 29 (array -> LBRACKET array_elements RBRACKET .)
+    LBRACKET        reduce using rule 29 (array -> LBRACKET array_elements RBRACKET .)
+    LBRACE          reduce using rule 29 (array -> LBRACKET array_elements RBRACKET .)
+    $end            reduce using rule 29 (array -> LBRACKET array_elements RBRACKET .)
+    END             reduce using rule 29 (array -> LBRACKET array_elements RBRACKET .)
+    COMMA           reduce using rule 29 (array -> LBRACKET array_elements RBRACKET .)
+    RPAREN          reduce using rule 29 (array -> LBRACKET array_elements RBRACKET .)
 
 
 state 54
 
-    (10) param_list -> VARIABLE_LOCAL COMMA VARIABLE_LOCAL .
+    (31) array_elements -> INTEGER COMMA . array_elements
+    (30) array_elements -> . INTEGER
+    (31) array_elements -> . INTEGER COMMA array_elements
 
-    RPAREN          reduce using rule 10 (param_list -> VARIABLE_LOCAL COMMA VARIABLE_LOCAL .)
+    INTEGER         shift and go to state 40
 
+    array_elements                 shift and go to state 65
 
 state 55
 
-    (9) function_def -> DEF VARIABLE_LOCAL LPAREN param_list RPAREN expression . END
-    (31) binary_operation -> expression . TIMES expression
-    (32) binary_operation -> expression . BIGGER expression
+    (33) hash -> LBRACE hash_elements RBRACE .
 
-    END             shift and go to state 56
-    TIMES           shift and go to state 21
-    BIGGER          shift and go to state 22
+    TIMES           reduce using rule 33 (hash -> LBRACE hash_elements RBRACE .)
+    BIGGER          reduce using rule 33 (hash -> LBRACE hash_elements RBRACE .)
+    DEF             reduce using rule 33 (hash -> LBRACE hash_elements RBRACE .)
+    IF              reduce using rule 33 (hash -> LBRACE hash_elements RBRACE .)
+    PUTS            reduce using rule 33 (hash -> LBRACE hash_elements RBRACE .)
+    INTEGER         reduce using rule 33 (hash -> LBRACE hash_elements RBRACE .)
+    STRING          reduce using rule 33 (hash -> LBRACE hash_elements RBRACE .)
+    GETS            reduce using rule 33 (hash -> LBRACE hash_elements RBRACE .)
+    VARIABLE_LOCAL  reduce using rule 33 (hash -> LBRACE hash_elements RBRACE .)
+    VARIABLE_GLOBAL reduce using rule 33 (hash -> LBRACE hash_elements RBRACE .)
+    VARIABLE_INSTANCIA reduce using rule 33 (hash -> LBRACE hash_elements RBRACE .)
+    VARIABLE_CLASE  reduce using rule 33 (hash -> LBRACE hash_elements RBRACE .)
+    LBRACKET        reduce using rule 33 (hash -> LBRACE hash_elements RBRACE .)
+    LBRACE          reduce using rule 33 (hash -> LBRACE hash_elements RBRACE .)
+    $end            reduce using rule 33 (hash -> LBRACE hash_elements RBRACE .)
+    END             reduce using rule 33 (hash -> LBRACE hash_elements RBRACE .)
+    COMMA           reduce using rule 33 (hash -> LBRACE hash_elements RBRACE .)
+    RPAREN          reduce using rule 33 (hash -> LBRACE hash_elements RBRACE .)
 
 
 state 56
 
-    (9) function_def -> DEF VARIABLE_LOCAL LPAREN param_list RPAREN expression END .
+    (35) hash_elements -> hash_element COMMA . hash_elements
+    (34) hash_elements -> . hash_element
+    (35) hash_elements -> . hash_element COMMA hash_elements
+    (36) hash_elements -> . empty
+    (37) hash_element -> . VARIABLE_LOCAL COLON STRING
+    (44) empty -> .
 
-    DEF             reduce using rule 9 (function_def -> DEF VARIABLE_LOCAL LPAREN param_list RPAREN expression END .)
-    VARIABLE_LOCAL  reduce using rule 9 (function_def -> DEF VARIABLE_LOCAL LPAREN param_list RPAREN expression END .)
-    IF              reduce using rule 9 (function_def -> DEF VARIABLE_LOCAL LPAREN param_list RPAREN expression END .)
-    PUTS            reduce using rule 9 (function_def -> DEF VARIABLE_LOCAL LPAREN param_list RPAREN expression END .)
-    INTEGER         reduce using rule 9 (function_def -> DEF VARIABLE_LOCAL LPAREN param_list RPAREN expression END .)
-    STRING          reduce using rule 9 (function_def -> DEF VARIABLE_LOCAL LPAREN param_list RPAREN expression END .)
-    LBRACKET        reduce using rule 9 (function_def -> DEF VARIABLE_LOCAL LPAREN param_list RPAREN expression END .)
-    $end            reduce using rule 9 (function_def -> DEF VARIABLE_LOCAL LPAREN param_list RPAREN expression END .)
-    END             reduce using rule 9 (function_def -> DEF VARIABLE_LOCAL LPAREN param_list RPAREN expression END .)
+    VARIABLE_LOCAL  shift and go to state 44
+    RBRACE          reduce using rule 44 (empty -> .)
+
+    hash_element                   shift and go to state 42
+    hash_elements                  shift and go to state 66
+    empty                          shift and go to state 43
+
+state 57
+
+    (37) hash_element -> VARIABLE_LOCAL COLON . STRING
+
+    STRING          shift and go to state 67
+
+
+state 58
+
+    (14) param_list -> VARIABLE_LOCAL . COMMA VARIABLE_LOCAL
+    (15) param_list -> VARIABLE_LOCAL .
+
+    COMMA           shift and go to state 68
+    RPAREN          reduce using rule 15 (param_list -> VARIABLE_LOCAL .)
+
+
+state 59
+
+    (13) function_def -> DEF VARIABLE_LOCAL LPAREN param_list . RPAREN expression END
+
+    RPAREN          shift and go to state 69
+
+
+state 60
+
+    (16) param_list -> empty .
+
+    RPAREN          reduce using rule 16 (param_list -> empty .)
+
+
+state 61
+
+    (32) array_access -> VARIABLE_LOCAL LBRACKET INTEGER RBRACKET .
+
+    TIMES           reduce using rule 32 (array_access -> VARIABLE_LOCAL LBRACKET INTEGER RBRACKET .)
+    BIGGER          reduce using rule 32 (array_access -> VARIABLE_LOCAL LBRACKET INTEGER RBRACKET .)
+    DEF             reduce using rule 32 (array_access -> VARIABLE_LOCAL LBRACKET INTEGER RBRACKET .)
+    IF              reduce using rule 32 (array_access -> VARIABLE_LOCAL LBRACKET INTEGER RBRACKET .)
+    PUTS            reduce using rule 32 (array_access -> VARIABLE_LOCAL LBRACKET INTEGER RBRACKET .)
+    INTEGER         reduce using rule 32 (array_access -> VARIABLE_LOCAL LBRACKET INTEGER RBRACKET .)
+    STRING          reduce using rule 32 (array_access -> VARIABLE_LOCAL LBRACKET INTEGER RBRACKET .)
+    GETS            reduce using rule 32 (array_access -> VARIABLE_LOCAL LBRACKET INTEGER RBRACKET .)
+    VARIABLE_LOCAL  reduce using rule 32 (array_access -> VARIABLE_LOCAL LBRACKET INTEGER RBRACKET .)
+    VARIABLE_GLOBAL reduce using rule 32 (array_access -> VARIABLE_LOCAL LBRACKET INTEGER RBRACKET .)
+    VARIABLE_INSTANCIA reduce using rule 32 (array_access -> VARIABLE_LOCAL LBRACKET INTEGER RBRACKET .)
+    VARIABLE_CLASE  reduce using rule 32 (array_access -> VARIABLE_LOCAL LBRACKET INTEGER RBRACKET .)
+    LBRACKET        reduce using rule 32 (array_access -> VARIABLE_LOCAL LBRACKET INTEGER RBRACKET .)
+    LBRACE          reduce using rule 32 (array_access -> VARIABLE_LOCAL LBRACKET INTEGER RBRACKET .)
+    $end            reduce using rule 32 (array_access -> VARIABLE_LOCAL LBRACKET INTEGER RBRACKET .)
+    END             reduce using rule 32 (array_access -> VARIABLE_LOCAL LBRACKET INTEGER RBRACKET .)
+    COMMA           reduce using rule 32 (array_access -> VARIABLE_LOCAL LBRACKET INTEGER RBRACKET .)
+    RPAREN          reduce using rule 32 (array_access -> VARIABLE_LOCAL LBRACKET INTEGER RBRACKET .)
+
+
+state 62
+
+    (38) function_call -> VARIABLE_LOCAL LPAREN arg_list RPAREN .
+
+    TIMES           reduce using rule 38 (function_call -> VARIABLE_LOCAL LPAREN arg_list RPAREN .)
+    BIGGER          reduce using rule 38 (function_call -> VARIABLE_LOCAL LPAREN arg_list RPAREN .)
+    DEF             reduce using rule 38 (function_call -> VARIABLE_LOCAL LPAREN arg_list RPAREN .)
+    IF              reduce using rule 38 (function_call -> VARIABLE_LOCAL LPAREN arg_list RPAREN .)
+    PUTS            reduce using rule 38 (function_call -> VARIABLE_LOCAL LPAREN arg_list RPAREN .)
+    INTEGER         reduce using rule 38 (function_call -> VARIABLE_LOCAL LPAREN arg_list RPAREN .)
+    STRING          reduce using rule 38 (function_call -> VARIABLE_LOCAL LPAREN arg_list RPAREN .)
+    GETS            reduce using rule 38 (function_call -> VARIABLE_LOCAL LPAREN arg_list RPAREN .)
+    VARIABLE_LOCAL  reduce using rule 38 (function_call -> VARIABLE_LOCAL LPAREN arg_list RPAREN .)
+    VARIABLE_GLOBAL reduce using rule 38 (function_call -> VARIABLE_LOCAL LPAREN arg_list RPAREN .)
+    VARIABLE_INSTANCIA reduce using rule 38 (function_call -> VARIABLE_LOCAL LPAREN arg_list RPAREN .)
+    VARIABLE_CLASE  reduce using rule 38 (function_call -> VARIABLE_LOCAL LPAREN arg_list RPAREN .)
+    LBRACKET        reduce using rule 38 (function_call -> VARIABLE_LOCAL LPAREN arg_list RPAREN .)
+    LBRACE          reduce using rule 38 (function_call -> VARIABLE_LOCAL LPAREN arg_list RPAREN .)
+    $end            reduce using rule 38 (function_call -> VARIABLE_LOCAL LPAREN arg_list RPAREN .)
+    END             reduce using rule 38 (function_call -> VARIABLE_LOCAL LPAREN arg_list RPAREN .)
+    COMMA           reduce using rule 38 (function_call -> VARIABLE_LOCAL LPAREN arg_list RPAREN .)
+    RPAREN          reduce using rule 38 (function_call -> VARIABLE_LOCAL LPAREN arg_list RPAREN .)
+
+
+state 63
+
+    (18) if_statement -> IF expression statement_list END .
+
+    DEF             reduce using rule 18 (if_statement -> IF expression statement_list END .)
+    IF              reduce using rule 18 (if_statement -> IF expression statement_list END .)
+    PUTS            reduce using rule 18 (if_statement -> IF expression statement_list END .)
+    INTEGER         reduce using rule 18 (if_statement -> IF expression statement_list END .)
+    STRING          reduce using rule 18 (if_statement -> IF expression statement_list END .)
+    GETS            reduce using rule 18 (if_statement -> IF expression statement_list END .)
+    VARIABLE_LOCAL  reduce using rule 18 (if_statement -> IF expression statement_list END .)
+    VARIABLE_GLOBAL reduce using rule 18 (if_statement -> IF expression statement_list END .)
+    VARIABLE_INSTANCIA reduce using rule 18 (if_statement -> IF expression statement_list END .)
+    VARIABLE_CLASE  reduce using rule 18 (if_statement -> IF expression statement_list END .)
+    LBRACKET        reduce using rule 18 (if_statement -> IF expression statement_list END .)
+    LBRACE          reduce using rule 18 (if_statement -> IF expression statement_list END .)
+    $end            reduce using rule 18 (if_statement -> IF expression statement_list END .)
+    END             reduce using rule 18 (if_statement -> IF expression statement_list END .)
+
+
+state 64
+
+    (40) arg_list -> expression COMMA arg_list .
+
+    DEF             reduce using rule 40 (arg_list -> expression COMMA arg_list .)
+    IF              reduce using rule 40 (arg_list -> expression COMMA arg_list .)
+    PUTS            reduce using rule 40 (arg_list -> expression COMMA arg_list .)
+    INTEGER         reduce using rule 40 (arg_list -> expression COMMA arg_list .)
+    STRING          reduce using rule 40 (arg_list -> expression COMMA arg_list .)
+    GETS            reduce using rule 40 (arg_list -> expression COMMA arg_list .)
+    VARIABLE_LOCAL  reduce using rule 40 (arg_list -> expression COMMA arg_list .)
+    VARIABLE_GLOBAL reduce using rule 40 (arg_list -> expression COMMA arg_list .)
+    VARIABLE_INSTANCIA reduce using rule 40 (arg_list -> expression COMMA arg_list .)
+    VARIABLE_CLASE  reduce using rule 40 (arg_list -> expression COMMA arg_list .)
+    LBRACKET        reduce using rule 40 (arg_list -> expression COMMA arg_list .)
+    LBRACE          reduce using rule 40 (arg_list -> expression COMMA arg_list .)
+    $end            reduce using rule 40 (arg_list -> expression COMMA arg_list .)
+    END             reduce using rule 40 (arg_list -> expression COMMA arg_list .)
+    RPAREN          reduce using rule 40 (arg_list -> expression COMMA arg_list .)
+
+
+state 65
+
+    (31) array_elements -> INTEGER COMMA array_elements .
+
+    RBRACKET        reduce using rule 31 (array_elements -> INTEGER COMMA array_elements .)
+
+
+state 66
+
+    (35) hash_elements -> hash_element COMMA hash_elements .
+
+    RBRACE          reduce using rule 35 (hash_elements -> hash_element COMMA hash_elements .)
+
+
+state 67
+
+    (37) hash_element -> VARIABLE_LOCAL COLON STRING .
+
+    COMMA           reduce using rule 37 (hash_element -> VARIABLE_LOCAL COLON STRING .)
+    RBRACE          reduce using rule 37 (hash_element -> VARIABLE_LOCAL COLON STRING .)
+
+
+state 68
+
+    (14) param_list -> VARIABLE_LOCAL COMMA . VARIABLE_LOCAL
+
+    VARIABLE_LOCAL  shift and go to state 70
+
+
+state 69
+
+    (13) function_def -> DEF VARIABLE_LOCAL LPAREN param_list RPAREN . expression END
+    (20) expression -> . INTEGER
+    (21) expression -> . STRING
+    (22) expression -> . variable
+    (23) expression -> . array
+    (24) expression -> . array_access
+    (25) expression -> . function_call
+    (26) expression -> . binary_operation
+    (27) expression -> . GETS
+    (28) expression -> . hash
+    (9) variable -> . VARIABLE_LOCAL
+    (10) variable -> . VARIABLE_GLOBAL
+    (11) variable -> . VARIABLE_INSTANCIA
+    (12) variable -> . VARIABLE_CLASE
+    (29) array -> . LBRACKET array_elements RBRACKET
+    (32) array_access -> . VARIABLE_LOCAL LBRACKET INTEGER RBRACKET
+    (38) function_call -> . VARIABLE_LOCAL LPAREN arg_list RPAREN
+    (42) binary_operation -> . expression TIMES expression
+    (43) binary_operation -> . expression BIGGER expression
+    (33) hash -> . LBRACE hash_elements RBRACE
+
+    INTEGER         shift and go to state 14
+    STRING          shift and go to state 15
+    GETS            shift and go to state 20
+    VARIABLE_LOCAL  shift and go to state 10
+    VARIABLE_GLOBAL shift and go to state 22
+    VARIABLE_INSTANCIA shift and go to state 23
+    VARIABLE_CLASE  shift and go to state 24
+    LBRACKET        shift and go to state 25
+    LBRACE          shift and go to state 26
+
+    expression                     shift and go to state 71
+    variable                       shift and go to state 35
+    array                          shift and go to state 16
+    array_access                   shift and go to state 17
+    function_call                  shift and go to state 18
+    binary_operation               shift and go to state 19
+    hash                           shift and go to state 21
+
+state 70
+
+    (14) param_list -> VARIABLE_LOCAL COMMA VARIABLE_LOCAL .
+
+    RPAREN          reduce using rule 14 (param_list -> VARIABLE_LOCAL COMMA VARIABLE_LOCAL .)
+
+
+state 71
+
+    (13) function_def -> DEF VARIABLE_LOCAL LPAREN param_list RPAREN expression . END
+    (42) binary_operation -> expression . TIMES expression
+    (43) binary_operation -> expression . BIGGER expression
+
+    END             shift and go to state 72
+    TIMES           shift and go to state 28
+    BIGGER          shift and go to state 29
+
+
+state 72
+
+    (13) function_def -> DEF VARIABLE_LOCAL LPAREN param_list RPAREN expression END .
+
+    DEF             reduce using rule 13 (function_def -> DEF VARIABLE_LOCAL LPAREN param_list RPAREN expression END .)
+    IF              reduce using rule 13 (function_def -> DEF VARIABLE_LOCAL LPAREN param_list RPAREN expression END .)
+    PUTS            reduce using rule 13 (function_def -> DEF VARIABLE_LOCAL LPAREN param_list RPAREN expression END .)
+    INTEGER         reduce using rule 13 (function_def -> DEF VARIABLE_LOCAL LPAREN param_list RPAREN expression END .)
+    STRING          reduce using rule 13 (function_def -> DEF VARIABLE_LOCAL LPAREN param_list RPAREN expression END .)
+    GETS            reduce using rule 13 (function_def -> DEF VARIABLE_LOCAL LPAREN param_list RPAREN expression END .)
+    VARIABLE_LOCAL  reduce using rule 13 (function_def -> DEF VARIABLE_LOCAL LPAREN param_list RPAREN expression END .)
+    VARIABLE_GLOBAL reduce using rule 13 (function_def -> DEF VARIABLE_LOCAL LPAREN param_list RPAREN expression END .)
+    VARIABLE_INSTANCIA reduce using rule 13 (function_def -> DEF VARIABLE_LOCAL LPAREN param_list RPAREN expression END .)
+    VARIABLE_CLASE  reduce using rule 13 (function_def -> DEF VARIABLE_LOCAL LPAREN param_list RPAREN expression END .)
+    LBRACKET        reduce using rule 13 (function_def -> DEF VARIABLE_LOCAL LPAREN param_list RPAREN expression END .)
+    LBRACE          reduce using rule 13 (function_def -> DEF VARIABLE_LOCAL LPAREN param_list RPAREN expression END .)
+    $end            reduce using rule 13 (function_def -> DEF VARIABLE_LOCAL LPAREN param_list RPAREN expression END .)
+    END             reduce using rule 13 (function_def -> DEF VARIABLE_LOCAL LPAREN param_list RPAREN expression END .)
 
 WARNING: 
 WARNING: Conflicts:
 WARNING: 
 WARNING: shift/reduce conflict for LBRACKET in state 10 resolved as shift
-WARNING: shift/reduce conflict for LBRACKET in state 28 resolved as shift
-WARNING: shift/reduce conflict for TIMES in state 33 resolved as shift
-WARNING: shift/reduce conflict for BIGGER in state 33 resolved as shift
+WARNING: shift/reduce conflict for INTEGER in state 13 resolved as shift
+WARNING: shift/reduce conflict for STRING in state 13 resolved as shift
+WARNING: shift/reduce conflict for GETS in state 13 resolved as shift
+WARNING: shift/reduce conflict for VARIABLE_LOCAL in state 13 resolved as shift
+WARNING: shift/reduce conflict for VARIABLE_GLOBAL in state 13 resolved as shift
+WARNING: shift/reduce conflict for VARIABLE_INSTANCIA in state 13 resolved as shift
+WARNING: shift/reduce conflict for VARIABLE_CLASE in state 13 resolved as shift
+WARNING: shift/reduce conflict for LBRACKET in state 13 resolved as shift
+WARNING: shift/reduce conflict for LBRACE in state 13 resolved as shift
+WARNING: shift/reduce conflict for TIMES in state 46 resolved as shift
+WARNING: shift/reduce conflict for BIGGER in state 46 resolved as shift
+WARNING: shift/reduce conflict for INTEGER in state 52 resolved as shift
+WARNING: shift/reduce conflict for STRING in state 52 resolved as shift
+WARNING: shift/reduce conflict for GETS in state 52 resolved as shift
+WARNING: shift/reduce conflict for VARIABLE_LOCAL in state 52 resolved as shift
+WARNING: shift/reduce conflict for VARIABLE_GLOBAL in state 52 resolved as shift
+WARNING: shift/reduce conflict for VARIABLE_INSTANCIA in state 52 resolved as shift
+WARNING: shift/reduce conflict for VARIABLE_CLASE in state 52 resolved as shift
+WARNING: shift/reduce conflict for LBRACKET in state 52 resolved as shift
+WARNING: shift/reduce conflict for LBRACE in state 52 resolved as shift

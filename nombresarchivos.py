@@ -12,5 +12,7 @@ USUARIO = "xHianx"
 # sintactico | lexico
 TIPO_ANALISIS = "sintactico"
 
+# Se imprimen logs del lexico y sintactico en cada prueba
 file_path_read = "algoritmodeprueba_Jose_Miguel_Delgado.rb"
-file_path_write = f"logs/{TIPO_ANALISIS}-{USUARIO}-{FECHA}-{HORA}-{MINUTO}.txt".replace(":", "-")
+file_path_write_lex = f"logs/lexico-{USUARIO}-{FECHA}-{HORA}-{MINUTO}.txt".replace(":", "-")
+file_path_write_sint = f"logs/sintactico-{USUARIO}-{FECHA}-{HORA}-{MINUTO}.txt".replace(":", "-")
