@@ -27,9 +27,9 @@ def p_statement(p):
     '''statement : function_def
                 | assignment
                 | if_statement
-                | while_statement  # Añadido por Cristhian: Soporte para bucles while
+                | while_statement
                 | puts_statement
-                | gets_statement  # Añadido por Cristhian: Soporte para solicitud de datos
+                | gets_statement
                 | expression'''
     p[0] = p[1]
 

@@ -1,0 +1,1 @@
+('program', [3, ('puts', ['"Resultado final: #{resultado}"']), ('puts', ['"Resto de la división: #{resto}"']), ('puts', ['"Array: #{arreglo}"']), ('puts', ['"Hash: #{hash}"'])])

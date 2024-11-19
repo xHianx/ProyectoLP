@@ -1,0 +1,126 @@
+Tipo: VARIABLE_LOCAL, Valor: entero
+Tipo: ASSIGNATION, Valor: =
+Tipo: INTEGER, Valor: 42
+Tipo: VARIABLE_LOCAL, Valor: decimal
+Tipo: ASSIGNATION, Valor: =
+Tipo: FLOAT, Valor: 3.14
+Tipo: VARIABLE_LOCAL, Valor: texto
+Tipo: ASSIGNATION, Valor: =
+Tipo: STRING, Valor: "Hola, Ruby!"
+Tipo: VARIABLE_LOCAL, Valor: suma
+Tipo: ASSIGNATION, Valor: =
+Tipo: VARIABLE_LOCAL, Valor: entero
+Tipo: PLUS, Valor: +
+Tipo: VARIABLE_LOCAL, Valor: decimal
+Tipo: VARIABLE_LOCAL, Valor: resta
+Tipo: ASSIGNATION, Valor: =
+Tipo: VARIABLE_LOCAL, Valor: entero
+Tipo: MINUS, Valor: -
+Tipo: VARIABLE_LOCAL, Valor: decimal
+Tipo: VARIABLE_LOCAL, Valor: producto
+Tipo: ASSIGNATION, Valor: =
+Tipo: VARIABLE_LOCAL, Valor: entero
+Tipo: TIMES, Valor: *
+Tipo: VARIABLE_LOCAL, Valor: decimal
+Tipo: VARIABLE_LOCAL, Valor: division
+Tipo: ASSIGNATION, Valor: =
+Tipo: VARIABLE_LOCAL, Valor: entero
+Tipo: DIVIDE, Valor: /
+Tipo: VARIABLE_LOCAL, Valor: decimal
+Tipo: VARIABLE_LOCAL, Valor: potencia
+Tipo: ASSIGNATION, Valor: =
+Tipo: VARIABLE_LOCAL, Valor: entero
+Tipo: POWER, Valor: **
+Tipo: INTEGER, Valor: 2
+Tipo: VARIABLE_LOCAL, Valor: es_igual
+Tipo: ASSIGNATION, Valor: =
+Tipo: VARIABLE_LOCAL, Valor: entero
+Tipo: EQUAL, Valor: ==
+Tipo: VARIABLE_LOCAL, Valor: decimal
+Tipo: VARIABLE_LOCAL, Valor: es_diferente
+Tipo: ASSIGNATION, Valor: =
+Tipo: VARIABLE_LOCAL, Valor: entero
+Tipo: NOTEQUAL, Valor: !=
+Tipo: VARIABLE_LOCAL, Valor: decimal
+Tipo: VARIABLE_LOCAL, Valor: mayor_que
+Tipo: ASSIGNATION, Valor: =
+Tipo: VARIABLE_LOCAL, Valor: entero
+Tipo: BIGGER, Valor: >
+Tipo: VARIABLE_LOCAL, Valor: decimal
+Tipo: VARIABLE_LOCAL, Valor: menor_que
+Tipo: ASSIGNATION, Valor: =
+Tipo: VARIABLE_LOCAL, Valor: entero
+Tipo: SMALLER, Valor: <
+Tipo: VARIABLE_LOCAL, Valor: decimal
+Tipo: VARIABLE_LOCAL, Valor: mayor_o_igual
+Tipo: ASSIGNATION, Valor: =
+Tipo: VARIABLE_LOCAL, Valor: entero
+Tipo: BIGGEREQUAL, Valor: >=
+Tipo: VARIABLE_LOCAL, Valor: decimal
+Tipo: VARIABLE_LOCAL, Valor: menor_o_igual
+Tipo: ASSIGNATION, Valor: =
+Tipo: VARIABLE_LOCAL, Valor: entero
+Tipo: SMALLEREQUAL, Valor: <=
+Tipo: VARIABLE_LOCAL, Valor: decimal
+Tipo: VARIABLE_LOCAL, Valor: and_logico
+Tipo: ASSIGNATION, Valor: =
+Tipo: LPAREN, Valor: (
+Tipo: VARIABLE_LOCAL, Valor: entero
+Tipo: BIGGER, Valor: >
+Tipo: INTEGER, Valor: 20
+Tipo: RPAREN, Valor: )
+Tipo: AND, Valor: &&
+Tipo: LPAREN, Valor: (
+Tipo: VARIABLE_LOCAL, Valor: decimal
+Tipo: SMALLER, Valor: <
+Tipo: INTEGER, Valor: 5
+Tipo: RPAREN, Valor: )
+Tipo: VARIABLE_LOCAL, Valor: or_logico
+Tipo: ASSIGNATION, Valor: =
+Tipo: LPAREN, Valor: (
+Tipo: VARIABLE_LOCAL, Valor: entero
+Tipo: BIGGER, Valor: >
+Tipo: INTEGER, Valor: 20
+Tipo: RPAREN, Valor: )
+Tipo: OR, Valor: ||
+Tipo: LPAREN, Valor: (
+Tipo: VARIABLE_LOCAL, Valor: decimal
+Tipo: SMALLER, Valor: <
+Tipo: INTEGER, Valor: 5
+Tipo: RPAREN, Valor: )
+Tipo: VARIABLE_LOCAL, Valor: not_logico
+Tipo: ASSIGNATION, Valor: =
+Tipo: NOT, Valor: !
+Tipo: LPAREN, Valor: (
+Tipo: VARIABLE_LOCAL, Valor: entero
+Tipo: EQUAL, Valor: ==
+Tipo: VARIABLE_LOCAL, Valor: decimal
+Tipo: RPAREN, Valor: )
+Tipo: PUTS, Valor: puts
+Tipo: STRING, Valor: "Resultado de la suma: #{suma}"
+Tipo: PUTS, Valor: puts
+Tipo: STRING, Valor: "Resultado de la resta: #{resta}"
+Tipo: PUTS, Valor: puts
+Tipo: STRING, Valor: "Resultado de la multiplicación: #{producto}"
+Tipo: PUTS, Valor: puts
+Tipo: STRING, Valor: "Resultado de la división: #{division}"
+Tipo: PUTS, Valor: puts
+Tipo: STRING, Valor: "Resultado de la potencia: #{potencia}"
+Tipo: PUTS, Valor: puts
+Tipo: STRING, Valor: "¿El entero es igual al decimal? #{es_igual}"
+Tipo: PUTS, Valor: puts
+Tipo: STRING, Valor: "¿El entero es diferente al decimal? #{es_diferente}"
+Tipo: PUTS, Valor: puts
+Tipo: STRING, Valor: "¿El entero es mayor que el decimal? #{mayor_que}"
+Tipo: PUTS, Valor: puts
+Tipo: STRING, Valor: "¿El entero es menor que el decimal? #{menor_que}"
+Tipo: PUTS, Valor: puts
+Tipo: STRING, Valor: "¿El entero es mayor o igual al decimal? #{mayor_o_igual}"
+Tipo: PUTS, Valor: puts
+Tipo: STRING, Valor: "¿El entero es menor o igual al decimal? #{menor_o_igual}"
+Tipo: PUTS, Valor: puts
+Tipo: STRING, Valor: "Resultado de AND lógico: #{and_logico}"
+Tipo: PUTS, Valor: puts
+Tipo: STRING, Valor: "Resultado de OR lógico: #{or_logico}"
+Tipo: PUTS, Valor: puts
+Tipo: STRING, Valor: "Resultado de NOT lógico: #{not_logico}"

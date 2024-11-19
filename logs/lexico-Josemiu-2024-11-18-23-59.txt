@@ -1,0 +1,65 @@
+Tipo: DEF, Valor: def
+Tipo: VARIABLE_LOCAL, Valor: suma
+Tipo: LPAREN, Valor: (
+Tipo: VARIABLE_LOCAL, Valor: a
+Tipo: COMMA, Valor: ,
+Tipo: VARIABLE_LOCAL, Valor: b
+Tipo: RPAREN, Valor: )
+Tipo: RETURN, Valor: return
+Tipo: VARIABLE_LOCAL, Valor: a
+Tipo: PLUS, Valor: +
+Tipo: VARIABLE_LOCAL, Valor: b
+Tipo: END, Valor: end
+Tipo: VARIABLE_LOCAL, Valor: resultado
+Tipo: ASSIGNATION, Valor: =
+Tipo: VARIABLE_LOCAL, Valor: suma
+Tipo: LPAREN, Valor: (
+Tipo: INTEGER, Valor: 3
+Tipo: COMMA, Valor: ,
+Tipo: INTEGER, Valor: 4
+Tipo: RPAREN, Valor: )
+Tipo: TIMES, Valor: *
+Tipo: INTEGER, Valor: 10
+Tipo: PLUS, Valor: +
+Tipo: INTEGER, Valor: 5
+Tipo: DIVIDE, Valor: /
+Tipo: INTEGER, Valor: 2
+Tipo: IF, Valor: if
+Tipo: VARIABLE_LOCAL, Valor: resultado
+Tipo: BIGGER, Valor: >
+Tipo: INTEGER, Valor: 10
+Tipo: PUTS, Valor: puts
+Tipo: STRING, Valor: "El resultado es mayor que 10"
+Tipo: ELSE, Valor: else
+Tipo: PUTS, Valor: puts
+Tipo: STRING, Valor: "El resultado es menor o igual a 10"
+Tipo: END, Valor: end
+Tipo: VARIABLE_LOCAL, Valor: arreglo
+Tipo: ASSIGNATION, Valor: =
+Tipo: LBRACKET, Valor: [
+Tipo: INTEGER, Valor: 1
+Tipo: COMMA, Valor: ,
+Tipo: INTEGER, Valor: 2
+Tipo: COMMA, Valor: ,
+Tipo: INTEGER, Valor: 3
+Tipo: RBRACKET, Valor: ]
+Tipo: VARIABLE_LOCAL, Valor: hash
+Tipo: ASSIGNATION, Valor: =
+Tipo: LBRACE, Valor: {
+Tipo: VARIABLE_LOCAL, Valor: clave
+Tipo: COLON, Valor: :
+Tipo: STRING, Valor: "valor"
+Tipo: RBRACE, Valor: }
+Tipo: VARIABLE_LOCAL, Valor: resto
+Tipo: ASSIGNATION, Valor: =
+Tipo: INTEGER, Valor: 10
+Tipo: MODULE, Valor: %
+Tipo: INTEGER, Valor: 3
+Tipo: PUTS, Valor: puts
+Tipo: STRING, Valor: "Resultado final: #{resultado}"
+Tipo: PUTS, Valor: puts
+Tipo: STRING, Valor: "Resto de la división: #{resto}"
+Tipo: PUTS, Valor: puts
+Tipo: STRING, Valor: "Array: #{arreglo}"
+Tipo: PUTS, Valor: puts
+Tipo: STRING, Valor: "Hash: #{hash}"
