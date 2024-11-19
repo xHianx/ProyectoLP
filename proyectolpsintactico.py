@@ -6,6 +6,8 @@ from nombresarchivos import file_path_read, file_path_write_sint
 precedence = (
     ('left', 'PLUS', 'MINUS'),
     ('left', 'TIMES', 'DIVIDE'),
+    ('left', 'AND', 'OR'),  # Añadido por Cristhian: Soporte para operadores lógicos
+    ('right', 'NOT'),       # Añadido por Cristhian: Soporte para negación lógica
 )
 
 # Reglas sintácticas
@@ -25,7 +27,9 @@ def p_statement(p):
     '''statement : function_def
                 | assignment
                 | if_statement
+                | while_statement  # Añadido por Cristhian: Soporte para bucles while
                 | puts_statement
+                | gets_statement  # Añadido por Cristhian: Soporte para solicitud de datos
                 | expression'''
     p[0] = p[1]
 
@@ -53,6 +57,11 @@ def p_assignment(p):
     '''assignment : variable ASSIGNATION expression'''
     p[0] = ('assignment', p[1], p[3])
 
+# Estructuras de control (nueva regla añadida por Cristhian)
+def p_while_statement(p):
+    '''while_statement : WHILE expression DO statement_list END'''
+    p[0] = ('while', p[2], p[4])
+
 def p_if_statement(p):
     '''if_statement : IF expression statement_list END'''
     p[0] = ('if', p[2], p[3])
@@ -61,6 +70,21 @@ def p_if_statement(p):
 def p_puts_statement(p):
     '''puts_statement : PUTS arg_list'''
     p[0] = ('puts', p[2])
+
+# Añadido por Cristhian: Soporte para solicitud de datos
+def p_gets_statement(p):
+    '''gets_statement : VARIABLE_LOCAL ASSIGNATION GETS'''
+    p[0] = ('gets', p[1])
+
+# Expresiones booleanas añadidas por Cristhian
+def p_expression_boolean(p):
+    '''expression : expression AND expression
+                  | expression OR expression
+                  | NOT expression'''
+    if len(p) == 3:
+        p[0] = ('not', p[2])
+    else:
+        p[0] = (p[2], p[1], p[3])
 
 ## JULIO GUERRERO 
 def p_expression(p):
