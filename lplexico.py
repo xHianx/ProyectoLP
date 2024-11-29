@@ -209,7 +209,7 @@ def t_error(t):
 
 lexer = lex.lex()
 
-#lexer.input('''$global_var = "Soy una variable global" ''')
+#lexer.input('''$global_var = "Es una variable global" ''')
 
 '''
 # Tokenize
