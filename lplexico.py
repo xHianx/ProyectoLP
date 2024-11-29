@@ -246,16 +246,16 @@ def log_function(lexer_instance, algoritmo_file, log_prefix):
     print(f"Resultado guardado en {ruta_archivo}")
 
 def pruebas_Cristhian():
-    lexer_ruiz = lex.lex()
-    log_function(lexer_ruiz, "algoritmo_ruiz.txt", "lexico-taizruiz")
+    lexer_Cristhian = lex.lex()
+    log_function(lexer_Cristhian, "algoritmo_Cristhian.txt", "lexico-CristhianBarragan")
 
 def pruebas_Julio():
-    lexer_loor = lex.lex()
-    log_function(lexer_loor, "algoritmo_loor.txt", "lexico-LoorPaulina")
+    lexer_Julio = lex.lex()
+    log_function(lexer_Julio, "algoritmo_Julio.txt", "lexico-JulioGuerrero")
 
 def pruebas_Jose():
-    lexer_picon = lex.lex()
-    log_function(lexer_picon, "algoritmo_picon.txt", "lexico-PiconDaniel")
+    lexer_Jose = lex.lex()
+    log_function(lexer_Jose, "algoritmo_Jose.txt", "lexico-JoseDelgado")
 
 #tests
 pruebas_Cristhian()
