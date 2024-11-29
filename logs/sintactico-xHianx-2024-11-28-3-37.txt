@@ -1,0 +1,1 @@
+('program', ['new', 'obj', 'mostrar_self'])('program', ['new', 'obj', 'mostrar_self'])

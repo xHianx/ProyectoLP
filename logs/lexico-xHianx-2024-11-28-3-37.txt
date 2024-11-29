@@ -1,0 +1,279 @@
+Tipo: IF, Valor: if
+Tipo: TRUE, Valor: true
+Tipo: PUTS, Valor: puts
+Tipo: STRING, Valor: "Esto es una sentencia if"
+Tipo: ELSIF, Valor: elsif
+Tipo: FALSE, Valor: false
+Tipo: PUTS, Valor: puts
+Tipo: STRING, Valor: "Esto no se ejecuta"
+Tipo: ELSE, Valor: else
+Tipo: PUTS, Valor: puts
+Tipo: STRING, Valor: "Esto se ejecuta porque la condición es falsa"
+Tipo: END, Valor: end
+Tipo: VARIABLE_LOCAL, Valor: counter
+Tipo: ASSIGNATION, Valor: =
+Tipo: INTEGER, Valor: 0
+Tipo: WHILE, Valor: while
+Tipo: VARIABLE_LOCAL, Valor: counter
+Tipo: SMALLER, Valor: <
+Tipo: INTEGER, Valor: 5
+Tipo: PUTS, Valor: puts
+Tipo: STRING, Valor: "Contador: #{counter}"
+Tipo: VARIABLE_LOCAL, Valor: counter
+Tipo: INCREMENT, Valor: +=
+Tipo: INTEGER, Valor: 1
+Tipo: END, Valor: end
+Tipo: DEF, Valor: def
+Tipo: VARIABLE_LOCAL, Valor: saludo
+Tipo: LPAREN, Valor: (
+Tipo: VARIABLE_LOCAL, Valor: nombre
+Tipo: RPAREN, Valor: )
+Tipo: PUTS, Valor: puts
+Tipo: STRING, Valor: "Hola, #{nombre}!"
+Tipo: END, Valor: end
+Tipo: VARIABLE_LOCAL, Valor: saludo
+Tipo: LPAREN, Valor: (
+Tipo: STRING, Valor: "Josemiu"
+Tipo: RPAREN, Valor: )
+Tipo: VARIABLE_LOCAL, Valor: variable_local
+Tipo: ASSIGNATION, Valor: =
+Tipo: STRING, Valor: "Soy una variable local"
+Tipo: PUTS, Valor: puts
+Tipo: VARIABLE_LOCAL, Valor: variable_local
+Tipo: VARIABLE_GLOBAL, Valor: $variable_global
+Tipo: ASSIGNATION, Valor: =
+Tipo: STRING, Valor: "Soy una variable global"
+Tipo: PUTS, Valor: puts
+Tipo: VARIABLE_GLOBAL, Valor: $variable_global
+Tipo: VARIABLE_INSTANCIA, Valor: @variable_instancia
+Tipo: ASSIGNATION, Valor: =
+Tipo: STRING, Valor: "Soy una variable de instancia"
+Tipo: PUTS, Valor: puts
+Tipo: VARIABLE_INSTANCIA, Valor: @variable_instancia
+Tipo: VARIABLE_CLASE, Valor: @@variable_clase
+Tipo: ASSIGNATION, Valor: =
+Tipo: STRING, Valor: "Soy una variable de clase"
+Tipo: PUTS, Valor: puts
+Tipo: VARIABLE_CLASE, Valor: @@variable_clase
+Tipo: DEF, Valor: def
+Tipo: VARIABLE_LOCAL, Valor: multiplicar
+Tipo: LPAREN, Valor: (
+Tipo: VARIABLE_LOCAL, Valor: a
+Tipo: COMMA, Valor: ,
+Tipo: VARIABLE_LOCAL, Valor: b
+Tipo: RPAREN, Valor: )
+Tipo: RETURN, Valor: return
+Tipo: VARIABLE_LOCAL, Valor: a
+Tipo: TIMES, Valor: *
+Tipo: VARIABLE_LOCAL, Valor: b
+Tipo: END, Valor: end
+Tipo: VARIABLE_LOCAL, Valor: resultado
+Tipo: ASSIGNATION, Valor: =
+Tipo: VARIABLE_LOCAL, Valor: multiplicar
+Tipo: LPAREN, Valor: (
+Tipo: INTEGER, Valor: 4
+Tipo: COMMA, Valor: ,
+Tipo: INTEGER, Valor: 5
+Tipo: RPAREN, Valor: )
+Tipo: PUTS, Valor: puts
+Tipo: STRING, Valor: "Resultado de la multiplicación: #{resultado}"
+Tipo: CLASS, Valor: class
+Tipo: VARIABLE_LOCAL, Valor: iClase
+Tipo: DEF, Valor: def
+Tipo: VARIABLE_LOCAL, Valor: mostrar_self
+Tipo: PUTS, Valor: puts
+Tipo: SELF, Valor: self
+Tipo: END, Valor: end
+Tipo: END, Valor: end
+Tipo: VARIABLE_LOCAL, Valor: obj
+Tipo: ASSIGNATION, Valor: =
+Tipo: VARIABLE_LOCAL, Valor: iClase
+Tipo: VARIABLE_LOCAL, Valor: new
+Tipo: VARIABLE_LOCAL, Valor: obj
+Tipo: VARIABLE_LOCAL, Valor: mostrar_self
+Tipo: IF, Valor: if
+Tipo: TRUE, Valor: true
+Tipo: PUTS, Valor: puts
+Tipo: STRING, Valor: "Esto es una sentencia if"
+Tipo: ELSIF, Valor: elsif
+Tipo: FALSE, Valor: false
+Tipo: PUTS, Valor: puts
+Tipo: STRING, Valor: "Esto no se ejecuta"
+Tipo: ELSE, Valor: else
+Tipo: PUTS, Valor: puts
+Tipo: STRING, Valor: "Esto se ejecuta porque la condición es falsa"
+Tipo: END, Valor: end
+Tipo: VARIABLE_LOCAL, Valor: counter
+Tipo: ASSIGNATION, Valor: =
+Tipo: INTEGER, Valor: 0
+Tipo: WHILE, Valor: while
+Tipo: VARIABLE_LOCAL, Valor: counter
+Tipo: SMALLER, Valor: <
+Tipo: INTEGER, Valor: 5
+Tipo: PUTS, Valor: puts
+Tipo: STRING, Valor: "Contador: #{counter}"
+Tipo: VARIABLE_LOCAL, Valor: counter
+Tipo: INCREMENT, Valor: +=
+Tipo: INTEGER, Valor: 1
+Tipo: END, Valor: end
+Tipo: DEF, Valor: def
+Tipo: VARIABLE_LOCAL, Valor: saludo
+Tipo: LPAREN, Valor: (
+Tipo: VARIABLE_LOCAL, Valor: nombre
+Tipo: RPAREN, Valor: )
+Tipo: PUTS, Valor: puts
+Tipo: STRING, Valor: "Hola, #{nombre}!"
+Tipo: END, Valor: end
+Tipo: VARIABLE_LOCAL, Valor: saludo
+Tipo: LPAREN, Valor: (
+Tipo: STRING, Valor: "Josemiu"
+Tipo: RPAREN, Valor: )
+Tipo: VARIABLE_LOCAL, Valor: variable_local
+Tipo: ASSIGNATION, Valor: =
+Tipo: STRING, Valor: "Soy una variable local"
+Tipo: PUTS, Valor: puts
+Tipo: VARIABLE_LOCAL, Valor: variable_local
+Tipo: VARIABLE_GLOBAL, Valor: $variable_global
+Tipo: ASSIGNATION, Valor: =
+Tipo: STRING, Valor: "Soy una variable global"
+Tipo: PUTS, Valor: puts
+Tipo: VARIABLE_GLOBAL, Valor: $variable_global
+Tipo: VARIABLE_INSTANCIA, Valor: @variable_instancia
+Tipo: ASSIGNATION, Valor: =
+Tipo: STRING, Valor: "Soy una variable de instancia"
+Tipo: PUTS, Valor: puts
+Tipo: VARIABLE_INSTANCIA, Valor: @variable_instancia
+Tipo: VARIABLE_CLASE, Valor: @@variable_clase
+Tipo: ASSIGNATION, Valor: =
+Tipo: STRING, Valor: "Soy una variable de clase"
+Tipo: PUTS, Valor: puts
+Tipo: VARIABLE_CLASE, Valor: @@variable_clase
+Tipo: DEF, Valor: def
+Tipo: VARIABLE_LOCAL, Valor: multiplicar
+Tipo: LPAREN, Valor: (
+Tipo: VARIABLE_LOCAL, Valor: a
+Tipo: COMMA, Valor: ,
+Tipo: VARIABLE_LOCAL, Valor: b
+Tipo: RPAREN, Valor: )
+Tipo: RETURN, Valor: return
+Tipo: VARIABLE_LOCAL, Valor: a
+Tipo: TIMES, Valor: *
+Tipo: VARIABLE_LOCAL, Valor: b
+Tipo: END, Valor: end
+Tipo: VARIABLE_LOCAL, Valor: resultado
+Tipo: ASSIGNATION, Valor: =
+Tipo: VARIABLE_LOCAL, Valor: multiplicar
+Tipo: LPAREN, Valor: (
+Tipo: INTEGER, Valor: 4
+Tipo: COMMA, Valor: ,
+Tipo: INTEGER, Valor: 5
+Tipo: RPAREN, Valor: )
+Tipo: PUTS, Valor: puts
+Tipo: STRING, Valor: "Resultado de la multiplicación: #{resultado}"
+Tipo: CLASS, Valor: class
+Tipo: VARIABLE_LOCAL, Valor: iClase
+Tipo: DEF, Valor: def
+Tipo: VARIABLE_LOCAL, Valor: mostrar_self
+Tipo: PUTS, Valor: puts
+Tipo: SELF, Valor: self
+Tipo: END, Valor: end
+Tipo: END, Valor: end
+Tipo: VARIABLE_LOCAL, Valor: obj
+Tipo: ASSIGNATION, Valor: =
+Tipo: VARIABLE_LOCAL, Valor: iClase
+Tipo: VARIABLE_LOCAL, Valor: new
+Tipo: VARIABLE_LOCAL, Valor: obj
+Tipo: VARIABLE_LOCAL, Valor: mostrar_self
+Tipo: IF, Valor: if
+Tipo: TRUE, Valor: true
+Tipo: PUTS, Valor: puts
+Tipo: STRING, Valor: "Esto es una sentencia if"
+Tipo: ELSIF, Valor: elsif
+Tipo: FALSE, Valor: false
+Tipo: PUTS, Valor: puts
+Tipo: STRING, Valor: "Esto no se ejecuta"
+Tipo: ELSE, Valor: else
+Tipo: PUTS, Valor: puts
+Tipo: STRING, Valor: "Esto se ejecuta porque la condición es falsa"
+Tipo: END, Valor: end
+Tipo: VARIABLE_LOCAL, Valor: counter
+Tipo: ASSIGNATION, Valor: =
+Tipo: INTEGER, Valor: 0
+Tipo: WHILE, Valor: while
+Tipo: VARIABLE_LOCAL, Valor: counter
+Tipo: SMALLER, Valor: <
+Tipo: INTEGER, Valor: 5
+Tipo: PUTS, Valor: puts
+Tipo: STRING, Valor: "Contador: #{counter}"
+Tipo: VARIABLE_LOCAL, Valor: counter
+Tipo: INCREMENT, Valor: +=
+Tipo: INTEGER, Valor: 1
+Tipo: END, Valor: end
+Tipo: DEF, Valor: def
+Tipo: VARIABLE_LOCAL, Valor: saludo
+Tipo: LPAREN, Valor: (
+Tipo: VARIABLE_LOCAL, Valor: nombre
+Tipo: RPAREN, Valor: )
+Tipo: PUTS, Valor: puts
+Tipo: STRING, Valor: "Hola, #{nombre}!"
+Tipo: END, Valor: end
+Tipo: VARIABLE_LOCAL, Valor: saludo
+Tipo: LPAREN, Valor: (
+Tipo: STRING, Valor: "Josemiu"
+Tipo: RPAREN, Valor: )
+Tipo: VARIABLE_LOCAL, Valor: variable_local
+Tipo: ASSIGNATION, Valor: =
+Tipo: STRING, Valor: "Soy una variable local"
+Tipo: PUTS, Valor: puts
+Tipo: VARIABLE_LOCAL, Valor: variable_local
+Tipo: VARIABLE_GLOBAL, Valor: $variable_global
+Tipo: ASSIGNATION, Valor: =
+Tipo: STRING, Valor: "Soy una variable global"
+Tipo: PUTS, Valor: puts
+Tipo: VARIABLE_GLOBAL, Valor: $variable_global
+Tipo: VARIABLE_INSTANCIA, Valor: @variable_instancia
+Tipo: ASSIGNATION, Valor: =
+Tipo: STRING, Valor: "Soy una variable de instancia"
+Tipo: PUTS, Valor: puts
+Tipo: VARIABLE_INSTANCIA, Valor: @variable_instancia
+Tipo: VARIABLE_CLASE, Valor: @@variable_clase
+Tipo: ASSIGNATION, Valor: =
+Tipo: STRING, Valor: "Soy una variable de clase"
+Tipo: PUTS, Valor: puts
+Tipo: VARIABLE_CLASE, Valor: @@variable_clase
+Tipo: DEF, Valor: def
+Tipo: VARIABLE_LOCAL, Valor: multiplicar
+Tipo: LPAREN, Valor: (
+Tipo: VARIABLE_LOCAL, Valor: a
+Tipo: COMMA, Valor: ,
+Tipo: VARIABLE_LOCAL, Valor: b
+Tipo: RPAREN, Valor: )
+Tipo: RETURN, Valor: return
+Tipo: VARIABLE_LOCAL, Valor: a
+Tipo: TIMES, Valor: *
+Tipo: VARIABLE_LOCAL, Valor: b
+Tipo: END, Valor: end
+Tipo: VARIABLE_LOCAL, Valor: resultado
+Tipo: ASSIGNATION, Valor: =
+Tipo: VARIABLE_LOCAL, Valor: multiplicar
+Tipo: LPAREN, Valor: (
+Tipo: INTEGER, Valor: 4
+Tipo: COMMA, Valor: ,
+Tipo: INTEGER, Valor: 5
+Tipo: RPAREN, Valor: )
+Tipo: PUTS, Valor: puts
+Tipo: STRING, Valor: "Resultado de la multiplicación: #{resultado}"
+Tipo: CLASS, Valor: class
+Tipo: VARIABLE_LOCAL, Valor: iClase
+Tipo: DEF, Valor: def
+Tipo: VARIABLE_LOCAL, Valor: mostrar_self
+Tipo: PUTS, Valor: puts
+Tipo: SELF, Valor: self
+Tipo: END, Valor: end
+Tipo: END, Valor: end
+Tipo: VARIABLE_LOCAL, Valor: obj
+Tipo: ASSIGNATION, Valor: =
+Tipo: VARIABLE_LOCAL, Valor: iClase
+Tipo: VARIABLE_LOCAL, Valor: new
+Tipo: VARIABLE_LOCAL, Valor: obj
+Tipo: VARIABLE_LOCAL, Valor: mostrar_self
