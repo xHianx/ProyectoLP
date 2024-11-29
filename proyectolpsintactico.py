@@ -1,6 +1,7 @@
 import ply.yacc as yacc
 from lplexico import tokens
 from lplexico import lex
+import lplexico as l
 import datetime
 
 tabla_variables = {}
@@ -10,24 +11,15 @@ ruta_carpeta = "logs"
 ruta_algoritmos = "algoritmos"
 globalFound=False
 
-# Reglas de precedencia
-precedence = (
-    ('left', 'PLUS', 'MINUS'),
-    ('left', 'TIMES', 'DIVIDE'),
-    ('left', 'AND', 'OR'),  # Añadido por Cristhian: Soporte para operadores lógicos
-    ('right', 'NOT'),       # Añadido por Cristhian: Soporte para negación lógica
-)
-
 # Reglas sintácticas
-def p_program(p):
-    '''program : statement_list'''
+def p_instruccion(p):
+      '''instruccion : cuerpoInstruccion'''
 
-def p_statement_list(p):
-    '''statement_list : statement
-                     | statement statement_list'''
-
-def p_statement(p):
-    '''statement : operacionAritmetica
+def p_cuerpoInstruccion(p):
+      '''cuerpoInstruccion : cuerpo
+                        | cuerpo cuerpoInstruccion'''
+def p_cuerpo(p):
+    '''cuerpo : operacionAritmetica
               | input_concatenacion
               | asignacion
               | impresion
@@ -37,7 +29,7 @@ def p_statement(p):
               | hashes
               | estructura_ifUnaLinea
               | estructura_if
-              | function_def
+              | funciones
               | funcionesEstructuras
               | array
               | each_array
@@ -416,7 +408,7 @@ def p_solicitudDatosTeclado(p):
     '''solicitudDatosTeclado : GETS 
                             | GETS PUNTO funcionesFormatoImpresion '''
 
-def p_function_def(p):
+def p_funciones(p):
     '''funciones : DEF VARIABLE PARENTESIS_IZ PARENTESIS_DER declaraciones END
                  | DEF VARIABLE PARENTESIS_IZ argumentos PARENTESIS_DER declaraciones END
                  | DEF VARIABLE declaraciones END'''
@@ -640,12 +632,12 @@ def pruebasSemanticoInterfaz(codeAnalisis):
 
     #vaciar txt de validacion al volver a presionar validar para q no se manden errores anteriores:)
     #agregar tokens no reconocidos a partir del analisis lexico, ejemplo si se prueba a=1@ sale Illegal character '@', eso se lo muestra en el cuadro de la validacion
-    if len(errors)==0 and len(errores_semanticos)==0 and len(lex.noReconocidos)==0:
+    if len(errors)==0 and len(errores_semanticos)==0 and len(l.noReconocidos)==0:
         with open(nombre_archivo, "w") as log_file:
             log_file.write("Código correcto :)" + "\n")
     else:
         with open(nombre_archivo, "w") as log_file:
-            for error in lex.noReconocidos:
+            for error in l.noReconocidos:
                 log_file.write(error + "\n")
                 print(error)
         with open(nombre_archivo, "a+") as log_file:

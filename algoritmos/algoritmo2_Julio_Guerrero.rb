@@ -1,41 +1,36 @@
 variable="hola, como estas"
 variable.to_f
 $global_var = "Es una variable global"
-# Clase Persona 
-class Persona 
-  # Variable de clase 
-  @@personas = 0 
+
+# Variable de clase 
+@personas = 0 
  
-  # Constructor 
-  def initialize(nombre, edad) 
-    @nombre = nombre      # Variable deinstancia 
-    @edad = edad          # Variable de instancia 
-    @@personas += 1 # Incrementa el contador de personas 
-  end 
- 
-  # Método de instancia 
-  def presentarse 
-    puts "Hola, me llamo #{@nombre} y mi edad #{@edad}." 
-  end 
- 
-  # Método de clase 
-  def self.personas 
-    @@personas 
-  end 
+# Constructor 
+def initialize(nombre, edad) 
+  @nombre = nombre      # Variable deinstancia 
+  @edad = edad          # Variable de instancia 
+  @personas += 1 # Incrementa el contador de personas 
 end 
  
-# Clase Estudiante que hereda de Persona 
-class Estudiante < Persona 
-  def initialize(nombre, edad, grado) 
-    super(nombre, edad)   # Llama al constructor de la clase base 
-    @grado = grado        # Variable de instancia 
-  end 
+# Método de instancia 
+def presentarse 
+  puts "Hola, me llamo #{@nombre} y mi edad #{@edad}." 
+end 
+ 
+# Método de clase 
+def self.personas 
+  @personas 
+end 
+
+def initialize(nombre, edad, grado) 
+  super(nombre, edad)   # Llama al constructor de la clase base 
+  @grado = grado        # Variable de instancia 
+end 
  
   # Sobreescribe el método presentarse 
-  def presentarse 
-    super() 
-    puts "Estoy en el grado @grado" 
-  end 
+def presentarse 
+  super() 
+  puts "Estoy en el grado @grado" 
 end 
  
 # Función para pedir datos por teclado 
@@ -65,9 +60,9 @@ puts "Eres mayor de edad" if edad >= 18
  
 # Diccionario (Hash) con símbolos 
 informacion = { 
-  nombre: nombre, 
-  edad: edad, 
-  grado: grado 
+  nombre=> nombre, 
+  edad=> edad, 
+  grado=> grado 
 } 
  
 puts "Información: #{@informacion}" 
@@ -82,7 +77,6 @@ numeros.each do |num|
 end 
  
 # Operaciones aritméticas 
-suma = numeros.reduce(:+) 
 promedio = suma.to_f / numeros.size 
  
 puts "Suma: #{@suma}, Promedio: #{@promedio}"

@@ -185,13 +185,15 @@ def t_CADENA(t):
 
 def t_COMENTARIO(t):
     r'\#.*'
-    t.value = t.value[1:].strip()  
-    return t
+    # t.value = t.value[1:].strip()  
+    # return t
+    pass
 
 #Comentario multilínea - Detecta el inicio de un comentario multilínea
 def t_COMENTARIO_MULTI(t):
     r'=begin(?!.*(?:=begin[\s\S]*?=end))[\s\S]*?=end'
-    return t
+    # return t
+    pass
 
 #Poder ignorar espacios
 t_ignore = ' \t\r'
@@ -247,15 +249,15 @@ def log_function(lexer_instance, algoritmo_file, log_prefix):
 
 def pruebas_Cristhian():
     lexer_Cristhian = lex.lex()
-    log_function(lexer_Cristhian, "algoritmo_Cristhian.txt", "lexico-CristhianBarragan")
+    log_function(lexer_Cristhian, "algoritmo3_Cristhian_Barragan.rb", "lexico-CristhianBarragan")
 
 def pruebas_Julio():
     lexer_Julio = lex.lex()
-    log_function(lexer_Julio, "algoritmo_Julio.txt", "lexico-JulioGuerrero")
+    log_function(lexer_Julio, "algoritmo2_Julio_Guerrero.rb", "lexico-JulioGuerrero")
 
 def pruebas_Jose():
     lexer_Jose = lex.lex()
-    log_function(lexer_Jose, "algoritmo_Jose.txt", "lexico-JoseDelgado")
+    log_function(lexer_Jose, "algoritmo1_Jose_MIguel_Delgado.rb", "lexico-JoseDelgado")
 
 #tests
 pruebas_Cristhian()

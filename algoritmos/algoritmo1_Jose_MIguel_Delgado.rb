@@ -1,10 +1,5 @@
-# Hash utilizado para el grafo
-grafo = {
-  'A' => { 'B' => 1, 'C' => 4 },
-  'B' => { 'A' => 1, 'C' => 2, 'D' => 5 },
-  'C' => { 'A' => 4, 'B' => 2, 'D' => 1 },
-  'D' => { 'B' => 5, 'C' => 1 }
-}
+grafo = { 'A' => { 'B' => 1, 'C' => 4 }, 'B' => { 'A' => 1, 'C' => 2, 'D' => 5 }, 'C' => { 'A' => 4, 'B' => 2, 'D' => 1 }, 'D' => { 'B' => 5, 'C' => 1 } $}
+
 
 # Implementar el algoritmo de Dijkstra
 def dijkstra(grafo, inicio)

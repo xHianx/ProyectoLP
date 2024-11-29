@@ -1,16 +1,52 @@
 import tkinter as tk
 from PIL import Image, ImageTk
+import proyectolpsintactico as s
+import lplexico as l
+from lplexico import tokens, lexer
+
 
 def validar():
-    # Lógica para validar el código
-    codigo = texto_codigo.get('1.0', tk.END).strip()
-    if codigo:
-        # Aquí agregarías la lógica real de validación de Ruby
-        texto_codigo1.delete('1.0', tk.END)
-        texto_codigo1.insert(tk.END, "Código ingresado:\n" + codigo + "\n\nValidación pendiente de implementación.")
-    else:
-        texto_codigo1.delete('1.0', tk.END)
-        texto_codigo1.insert(tk.END, "Por favor, ingrese código para validar.")
+    #tomar lo del la textbox
+    #guarda en code_output
+    save_to_file()
+    # #parser guarda en validation y lo carga en la pantalla 
+    load_from_file()
+        
+    pass
+
+def load_from_file():
+    s.tabla_variables.clear()
+    s.errores_semanticos.clear()
+    l.noReconocidos.clear()
+    s.errors.clear()
+    stringAnalisis=""
+    codigo=open("code_output.txt","r")
+    for linea in codigo.readlines():
+        stringAnalisis = stringAnalisis + " "+ linea.strip()
+          
+    with open("code_output.txt", "w") as file:
+        file.write(stringAnalisis)
+    
+    file=open("code_output.txt","r")
+    for linea in file.readlines():
+        lexer.input(linea)
+        s.pruebasSemanticoInterfaz(linea)
+
+    try:
+        with open("code_validation.txt", "r") as file:
+            file_content = file.read()
+        texto_codigo1.delete("1.0", tk.END)
+        texto_codigo1.insert(tk.END, file_content)
+
+        
+    except FileNotFoundError:
+        texto_codigo1.delete("1.0", tk.END)
+        texto_codigo1.insert(tk.END, "No se encontró el archivo 'code_validation.txt'.")
+
+def save_to_file():
+    code_content = texto_codigo.get("1.0", tk.END)
+    with open("code_output.txt", "w") as file:
+        file.write(code_content)
 
 def limpiar():
     # Limpiar el área de texto de código
